@@ -1,0 +1,15 @@
+# Don't upload the Python backend, tests, or local-only files to Vercel
+backend/
+tests/
+test_reports/
+test_result.md
+memory/
+.emergent/
+DEPLOY_NOTES.md
+
+# Local env / build artifacts
+.env
+.env.*
+**/node_modules
+**/build
+**/.cache
