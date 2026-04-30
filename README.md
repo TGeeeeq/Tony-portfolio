@@ -9,19 +9,19 @@ Live: _set after Netlify deploy_
 
 ## 🚀 Deploy on Vercel
 
-This repo is preconfigured with `vercel.json`. Steps:
+This repo is preconfigured with `vercel.json` using Vercel's **Services** (multi-service) preset.
 
 1. Go to https://vercel.com/new
 2. **Import Git Repository** → choose `TGeeeeq/Tony-portfolio`
-3. On the import screen, Vercel auto-detects the `vercel.json`:
-   - **Framework Preset**: *Other* (driven by `vercel.json`)
-   - **Root Directory**: `./` *(leave as is — `vercel.json` handles `cd frontend`)*
-   - **Build Command**: *(auto, from `vercel.json`)*
-   - **Output Directory**: *(auto, from `vercel.json`)*
+3. Vercel auto-detects `vercel.json` and shows the **Services** preset:
+   - **frontend** → Create React App, served at `/`
 4. Click **Deploy**. First build takes ~2–3 minutes.
 5. (Optional) Add a custom domain in **Project → Settings → Domains**.
 
-No environment variables are required for the current build.
+No environment variables are required.
+
+> 💡 The `backend/` folder exists but is **not** included in `vercel.json`,
+> so Vercel will not try to deploy it. Add it later if/when needed.
 
 > 💡 `netlify.toml` is also included for flexibility but Vercel ignores it.
 
