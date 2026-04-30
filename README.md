@@ -9,21 +9,27 @@ Live: _set after Netlify deploy_
 
 ## 🚀 Deploy on Vercel
 
-This repo is preconfigured with `vercel.json` using Vercel's **Services** (multi-service) preset.
+This repo is preconfigured with a top-level `vercel.json` that builds the
+React app inside `frontend/` and serves it as a static SPA. No tweaks
+required in the Vercel dashboard.
 
 1. Go to https://vercel.com/new
 2. **Import Git Repository** → choose `TGeeeeq/Tony-portfolio`
-3. Vercel auto-detects `vercel.json` and shows the **Services** preset:
-   - **frontend** → Create React App, served at `/`
+3. Leave **Framework Preset** as *Other* — `vercel.json` already sets:
+   - **Install:** `cd frontend && yarn install --network-timeout 600000`
+   - **Build:** `cd frontend && yarn build`
+   - **Output:** `frontend/build`
+   - SPA rewrites so React Router works on any route
+   - Long-lived cache headers for `/static/*` and image/font assets
 4. Click **Deploy**. First build takes ~2–3 minutes.
 5. (Optional) Add a custom domain in **Project → Settings → Domains**.
 
 No environment variables are required.
 
-> 💡 The `backend/` folder exists but is **not** included in `vercel.json`,
-> so Vercel will not try to deploy it. Add it later if/when needed.
+> The `backend/`, `tests/`, and other server-only folders are excluded via
+> `.vercelignore`, so Vercel only ships the static frontend bundle.
 
-> 💡 `netlify.toml` is also included for flexibility but Vercel ignores it.
+> `netlify.toml` is kept for flexibility — Vercel ignores it.
 
 ---
 
