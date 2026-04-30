@@ -1,0 +1,255 @@
+// Mock data - all content & translations stored here
+// This is the only place mock data lives so backend integration later is easy
+
+export const ASSETS = {
+  photo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/njglvfv8_FB_IMG_1777536000343.jpg',
+  nechMeRustLogo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/boxl43il_logo%20plna%20verze%20%281%29%20%281%29.png',
+  impactlyLogo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/lrfiivuj_1773400918362%20%281%29.png',
+  csopLogo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/7kkqhnxa_1000045893_191943a6369e62429788cd6fc3782cc8-3.%2010.%202025%208_27_06_20260430_100207_0000.png',
+};
+
+export const CONTACT = {
+  instagram: 'tony_figueroa_',
+  instagramUrl: 'https://instagram.com/tony_figueroa_',
+  email: 'antoninfigueroa@nechmerust.org',
+};
+
+export const PROJECTS = [
+  {
+    id: 'nechmerust',
+    name: 'Nech mě růst',
+    logo: ASSETS.nechMeRustLogo,
+    website: 'https://www.nechmerust.org',
+    instagram: '@nech_me_rust',
+    instagramUrl: 'https://instagram.com/nech_me_rust',
+    accent: '#d4a45a',
+    year: '2023 — present',
+    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный' },
+    title: {
+      cs: 'Nech mě růst',
+      en: 'Nech mě růst (Let Me Grow)',
+      ru: 'Nech mě růst (Дай мне расти)',
+    },
+    tagline: {
+      cs: 'Cesta vědomého růstu — propojení duše, přírody a moderní doby.',
+      en: 'A path of conscious growth — bridging soul, nature, and the modern era.',
+      ru: 'Путь осознанного роста — связь души, природы и современности.',
+    },
+    description: {
+      cs: 'Platforma a komunita pro lidi hledající návrat ke kořenům, autentickému já a přirozenému rytmu života. Sdílíme inspiraci, rituály a praktické nástroje pro každodenní život.',
+      en: 'A platform and community for those seeking a return to roots, the authentic self, and the natural rhythm of life. We share inspiration, rituals, and practical tools for everyday life.',
+      ru: 'Платформа и сообщество для тех, кто ищет возвращения к корням, подлинному я и естественному ритму жизни.',
+    },
+  },
+  {
+    id: 'impactly',
+    name: 'Impactly',
+    logo: ASSETS.impactlyLogo,
+    website: null,
+    instagram: null,
+    instagramUrl: null,
+    accent: '#7fb069',
+    year: '2025 — soon',
+    status: { cs: 'V přípravě', en: 'In preparation', ru: 'В подготовке' },
+    title: {
+      cs: 'Impactly',
+      en: 'Impactly',
+      ru: 'Impactly',
+    },
+    tagline: {
+      cs: 'Akce · Komunita · Přínos · Země. Technologie, která dává smysl.',
+      en: 'Action · Community · Benefit · Earth. Technology that makes sense.',
+      ru: 'Действие · Сообщество · Польза · Земля. Технологии со смыслом.',
+    },
+    description: {
+      cs: 'Připravovaný projekt propojující komunitní akce, blockchain a měřitelný dopad na planetu. Každý dobrý skutek má svůj otisk — a my ho děláme viditelným.',
+      en: 'An upcoming project connecting community action, blockchain, and measurable impact on the planet. Every good deed leaves a trace — we make it visible.',
+      ru: 'Готовящийся проект, соединяющий действия сообщества, блокчейн и измеримое влияние на планету.',
+    },
+  },
+  {
+    id: 'csop',
+    name: 'ČSOP Trosečníci Ostrov',
+    logo: ASSETS.csopLogo,
+    website: null,
+    instagram: null,
+    instagramUrl: null,
+    accent: '#6ea8c4',
+    year: '2024 — present',
+    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный' },
+    title: {
+      cs: 'ČSOP Trosečníci Ostrov',
+      en: 'Czech Union for Nature Conservation — Ostrov',
+      ru: 'Чешский союз охраны природы — Остров',
+    },
+    tagline: {
+      cs: 'Ochrana přírody v regionu Lanškroun — Ostrov u Lanškrouna.',
+      en: 'Nature protection in the Lanškroun region — Ostrov u Lanškrouna.',
+      ru: 'Охрана природы в регионе Ланшкроун — Остров у Ланшкроуна.',
+    },
+    description: {
+      cs: 'Práce v terénu, péče o krajinu, mapování biotopů a propojení místní komunity s přírodou. Konkrétní činy v konkrétním místě.',
+      en: 'Field work, landscape care, biotope mapping, and connecting the local community with nature. Real actions in a real place.',
+      ru: 'Полевая работа, забота о ландшафте, картирование биотопов и связь местного сообщества с природой.',
+    },
+  },
+];
+
+export const TRANSLATIONS = {
+  cs: {
+    nav: { about: 'O mně', projects: 'Projekty', mission: 'Poslání', contact: 'Kontakt' },
+    hero: {
+      eyebrow: 'Antonín Figueroa',
+      title: 'Tam, kde se kořeny\npotkávají s kódem.',
+      subtitle: 'Propojuji přírodu a duchovní cestu s moderní technologií — od AI po blockchain.',
+      cta1: 'Prozkoumat projekty',
+      cta2: 'Spojit se',
+      scanLabel: 'SCAN ACTIVE',
+      coords: 'LAT 49.9116° N · LON 16.6082° E',
+      sigBlock: 'SIGNATURE: A.F. // ID 0xAF-2025',
+    },
+    about: {
+      kicker: 'Kdo jsem',
+      title: 'Most mezi prastarým a budoucím.',
+      p1: 'Jmenuji se Antonín Figueroa. Žiji s nohama v hlíně a očima v kódu. Věřím, že technologie nemá přírodu nahradit — má jí pomoci být slyšet.',
+      p2: 'Pracuji na projektech, které propojují vědomé žití, ochranu krajiny a otevřené nástroje moderní doby — umělou inteligenci, blockchain, distribuované sítě.',
+      p3: 'Pokud máš nápad, projekt nebo otázku — nebo mě naopak chceš inspirovat — neváhej se ozvat.',
+    },
+    mission: {
+      kicker: 'Poslání',
+      title: 'Příroda a spiritualita.\nKód a vědomí.',
+      body: 'Spojuji přirozenou duchovní cestu s nástroji moderní doby. AI nám může pomoci poslouchat les. Blockchain může učinit dobré skutky viditelnými. Tělo a dech nás vrací domů.',
+      pillars: [
+        { title: 'Příroda', text: 'Krajina, půda, voda, divoká místa — to, co tu bylo dřív než my.' },
+        { title: 'Duch', text: 'Vědomé žití, ticho, rituál, vnitřní přírodní cesta.' },
+        { title: 'Technologie', text: 'AI, blockchain a otevřené nástroje ve službě životu.' },
+      ],
+    },
+    projects: {
+      kicker: 'Co tvořím',
+      title: 'Projekty',
+      visit: 'Navštívit',
+      ig: 'Instagram',
+      soon: 'Brzy',
+    },
+    contact: {
+      kicker: 'Spojení',
+      title: 'Máš otázku?\nChceš mě kontaktovat?',
+      subtitle: 'Zeptej se mě. Ať jde o radu, spolupráci nebo jen o sdílení toho, co tě těší.',
+      name: 'Tvé jméno',
+      email: 'E-mail',
+      message: 'Tvá zpráva',
+      send: 'Odeslat',
+      sent: 'Odesláno — ozvu se ti.',
+      orReach: 'Nebo přímo:',
+    },
+    footer: {
+      tagline: 'Kořeny v zemi. Vědomí v kódu.',
+      rights: 'Všechna práva vyhrazena.',
+    },
+  },
+  en: {
+    nav: { about: 'About', projects: 'Projects', mission: 'Mission', contact: 'Contact' },
+    hero: {
+      eyebrow: 'Antonín Figueroa',
+      title: 'Where roots\nmeet the code.',
+      subtitle: 'Bridging nature and the spiritual path with modern technology — from AI to blockchain.',
+      cta1: 'Explore projects',
+      cta2: 'Get in touch',
+      scanLabel: 'SCAN ACTIVE',
+      coords: 'LAT 49.9116° N · LON 16.6082° E',
+      sigBlock: 'SIGNATURE: A.F. // ID 0xAF-2025',
+    },
+    about: {
+      kicker: 'Who I am',
+      title: 'A bridge between the ancient and the becoming.',
+      p1: 'My name is Antonín Figueroa. I live with my feet in the soil and my eyes in the code. I believe technology should not replace nature — it should help her be heard.',
+      p2: 'I work on projects that connect conscious living, landscape stewardship, and the open tools of our era — AI, blockchain, distributed networks.',
+      p3: 'If you have an idea, a project, or a question — or you simply want to inspire me — please reach out.',
+    },
+    mission: {
+      kicker: 'Mission',
+      title: 'Nature and spirit.\nCode and consciousness.',
+      body: 'I weave a natural spiritual path together with the tools of the modern age. AI can help us listen to the forest. Blockchain can make good deeds visible. Body and breath bring us home.',
+      pillars: [
+        { title: 'Nature', text: 'Landscape, soil, water, wild places — what was here before us.' },
+        { title: 'Spirit', text: 'Conscious living, silence, ritual, inner natural path.' },
+        { title: 'Technology', text: 'AI, blockchain and open tools in service of life.' },
+      ],
+    },
+    projects: {
+      kicker: 'What I build',
+      title: 'Projects',
+      visit: 'Visit',
+      ig: 'Instagram',
+      soon: 'Soon',
+    },
+    contact: {
+      kicker: 'Connection',
+      title: 'Have a question?\nWant to reach out?',
+      subtitle: 'Ask me. Whether for advice, collaboration, or simply to share what delights you.',
+      name: 'Your name',
+      email: 'Email',
+      message: 'Your message',
+      send: 'Send',
+      sent: 'Sent — I will reply.',
+      orReach: 'Or directly:',
+    },
+    footer: {
+      tagline: 'Roots in the earth. Awareness in the code.',
+      rights: 'All rights reserved.',
+    },
+  },
+  ru: {
+    nav: { about: 'Обо мне', projects: 'Проекты', mission: 'Миссия', contact: 'Контакт' },
+    hero: {
+      eyebrow: 'Антонин Фигероа',
+      title: 'Там, где корни\nвстречают код.',
+      subtitle: 'Соединяю природу и духовный путь с современными технологиями — от ИИ до блокчейна.',
+      cta1: 'К проектам',
+      cta2: 'Связаться',
+      scanLabel: 'СКАН АКТИВЕН',
+      coords: 'ШИР 49.9116° С · ДОЛ 16.6082° В',
+      sigBlock: 'ПОДПИСЬ: A.F. // ID 0xAF-2025',
+    },
+    about: {
+      kicker: 'Кто я',
+      title: 'Мост между древним и становящимся.',
+      p1: 'Меня зовут Антонин Фигероа. Я живу с ногами в земле и глазами в коде. Верю, что технологии не должны заменять природу — они должны помочь ей быть услышанной.',
+      p2: 'Работаю над проектами, соединяющими осознанную жизнь, заботу о ландшафте и открытые инструменты эпохи — ИИ, блокчейн, распределённые сети.',
+      p3: 'Если у тебя есть идея, проект или вопрос — или ты хочешь меня вдохновить — напиши мне.',
+    },
+    mission: {
+      kicker: 'Миссия',
+      title: 'Природа и дух.\nКод и сознание.',
+      body: 'Я сплетаю естественный духовный путь с инструментами современной эпохи. ИИ может помочь нам слышать лес. Блокчейн может сделать добрые дела видимыми. Тело и дыхание возвращают нас домой.',
+      pillars: [
+        { title: 'Природа', text: 'Ландшафт, почва, вода, дикие места — то, что было до нас.' },
+        { title: 'Дух', text: 'Осознанная жизнь, тишина, ритуал, внутренний путь.' },
+        { title: 'Технологии', text: 'ИИ, блокчейн и открытые инструменты на службе жизни.' },
+      ],
+    },
+    projects: {
+      kicker: 'Что я создаю',
+      title: 'Проекты',
+      visit: 'Посетить',
+      ig: 'Instagram',
+      soon: 'Скоро',
+    },
+    contact: {
+      kicker: 'Связь',
+      title: 'Есть вопрос?\nХочешь связаться?',
+      subtitle: 'Спроси меня. Совет, сотрудничество или просто поделиться тем, что тебя радует.',
+      name: 'Имя',
+      email: 'Email',
+      message: 'Сообщение',
+      send: 'Отправить',
+      sent: 'Отправлено — отвечу.',
+      orReach: 'Или напрямую:',
+    },
+    footer: {
+      tagline: 'Корни в земле. Сознание в коде.',
+      rights: 'Все права защищены.',
+    },
+  },
+};
