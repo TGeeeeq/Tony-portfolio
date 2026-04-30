@@ -44,8 +44,24 @@ export default function Projects() {
 
                 {/* Logo */}
                 <div className="md:col-span-2">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border border-[#d4a45a]/25 bg-[#0a0908] flex items-center justify-center overflow-hidden p-2 transition-transform duration-500 group-hover:scale-105">
-                    <img src={p.logo} alt={p.name} className="w-full h-full object-contain" />
+                  <div
+                    className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full border border-[#d4a45a]/25 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 ${
+                      p.id === 'nechmerust'
+                        ? 'bg-gradient-to-br from-[#2a2520] to-[#161310] p-1.5 shadow-[0_0_24px_rgba(212,164,90,0.18)_inset]'
+                        : p.id === 'impactly'
+                        ? 'bg-[#0a0908]'
+                        : 'bg-[#0a0908] p-2'
+                    }`}
+                  >
+                    <img
+                      src={p.logo}
+                      alt={p.name}
+                      className={`${
+                        p.id === 'impactly'
+                          ? 'w-[128%] h-[128%] object-cover object-center'
+                          : 'w-full h-full object-contain'
+                      }`}
+                    />
                   </div>
                 </div>
 
