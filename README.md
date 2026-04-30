@@ -7,22 +7,23 @@ Live: _set after Netlify deploy_
 
 ---
 
-## 🚀 Deploy on Netlify
+## 🚀 Deploy on Vercel
 
-This repo is preconfigured. Just connect it to Netlify:
+This repo is preconfigured with `vercel.json`. Steps:
 
-1. Go to https://app.netlify.com/start
-2. **Add new site → Import an existing project → GitHub**
-3. Choose `TGeeeeq/Tony-portfolio`
-4. Netlify reads `netlify.toml` automatically. The values are:
-   - **Base directory**:   `frontend`
-   - **Build command**:    `yarn install --frozen-lockfile && yarn build`
-   - **Publish directory**: `frontend/build`
-   - **Node version**:     `20`
-5. Click **Deploy site**. First build takes ~2–3 minutes.
-6. (Optional) Add a custom domain in **Site settings → Domain management**.
+1. Go to https://vercel.com/new
+2. **Import Git Repository** → choose `TGeeeeq/Tony-portfolio`
+3. On the import screen, Vercel auto-detects the `vercel.json`:
+   - **Framework Preset**: *Other* (driven by `vercel.json`)
+   - **Root Directory**: `./` *(leave as is — `vercel.json` handles `cd frontend`)*
+   - **Build Command**: *(auto, from `vercel.json`)*
+   - **Output Directory**: *(auto, from `vercel.json`)*
+4. Click **Deploy**. First build takes ~2–3 minutes.
+5. (Optional) Add a custom domain in **Project → Settings → Domains**.
 
 No environment variables are required for the current build.
+
+> 💡 `netlify.toml` is also included for flexibility but Vercel ignores it.
 
 ---
 
