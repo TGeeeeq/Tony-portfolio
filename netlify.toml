@@ -1,0 +1,39 @@
+# Netlify build config for Tony Figueroa portfolio (CRA + craco)
+# Frontend lives in /frontend, build output is /frontend/build
+
+[build]
+  base    = "frontend"
+  command = "yarn install --frozen-lockfile && yarn build"
+  publish = "frontend/build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  YARN_VERSION = "1.22.22"
+  CI = "false"            # disable CRA treating warnings as errors
+  GENERATE_SOURCEMAP = "false"
+
+# SPA fallback — every route serves index.html so React Router works
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Long cache for static assets, no-cache for HTML
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Basic security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options       = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
