@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AF Monogram — Download</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: #0a0908;
+      color: #f1e9d8;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 60px 28px 100px; }
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: #d4a45a; display: inline-flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 1px; background: #d4a45a; }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.05;
+      margin: 14px 0 12px;
+      letter-spacing: -0.01em;
+    }
+    .sub { color: rgba(241,233,216,0.7); line-height: 1.65; max-width: 58ch; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(212,164,90,0.5), transparent); margin: 48px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .card {
+      position: relative;
+      border: 1px solid rgba(212,164,90,0.18);
+      background: rgba(20,19,18,0.6);
+      backdrop-filter: blur(8px);
+      padding: 28px;
+      transition: border-color .4s ease, transform .4s ease;
+    }
+    .card:hover { border-color: rgba(212,164,90,0.55); transform: translateY(-2px); }
+    .preview {
+      aspect-ratio: 1 / 1;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+      border: 1px dashed rgba(212,164,90,0.2);
+    }
+    .preview.light { background: #f5ede0; }
+    .preview img, .preview object { width: 78%; height: 78%; }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      margin: 0 0 6px;
+    }
+    .card p {
+      font-size: 13px; color: rgba(241,233,216,0.6); margin: 0 0 18px;
+      line-height: 1.55;
+    }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 16px;
+      border: 1px solid rgba(212,164,90,0.4);
+      background: rgba(212,164,90,0.06);
+      color: #f1e9d8;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background .3s ease, border-color .3s ease, color .3s ease;
+    }
+    .btn:hover { background: rgba(212,164,90,0.18); border-color: #d4a45a; color: #f7e7c0; }
+    .btn.ghost { background: transparent; }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: rgba(212,164,90,0.06);
+      border: 1px solid rgba(212,164,90,0.15);
+      padding: 10px 12px;
+      display: block;
+      color: #f1e9d8;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+    .hero-preview {
+      display: flex; align-items: center; justify-content: center;
+      height: 280px;
+      margin: 28px 0 48px;
+      border: 1px solid rgba(212,164,90,0.18);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(212,164,90,0.08), transparent 60%),
+        #0a0908;
+    }
+    .hero-preview object { width: 220px; height: 220px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .tiny { font-size: 11px; color: rgba(241,233,216,0.5); margin-top: 12px; letter-spacing: 0.06em; }
+    a { color: #d4a45a; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="eyebrow">A.F. · Monogram</span>
+    <h1>AF — animované logo<br/><em style="color:#d4a45a">ke stažení</em></h1>
+    <p class="sub">
+      Osobní monogram Antonína Figueroy. Vesica piscis (dva prolínající se kruhy) s rotujícími prstenci sakrální geometrie. Použijím Cormorant Garamond, ladnou zlatou #d4a45a, klidný krem #f1e9d8. Formáty: <span class="mono">SVG</span> — škáluje se do libovolné velikosti bez ztráty kvality.
+    </p>
+
+    <div class="hero-preview">
+      <object type="image/svg+xml" data="af-logo.svg" aria-label="AF monogram animated"></object>
+    </div>
+
+    <div class="grid">
+      <!-- Animated SVG -->
+      <div class="card">
+        <div class="preview">
+          <object type="image/svg+xml" data="af-logo.svg" aria-label="animated"></object>
+        </div>
+        <h3>Animované SVG</h3>
+        <p>Kruhy rotují nativní SMIL animací. Drop do HTML: <br/><code>&lt;img src="af-logo.svg" width="200"&gt;</code></p>
+        <div class="actions">
+          <a class="btn" href="af-logo.svg" download>↓ Stáhnout SVG</a>
+          <a class="btn ghost" href="af-logo.svg" target="_blank">Náhled</a>
+        </div>
+      </div>
+
+      <!-- Static SVG -->
+      <div class="card">
+        <div class="preview">
+          <img src="af-logo-static.svg" alt="static" />
+        </div>
+        <h3>Statické SVG</h3>
+        <p>Bez animace. Pro tisk, vizitky, favicon, e-mailový podpis.</p>
+        <div class="actions">
+          <a class="btn" href="af-logo-static.svg" download>↓ Stáhnout SVG</a>
+          <a class="btn ghost" href="af-logo-static.svg" target="_blank">Náhled</a>
+        </div>
+      </div>
+
+      <!-- Dark BG SVG -->
+      <div class="card">
+        <div class="preview">
+          <img src="af-logo-dark.svg" alt="on dark" />
+        </div>
+        <h3>Statické s tmavším pozadím</h3>
+        <p>Stejné logo, ale s pevným tmavým pozadím <span class="mono">#0a0908</span>. Užitečné, když potřebujete logo do světlého prostředí.</p>
+        <div class="actions">
+          <a class="btn" href="af-logo-dark.svg" download>↓ Stáhnout SVG</a>
+          <a class="btn ghost" href="af-logo-dark.svg" target="_blank">Náhled</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; margin:0 0 12px;">Jak použít?</h3>
+    <p class="sub" style="font-size:14px;">
+      <strong>1)</strong> Pravy klik na tlačítko <em>Stáhnout SVG</em> → <em>Uložit odkaz jako</em>. &nbsp;
+      <strong>2)</strong> V dokumentu/webu pak použijte <code style="display:inline;padding:2px 6px;">&lt;img src="af-logo.svg"&gt;</code>. &nbsp;
+      <strong>3)</strong> Pro PNG/JPG: otevřete SVG v prohlížeči a udělejte screenshot, nebo použijte online konvertor (cloudconvert, svgomg atd.).
+    </p>
+    <p class="tiny">Format: SVG 1.1 · Colors: #d4a45a gold · #f1e9d8 cream · #0a0908 charcoal · Font: Cormorant Garamond</p>
+  </div>
+</body>
+</html>
