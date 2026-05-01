@@ -409,7 +409,7 @@ export const TOOLS = [
   },
   {
     id: 'v0',
-    url: 'https://v0.dev',
+    url: 'https://v0.app/ref/9D44E8',
     initials: 'V0',
     accent: '#f1e9d8', // cream — v0 is minimal black/white
     name: { cs: 'V0 by Vercel', en: 'V0 by Vercel', ru: 'V0 от Vercel' },
@@ -419,7 +419,7 @@ export const TOOLS = [
       ru: 'UI-генератор',
     },
     description: {
-      cs: 'Popíšeš, jak má stránka vypadat — a v několika vteřinách máš hotové React + Tailwind komponenty připravené k použití.',
+      cs: 'Popíšeš, jak má stránka vypadat — a v několika sekundách máš hotové React + Tailwind komponenty připravené k použití.',
       en: 'Describe how a page should look — and in seconds you have React + Tailwind components ready to use.',
       ru: 'Опиши, как должна выглядеть страница — и за секунды получаешь готовые React + Tailwind компоненты.',
     },
