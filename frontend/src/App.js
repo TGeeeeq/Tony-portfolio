@@ -3,6 +3,9 @@ import './App.css';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Portfolio from './components/Portfolio';
+import ToolsPage from './components/ToolsPage';
+import BlogListPage from './components/BlogListPage';
+import BlogPostPage from './components/BlogPostPage';
 import { Toaster } from './components/ui/sonner';
 
 // 1. Tato komponenta zajistí, že se stránka při každé změně URL (prokliku) vyroluje nahoru
@@ -44,11 +47,11 @@ function useReveal() {
   }, [pathname]); // Sleduje změnu cesty (pathname)
 }
 
-function Shell() {
+function Shell({ children }) {
   useReveal();
   return (
     <div className="App grain min-h-screen bg-[#0a0908] text-[#f1e9d8]">
-      <Portfolio />
+      {children}
       <Toaster theme="dark" position="bottom-right" />
     </div>
   );
@@ -61,7 +64,11 @@ function App() {
         {/* 3. ScrollToTop musí být uvnitř BrowserRouteru */}
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Shell />} />
+          <Route path="/" element={<Shell><Portfolio /></Shell>} />
+          <Route path="/nastroje" element={<Shell><ToolsPage /></Shell>} />
+          <Route path="/tools" element={<Shell><ToolsPage /></Shell>} />
+          <Route path="/blog" element={<Shell><BlogListPage /></Shell>} />
+          <Route path="/blog/:slug" element={<Shell><BlogPostPage /></Shell>} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
