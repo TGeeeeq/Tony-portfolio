@@ -164,7 +164,7 @@ export const POSTS = [
     },
     body: {
       cs: [
-        { type: 'p', text: 'Když ráno vstanu, první věc, kterou udělám, je obejít stáje. Více než sto duší — koně, ovce, kozy, slepice, husy, psi, kočky, krávy. Každá s vlastním jménem, charakterem a každodenní potřebou.' },
+        { type: 'p', text: 'Když ráno vstanu, první věc, kterou udělám, je obejít stáje. Více než sto duší — osel, ovce, muflon, slepice, husy, psi, kočky, krávy. Každá s vlastním jménem, charakterem a každodenní potřebou.' },
         { type: 'h2', text: 'Celý den krmení, voda, hlína' },
         { type: 'p', text: 'Žijeme v krajině, kterou jsme zdědili. Není to zoo, ani farma — je to společenství. Někteří jsou tady na konci své cesty, jiní teprve začínají. Společně neseme zodpovědnost. Voda, krmení, čištění, péče. Ráno, poledne, večer. Každý den.' },
         { type: 'p', text: 'K tomu se přidává starost o samotnou louku — sečení, vysazování, péče o stromy, ploty, dřevo. Není to romantika z Instagramu. Je to ohromná fyzická a soustavná práce.' },
@@ -178,7 +178,7 @@ export const POSTS = [
         { type: 'quote', text: '— Tony' },
       ],
       en: [
-        { type: 'p', text: 'When I wake in the morning, the first thing I do is walk the stables. More than a hundred souls — horses, sheep, goats, hens, geese, dogs, cats, cows. Each with its own name, its own temperament, its own daily need.' },
+        { type: 'p', text: 'When I wake in the morning, the first thing I do is walk the stables. More than a hundred souls — donkey, sheep, mouflon, hens, geese, dogs, cats, cows. Each with its own name, its own temperament, its own daily need.' },
         { type: 'h2', text: 'All day: feed, water, soil' },
         { type: 'p', text: 'We live in a landscape we have inherited. Not a zoo, not a farm — a community. Some are at the end of their journey, others just beginning. Together we carry the responsibility. Water, feed, cleaning, care. Morning, noon, evening. Every day.' },
         { type: 'p', text: 'On top of that comes the meadow itself — mowing, planting, caring for trees, fences, wood. It is not Instagram romance. It is enormous, continuous physical work.' },
