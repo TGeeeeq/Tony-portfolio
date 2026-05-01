@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Portfolio from './components/Portfolio';
+import ToolsPage from './components/ToolsPage';
 import { Toaster } from './components/ui/sonner';
 
 function useReveal() {
@@ -24,11 +25,11 @@ function useReveal() {
   }, []);
 }
 
-function Shell() {
+function Shell({ children }) {
   useReveal();
   return (
     <div className="App grain min-h-screen bg-[#0a0908] text-[#f1e9d8]">
-      <Portfolio />
+      {children}
       <Toaster theme="dark" position="bottom-right" />
     </div>
   );
@@ -39,7 +40,9 @@ function App() {
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Shell />} />
+          <Route path="/" element={<Shell><Portfolio /></Shell>} />
+          <Route path="/nastroje" element={<Shell><ToolsPage /></Shell>} />
+          <Route path="/tools" element={<Shell><ToolsPage /></Shell>} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

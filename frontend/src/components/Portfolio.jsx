@@ -3,6 +3,7 @@ import Header from './Header';
 import Hero from './Hero';
 import About from './About';
 import Projects from './Projects';
+import ToolsTeaser from './ToolsTeaser';
 import Contact from './Contact';
 import Footer from './Footer';
 
@@ -14,6 +15,7 @@ export default function Portfolio() {
         <Hero />
         <About />
         <Projects />
+        <ToolsTeaser />
         <Contact />
       </main>
       <Footer />

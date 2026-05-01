@@ -28,7 +28,7 @@ export default function Projects() {
                 key={p.id}
                 onMouseEnter={() => setActive(i)}
                 onClick={() => setActive(i)}
-                className={`reveal group relative grid md:grid-cols-12 gap-6 items-center p-6 md:p-8 border cursor-pointer transition-all duration-500 ${
+                className={`group relative grid md:grid-cols-12 gap-6 items-center p-6 md:p-8 border cursor-pointer transition-all duration-500 ${
                   isActive
                     ? 'border-[#d4a45a]/60 bg-gradient-to-r from-[#1a1715]/80 to-[#141312]/30'
                     : 'border-[#d4a45a]/12 hover:border-[#d4a45a]/40 bg-[#141312]/20'
