@@ -9,7 +9,7 @@ export default function Tools() {
   const tp = TOOLS_PAGE[lang];
 
   return (
-    <section className="section pt-36 md:pt-44">
+    <section className="section pt-36 md:pt-44 relative overflow-hidden">
       {/* ambient glows */}
       <div className="pointer-events-none absolute -top-20 -left-40 w-[600px] h-[600px] rounded-full bg-[#d4a45a]/8 blur-[120px]" />
       <div className="pointer-events-none absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full bg-[#9ae66e]/4 blur-[140px]" />
