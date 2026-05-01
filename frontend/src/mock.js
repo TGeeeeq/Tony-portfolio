@@ -105,8 +105,8 @@ export const TRANSLATIONS = {
       cta1: 'Prozkoumat projekty',
       cta2: 'Spojit se',
       scanLabel: 'SCAN ACTIVE',
-      coords: 'LAT 49.9116° N · LON 16.6082° E',
-      sigBlock: 'SIGNATURE: A.F. // ID 0xAF-2025',
+      coords: 'LAT 49°47'41 N · LON 15°23'25 E',
+      sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
     },
     about: {
       kicker: 'Kdo jsem',
@@ -157,8 +157,8 @@ export const TRANSLATIONS = {
       cta1: 'Explore projects',
       cta2: 'Get in touch',
       scanLabel: 'SCAN ACTIVE',
-      coords: 'LAT 49.9116° N · LON 16.6082° E',
-      sigBlock: 'SIGNATURE: A.F. // ID 0xAF-2025',
+      coords: 'LAT 49°47'41 N · LON 15°23'25 E',
+      sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
     },
     about: {
       kicker: 'Who I am',
@@ -209,8 +209,8 @@ export const TRANSLATIONS = {
       cta1: 'К проектам',
       cta2: 'Связаться',
       scanLabel: 'СКАН АКТИВЕН',
-      coords: 'ШИР 49.9116° С · ДОЛ 16.6082° В',
-      sigBlock: 'ПОДПИСЬ: A.F. // ID 0xAF-2025',
+      coords: 'ШИР 49°47'41 С · ДОЛ 15°23'25 В',
+      sigBlock: 'ПОДПИСЬ: A.F. // ID 0xAF-1988',
     },
     about: {
       kicker: 'Кто я',
@@ -291,7 +291,7 @@ export const TOOLS_PAGE = {
 export const TOOLS = [
   {
     id: 'emergent',
-    url: 'https://emergent.sh',
+    url: 'https://app.emergent.sh/register?ref=tony375739',
     initials: 'E',
     accent: '#9ae66e', // fresh green — like new shoots
     name: { cs: 'Emergent', en: 'Emergent', ru: 'Emergent' },
