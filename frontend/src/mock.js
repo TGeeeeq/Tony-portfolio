@@ -36,7 +36,7 @@ export const PROJECTS = [
       ru: 'Путь осознанного роста — связь души, природы и современности.',
     },
     description: {
-      cs: 'Azyl a komunita pro lidi hledající návrat ke kořenům, autentickému já a přirozenému rytmu života. Sdílíme inspiraci, rituály a praktické nástroje pro každodenní život.',
+      cs: 'Azyl a místo pro bytosti hledající návrat ke kořenům, autentickému já a přirozenému rytmu života. Sdílíme inspiraci, rituály a praktické nástroje pro každodenní život.',
       en: 'Animal sanctuary and community for those seeking a return to roots, the authentic self, and the natural rhythm of life. We share inspiration, rituals, and practical tools for everyday life.',
       ru: 'Платформа и сообщество для тех, кто ищет возвращения к корням, подлинному я и естественному ритму жизни.',
     },
@@ -75,7 +75,7 @@ export const PROJECTS = [
     instagram: 'csoptrosecnici',
     instagramUrl: 'https://www.instagram.com/csoptrosecnici',
     accent: '#6ea8c4',
-    year: '2023 — present',
+    year: '2024 — present',
     status: { cs: 'Aktivní', en: 'Active', ru: 'Активный' },
     title: {
       cs: 'ČSOP Trosečníci Ostrov',
