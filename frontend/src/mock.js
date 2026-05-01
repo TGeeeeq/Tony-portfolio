@@ -105,7 +105,7 @@ export const TRANSLATIONS = {
       cta1: 'Prozkoumat projekty',
       cta2: 'Spojit se',
       scanLabel: 'SCAN ACTIVE',
-      coords: 'LAT 49°47'41 N · LON 15°23'25 E',
+      coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
     },
     about: {
@@ -157,7 +157,7 @@ export const TRANSLATIONS = {
       cta1: 'Explore projects',
       cta2: 'Get in touch',
       scanLabel: 'SCAN ACTIVE',
-      coords: 'LAT 49°47'41 N · LON 15°23'25 E',
+      coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
     },
     about: {
@@ -209,7 +209,7 @@ export const TRANSLATIONS = {
       cta1: 'К проектам',
       cta2: 'Связаться',
       scanLabel: 'СКАН АКТИВЕН',
-      coords: 'ШИР 49°47'41 С · ДОЛ 15°23'25 В',
+      coords: "ШИР 49°47'41 С · ДОЛ 15°23'25 В",
       sigBlock: 'ПОДПИСЬ: A.F. // ID 0xAF-1988',
     },
     about: {
