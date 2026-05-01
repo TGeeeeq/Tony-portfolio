@@ -53,7 +53,7 @@ export const POSTS = [
   {
     id: 'emergent-prompting',
     slug: 'emergent-jak-spravne-promptovat',
-    date: '2026-04-15',
+    date: '2026-05-01',
     accent: '#9ae66e',
     readTime: 6,
     category: { cs: 'Nástroje', en: 'Tooling', ru: 'Инструменты' },
@@ -148,7 +148,7 @@ export const POSTS = [
   {
     id: 'life-on-meadow',
     slug: 'zivot-na-louce-sto-dusi-ai-a-klid',
-    date: '2026-04-22',
+    date: '2026-05-01',
     accent: '#d4a45a',
     readTime: 5,
     category: { cs: 'Život', en: 'Life', ru: 'Жизнь' },
