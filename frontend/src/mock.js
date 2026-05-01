@@ -97,7 +97,7 @@ export const PROJECTS = [
 
 export const TRANSLATIONS = {
   cs: {
-    nav: { about: 'O mně', projects: 'Projekty', mission: 'Poslání', tools: 'Nástroje', contact: 'Kontakt' },
+    nav: { about: 'O mně', projects: 'Projekty', mission: 'Poslání', tools: 'Nástroje', blog: 'Blog', contact: 'Kontakt' },
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Tam, kde se kořeny\npotkávají s kódem.',
@@ -149,7 +149,7 @@ export const TRANSLATIONS = {
     },
   },
   en: {
-    nav: { about: 'About', projects: 'Projects', mission: 'Mission', tools: 'Tools', contact: 'Contact' },
+    nav: { about: 'About', projects: 'Projects', mission: 'Mission', tools: 'Tools', blog: 'Blog', contact: 'Contact' },
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Where roots\nmeet the code.',
@@ -201,7 +201,7 @@ export const TRANSLATIONS = {
     },
   },
   ru: {
-    nav: { about: 'Обо мне', projects: 'Проекты', mission: 'Миссия', tools: 'Инструменты', contact: 'Контакт' },
+    nav: { about: 'Обо мне', projects: 'Проекты', mission: 'Миссия', tools: 'Инструменты', blog: 'Блог', contact: 'Контакт' },
     hero: {
       eyebrow: 'Антонин Фигероа',
       title: 'Там, где корни\nвстречают код.',

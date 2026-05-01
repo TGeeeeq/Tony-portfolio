@@ -30,6 +30,7 @@ export default function Header() {
     { id: 'projects', label: t.nav.projects, section: 'projects' },
     { id: 'mission', label: t.nav.mission, section: 'mission' },
     { id: 'tools', label: t.nav.tools, to: '/nastroje' },
+    { id: 'blog', label: t.nav.blog, to: '/blog' },
     { id: 'contact', label: t.nav.contact, section: 'contact' },
   ];
 
@@ -77,7 +78,7 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-8">
           {items.map((it) => {
-            const active = it.to && location.pathname === it.to;
+            const active = it.to && (location.pathname === it.to || location.pathname.startsWith(it.to + '/'));
             return (
               <button
                 key={it.id}

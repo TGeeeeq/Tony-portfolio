@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Portfolio from './components/Portfolio';
 import ToolsPage from './components/ToolsPage';
+import BlogListPage from './components/BlogListPage';
+import BlogPostPage from './components/BlogPostPage';
 import { Toaster } from './components/ui/sonner';
 
 function useReveal() {
@@ -43,6 +45,8 @@ function App() {
           <Route path="/" element={<Shell><Portfolio /></Shell>} />
           <Route path="/nastroje" element={<Shell><ToolsPage /></Shell>} />
           <Route path="/tools" element={<Shell><ToolsPage /></Shell>} />
+          <Route path="/blog" element={<Shell><BlogListPage /></Shell>} />
+          <Route path="/blog/:slug" element={<Shell><BlogPostPage /></Shell>} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
