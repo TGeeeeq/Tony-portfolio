@@ -13,7 +13,7 @@ export default function Footer() {
           <AFLogo size={56} />
           <div>
             <div className="serif text-xl text-[#f1e9d8]">Antonín Figueroa</div>
-            <div className="mono text-[10px] tracking-[0.28em] uppercase text-[#d4a45a]/80 mt-1">A.F. // 2025</div>
+            <div className="mono text-[10px] tracking-[0.28em] uppercase text-[#d4a45a]/80 mt-1">A.F. // 1988</div>
             <p className="text-[#f1e9d8]/55 text-sm mt-3 max-w-xs italic serif text-base leading-relaxed">
               “{t.footer.tagline}”
             </p>
@@ -35,15 +35,15 @@ export default function Footer() {
         <div className="md:text-right">
           <span className="label-mono">Coordinates</span>
           <div className="mono text-[11px] tracking-[0.22em] uppercase text-[#f1e9d8]/55 mt-3 leading-relaxed">
-            49.9116° N<br />16.6082° E<br />
-            <span className="text-[#d4a45a]">Ostrov u Lanškrouna</span>
+            49°47'41.668"N<br />15°23'25.923"E<br />
+            <span className="text-[#d4a45a]">Louka</span>
           </div>
         </div>
       </div>
 
       <div className="divider-rune mt-12 max-w-3xl mx-auto" />
       <div className="container-x px-6 md:px-10 mt-6 flex justify-between flex-wrap gap-4 mono text-[10px] tracking-[0.26em] uppercase text-[#f1e9d8]/40">
-        <span>© 2025 Antonín Figueroa</span>
+        <span>© 2026 Antonín Figueroa</span>
         <span>{t.footer.rights}</span>
       </div>
     </footer>
