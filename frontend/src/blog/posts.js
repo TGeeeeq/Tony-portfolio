@@ -11,7 +11,7 @@
 // ---------------------------------------------------------------------------
 
 // ⚠️ Replace this with your real Emergent affiliate link
-export const EMERGENT_AFFILIATE = 'https://app.emergent.sh/?ref=ANTONIN';
+export const EMERGENT_AFFILIATE = 'https://app.emergent.sh/register?ref=tony375739';
 
 export const BLOG_PAGE = {
   cs: {
