@@ -8,6 +8,7 @@ import BlogListPage from './components/BlogListPage';
 import BlogPostPage from './components/BlogPostPage';
 import { Toaster } from './components/ui/sonner';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // 1. Tato komponenta zajistí, že se stránka při každé změně URL (prokliku) vyroluje nahoru
 function ScrollToTop() {
@@ -55,6 +56,7 @@ function Shell({ children }) {
       {children}
       <Toaster theme="dark" position="bottom-right" />
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
