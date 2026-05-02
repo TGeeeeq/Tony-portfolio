@@ -7,6 +7,7 @@ import ToolsPage from './components/ToolsPage';
 import BlogListPage from './components/BlogListPage';
 import BlogPostPage from './components/BlogPostPage';
 import { Toaster } from './components/ui/sonner';
+import { Analytics } from '@vercel/analytics/react';
 
 // 1. Tato komponenta zajistí, že se stránka při každé změně URL (prokliku) vyroluje nahoru
 function ScrollToTop() {
@@ -53,6 +54,7 @@ function Shell({ children }) {
     <div className="App grain min-h-screen bg-[#0a0908] text-[#f1e9d8]">
       {children}
       <Toaster theme="dark" position="bottom-right" />
+      <Analytics />
     </div>
   );
 }
