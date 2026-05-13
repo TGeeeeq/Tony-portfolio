@@ -4,8 +4,8 @@
 a, button { cursor: pointer; }
 
 /* Section padding */
-.section { padding: 7rem 1.5rem; position: relative; }
-@media (min-width: 768px) { .section { padding: 9rem 2.5rem; } }
+.section { padding: 4rem 1.5rem; position: relative; }
+@media (min-width: 768px) { .section { padding: 5.5rem 2.5rem; } }
 
 .container-x { max-width: 1240px; margin: 0 auto; }
 
