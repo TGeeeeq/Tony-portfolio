@@ -79,7 +79,7 @@ export const POSTS = [
           'Použijte Projects — Claude si bude pamatovat kontext vašeho projektu přes více konverzací, ne jen v jednom okně',
           'Dejte Claudovi roli: "Jsi zkušený copywriter zaměřený na sustainability..." — výrazně to mění tón a hloubku odpovědí',
           'Pište po krocích, ne v jedné masivní zprávě — Claude reaguje lépe na jasné, ohraničené instrukce',
-          'Nebojte se říct "to není co jsem chtěl, zkus jinak" — Claude se neobrazí a nenechat ho opravit chybu je plýtvání',
+          'Nebojte se říct "to není co jsem chtěl, zkus jinak" — Claude se neurazí a nenechat ho opravit chybu je plýtvání',
         ]},
         { type: 'callout', text: 'Claude Sonnet 4.5 zvládne analyzovat dokument o délce celé knihy najednou. 200 000 tokenů = přibližně 150 000 slov. V praxi: nahrajte celou kódovou základnu, smlouvu nebo výzkumnou zprávu — a ptejte se.' },
         { type: 'h2', text: 'Claude Desktop — AI přímo ve vašem počítači' },
