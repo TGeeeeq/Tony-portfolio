@@ -69,7 +69,7 @@ export const POSTS = [
   },
   body: {
     cs: [
-      { type: 'p', text: 'V roce 1903 jeden americký банкéр odmítl financovat Henryho Forda se slovy: „Kůň je tady, aby zůstal. Automobil je jen módní výstřelek." O pár let dříve noviny psaly, že železnice způsobí šílenství cestujících — mozek prý není stvořen na pohyb vyšší než koňský krok. A v patnáctém století se v Benátkách opisovači rukopisů úspěšně domohli krátkého zákazu Gutenbergova stroje. Chránili řemeslo. Chránili vědění. Chránili sebe.' },
+      { type: 'p', text: 'V roce 1903 jeden americký bankéř odmítl financovat Henryho Forda se slovy: „Kůň je tady, aby zůstal. Automobil je jen módní výstřelek." O pár let dříve noviny psaly, že železnice způsobí šílenství cestujících — mozek prý není stvořen na pohyb vyšší než koňský krok. A v patnáctém století se v Benátkách opisovači rukopisů úspěšně domohli krátkého zákazu Gutenbergova stroje. Chránili řemeslo. Chránili vědění. Chránili sebe.' },
       { type: 'p', text: 'A přitom měli pravdu — jen ne v tom, o čem si mysleli, že pravdu mají.' },
       { type: 'h2', text: 'Mozek, který neumí správně počítat ztráty' },
       { type: 'p', text: 'Odpor k AI není iracionální. Je to přesně to, co by měl zdravý mozek dělat. Neurologie tomu říká averze ke ztrátě — bolest ze ztráty pociťujeme zhruba dvakrát silněji než radost ze zisku stejné hodnoty. Ztratit jistotu zaměstnání bolí víc, než potěší příslib efektivity. Vzdát se autonomie rozhodování bolí víc, než potěší rychlost výsledku.' },
