@@ -90,7 +90,7 @@ function PostCard({ post, index, lang, bp }) {
           <span className="flex items-center gap-1"><Clock size={11} /> {post.readTime} {bp.readTime}</span>
         </span>
         <span className="flex items-center gap-1.5 text-[#d4a45a] opacity-80 group-hover:opacity-100">
-          {lang === 'cs' ? 'Číst' : lang === 'ru' ? 'Читать' : 'Read'}
+          {lang === 'cs' ? 'Číst' : lang === 'ru' ? 'Читать' : lang === 'es' ? 'Leer' : 'Read'}
           <ArrowUpRight size={13} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
         </span>
       </div>
@@ -105,6 +105,7 @@ function formatDate(iso, lang) {
       cs: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
       en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       ru: ['янв.', 'февр.', 'март', 'апр.', 'май', 'июнь', 'июль', 'авг.', 'сент.', 'окт.', 'нояб.', 'дек.'],
+      es: ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'],
     };
     const arr = months[lang] || months.en;
     return `${d.getDate()}. ${arr[d.getMonth()]} ${d.getFullYear()}`;

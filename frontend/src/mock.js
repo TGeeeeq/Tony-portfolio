@@ -24,21 +24,24 @@ export const PROJECTS = [
     instagramUrl: 'https://instagram.com/nech_me_rust',
     accent: '#d4a45a',
     year: '2021 — present',
-    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный' },
+    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный', es: 'Activo' },
     title: {
       cs: 'Nech mě růst',
       en: 'Nech mě růst (Let Me Grow)',
       ru: 'Nech mě růst (Дай мне расти)',
+      es: 'Nech mě růst (Déjame Crecer)',
     },
     tagline: {
       cs: 'Cesta vědomého růstu — propojení duše, přírody a moderní doby.',
       en: 'A path of conscious growth — bridging soul, nature, and the modern era.',
       ru: 'Путь осознанного роста — связь души, природы и современности.',
+      es: 'Un camino de crecimiento consciente — uniendo alma, naturaleza y era moderna.',
     },
     description: {
       cs: 'Azyl a místo pro bytosti hledající návrat ke kořenům, autentickému já a přirozenému rytmu života. Sdílíme inspiraci, rituály a praktické nástroje pro každodenní život.',
       en: 'Animal sanctuary and community for those seeking a return to roots, the authentic self, and the natural rhythm of life. We share inspiration, rituals, and practical tools for everyday life.',
       ru: 'Платформа и сообщество для тех, кто ищет возвращения к корням, подлинному я и естественному ритму жизни.',
+      es: 'Santuario animal y comunidad para quienes buscan el regreso a las raíces, al yo auténtico y al ritmo natural de la vida. Compartimos inspiración, rituales y herramientas prácticas para el día a día.',
     },
   },
   {
@@ -50,21 +53,24 @@ export const PROJECTS = [
     instagramUrl: 'https://www.instagram.com/impactly.app',
     accent: '#7fb069',
     year: '2025 — soon',
-    status: { cs: 'V přípravě', en: 'In preparation', ru: 'В подготовке' },
+    status: { cs: 'V přípravě', en: 'In preparation', ru: 'В подготовке', es: 'En preparación' },
     title: {
       cs: 'Impactly',
       en: 'Impactly',
       ru: 'Impactly',
+      es: 'Impactly',
     },
     tagline: {
       cs: 'Akce · Komunita · Přínos · Země. Technologie, která dává smysl.',
       en: 'Action · Community · Benefit · Earth. Technology that makes sense.',
       ru: 'Действие · Сообщество · Польза · Земля. Технологии со смыслом.',
+      es: 'Acción · Comunidad · Beneficio · Tierra. Tecnología con sentido.',
     },
     description: {
       cs: 'Připravovaný projekt propojující komunitní akce, blockchain a měřitelný dopad na planetu. Každý dobrý skutek má svůj otisk — a my ho děláme viditelným.',
       en: 'An upcoming project connecting community action, blockchain, and measurable impact on the planet. Every good deed leaves a trace — we make it visible.',
       ru: 'Готовящийся проект, соединяющий действия сообщества, блокчейн и измеримое влияние на планету.',
+      es: 'Un proyecto en preparación que conecta la acción comunitaria, blockchain y el impacto medible sobre el planeta. Cada buena acción deja una huella — nosotros la hacemos visible.',
     },
   },
   {
@@ -76,21 +82,24 @@ export const PROJECTS = [
     instagramUrl: 'https://www.instagram.com/csoptrosecnici',
     accent: '#6ea8c4',
     year: '2024 — present',
-    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный' },
+    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный', es: 'Activo' },
     title: {
       cs: 'ČSOP Trosečníci Ostrov',
       en: 'Czech Union for Nature Conservation — Ostrov',
       ru: 'Чешский союз охраны природы — Остров',
+      es: 'Unión Checa para la Conservación de la Naturaleza — Ostrov',
     },
     tagline: {
       cs: 'Ochrana přírody v regionu Lanškroun — Ostrov u Lanškrouna.',
       en: 'Nature protection in the Lanškroun region — Ostrov u Lanškrouna.',
       ru: 'Охрана природы в регионе Ланшкроун — Остров у Ланшкроуна.',
+      es: 'Protección de la naturaleza en la región de Lanškroun — Ostrov u Lanškrouna.',
     },
     description: {
       cs: 'Práce v terénu, péče o krajinu, mapování biotopů a propojení místní komunity s přírodou. Konkrétní činy v konkrétním místě.',
       en: 'Field work, landscape care, biotope mapping, and connecting the local community with nature. Real actions in a real place.',
       ru: 'Полевая работа, забота о ландшафте, картирование биотопов и связь местного сообщества с природой.',
+      es: 'Trabajo de campo, cuidado del paisaje, mapeo de biotopos y conexión de la comunidad local con la naturaleza. Acciones concretas en un lugar concreto.',
     },
   },
 ];
@@ -252,6 +261,58 @@ export const TRANSLATIONS = {
       rights: 'Все права защищены.',
     },
   },
+  es: {
+    nav: { about: 'Sobre mí', projects: 'Proyectos', mission: 'Misión', tools: 'Herramientas', blog: 'Blog', contact: 'Contacto' },
+    hero: {
+      eyebrow: 'Antonín Figueroa',
+      title: 'Donde las raíces\nse encuentran con el código.',
+      subtitle: 'Uno la naturaleza y el camino espiritual con la tecnología moderna — desde la IA hasta blockchain.',
+      cta1: 'Explorar proyectos',
+      cta2: 'Ponerse en contacto',
+      scanLabel: 'ESCANEO ACTIVO',
+      coords: "LAT 49°47'41 N · LON 15°23'25 E",
+      sigBlock: 'FIRMA: A.F. // ID 0xAF-1988',
+    },
+    about: {
+      kicker: 'Quién soy',
+      title: 'Un puente entre lo ancestral y lo que está por venir.',
+      p1: 'Me llamo Antonín Figueroa. Vivo con los pies en la tierra y los ojos en el código. Creo que la tecnología no debe reemplazar a la naturaleza — debe ayudarla a ser escuchada.',
+      p2: 'Trabajo en proyectos que unen la vida consciente, el cuidado del paisaje y las herramientas abiertas de nuestra época — IA, blockchain, redes distribuidas.',
+      p3: 'Si tienes una idea, un proyecto o una pregunta — o simplemente quieres inspirarme — no dudes en escribirme.',
+    },
+    mission: {
+      kicker: 'Misión',
+      title: 'Naturaleza y espíritu.\nCódigo y consciencia.',
+      body: 'Tejo un camino espiritual natural junto con las herramientas de la era moderna. La IA puede ayudarnos a escuchar el bosque. Blockchain puede hacer visibles las buenas acciones. El cuerpo y la respiración nos devuelven a casa.',
+      pillars: [
+        { title: 'Naturaleza', text: 'Paisaje, tierra, agua, lugares salvajes — lo que estaba aquí antes que nosotros.' },
+        { title: 'Espíritu', text: 'Vida consciente, silencio, ritual, camino interior natural.' },
+        { title: 'Tecnología', text: 'IA, blockchain y herramientas abiertas al servicio de la vida.' },
+      ],
+    },
+    projects: {
+      kicker: 'Lo que creo',
+      title: 'Proyectos',
+      visit: 'Visitar',
+      ig: 'Instagram',
+      soon: 'Pronto',
+    },
+    contact: {
+      kicker: 'Conexión',
+      title: '¿Tienes una pregunta?\n¿Quieres contactarme?',
+      subtitle: 'Pregúntame. Ya sea por consejo, colaboración, o simplemente para compartir lo que te alegra.',
+      name: 'Tu nombre',
+      email: 'Email',
+      message: 'Tu mensaje',
+      send: 'Enviar',
+      sent: 'Enviado — te responderé.',
+      orReach: 'O directamente:',
+    },
+    footer: {
+      tagline: 'Raíces en la tierra. Conciencia en el código.',
+      rights: 'Todos los derechos reservados.',
+    },
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -286,6 +347,15 @@ export const TOOLS_PAGE = {
     visit: 'Открыть',
     back: '← На главную',
   },
+  es: {
+    kicker: 'Taller digital',
+    title: 'Herramientas\nque amo.',
+    subtitle:
+      'La tecnología moderna es como una buena herramienta: mejor cuando es afilada, honesta y no estorba. Esta es mi colección actual. Cada pieza me libera las manos y el tiempo para lo que realmente importa.',
+    usedLabel: 'La uso para',
+    visit: 'Visitar',
+    back: '← Volver al inicio',
+  },
 };
 
 export const TOOLS = [
@@ -294,21 +364,24 @@ export const TOOLS = [
     url: 'https://app.emergent.sh/register?ref=tony375739',
     initials: 'E',
     accent: '#9ae66e', // fresh green — like new shoots
-    name: { cs: 'Emergent', en: 'Emergent', ru: 'Emergent' },
+    name: { cs: 'Emergent', en: 'Emergent', ru: 'Emergent', es: 'Emergent' },
     category: {
       cs: 'AI Stavitel',
       en: 'AI Builder',
       ru: 'ИИ-конструктор',
+      es: 'Constructor IA',
     },
     description: {
       cs: 'Platforma, kde v dialogu s AI vzniká celá aplikace — od první skici po nasazení. Jako bys diktoval les a on rostl sám.',
       en: 'A platform where a full app grows from a conversation with AI — from first sketch to deploy. Like dictating a forest and watching it rise on its own.',
       ru: 'Платформа, где в диалоге с ИИ рождается целое приложение — от наброска до деплоя. Как будто надиктовываешь лес, и он растёт сам.',
+      es: 'Una plataforma donde, en diálogo con la IA, nace una aplicación entera — desde el primer boceto hasta el despliegue. Como dictar un bosque y verlo crecer solo.',
     },
     personal: {
       cs: 'Tento web stavím tady. Od prvního nápadu po nasazení na Vercel — všechno v jednom okně.',
       en: 'This website is being built here. From first idea to Vercel deploy — all in one window.',
       ru: 'Этот сайт строю именно здесь. От первой идеи до деплоя на Vercel — всё в одном окне.',
+      es: 'Esta web la construyo aquí. Desde la primera idea hasta el despliegue en Vercel — todo en una sola ventana.',
     },
   },
   {
@@ -320,21 +393,25 @@ export const TOOLS = [
       cs: 'Google AI Studio',
       en: 'Google AI Studio',
       ru: 'Google AI Studio',
+      es: 'Google AI Studio',
     },
     category: {
       cs: 'Model Playground',
       en: 'Model Playground',
       ru: 'Площадка моделей',
+      es: 'Playground de modelos',
     },
     description: {
       cs: 'Hřiště pro Gemini modely. Obrovský kontext, rychlé experimenty, ladění promptů. Místo, kde nápady dostávají první tvar.',
       en: 'A playground for Gemini models. Huge context, quick experiments, prompt tuning. Where ideas take their first shape.',
       ru: 'Площадка для моделей Gemini. Огромный контекст, быстрые эксперименты, настройка промптов. Место, где идеи обретают форму.',
+      es: 'Un patio de juegos para los modelos Gemini. Contexto enorme, experimentos rápidos, ajuste de prompts. Donde las ideas toman su primera forma.',
     },
     personal: {
       cs: 'Ladím zde prompty a zkouším nápady dřív, než putují do produkce.',
       en: 'I tune prompts here and try ideas before they go to production.',
       ru: 'Здесь я настраиваю промпты и проверяю идеи перед тем, как они уходят в продакшн.',
+      es: 'Aquí afino prompts y pruebo ideas antes de que pasen a producción.',
     },
   },
   {
@@ -346,21 +423,25 @@ export const TOOLS = [
       cs: 'Google NotebookLM',
       en: 'Google NotebookLM',
       ru: 'Google NotebookLM',
+      es: 'Google NotebookLM',
     },
     category: {
       cs: 'Tichý výzkumník',
       en: 'Quiet researcher',
       ru: 'Тихий исследователь',
+      es: 'Investigador silencioso',
     },
     description: {
       cs: 'Nahraješ mu knihy, studie, poznámky — a on se stane tvým osobním výzkumníkem. Odpovídá s citacemi z tvých vlastních zdrojů.',
       en: 'Feed it books, studies, notes — and it becomes your personal researcher. Answers with citations from your own sources.',
       ru: 'Скармливаешь ему книги, статьи, заметки — и он становится твоим личным исследователем. Отвечает со ссылками на твои источники.',
+      es: 'Le subes libros, estudios, notas — y se convierte en tu investigador personal. Responde con citas de tus propias fuentes.',
     },
     personal: {
       cs: 'Procházím s ním knihy o šamanismu, permakultuře i blockchainu — ptám se a ono odpovídá z mých zdrojů.',
       en: 'I walk through books on shamanism, permaculture and blockchain — I ask, and it answers from my own library.',
       ru: 'Прохожу с ним книги о шаманизме, пермакультуре и блокчейне — спрашиваю, и он отвечает из моей библиотеки.',
+      es: 'Recorro con él libros sobre chamanismo, permacultura y blockchain — pregunto y me responde desde mi propia biblioteca.',
     },
   },
   {
@@ -368,21 +449,24 @@ export const TOOLS = [
     url: 'https://claude.ai',
     initials: 'C',
     accent: '#d97757', // anthropic warm terracotta
-    name: { cs: 'Claude', en: 'Claude', ru: 'Claude' },
+    name: { cs: 'Claude', en: 'Claude', ru: 'Claude', es: 'Claude' },
     category: {
       cs: 'Parťák na myšlení',
       en: 'Thinking partner',
       ru: 'Партнёр для мышления',
+      es: 'Compañero para pensar',
     },
     description: {
       cs: 'Nejlepší společník pro dlouhé texty, reflexi a přemýšlení nahlas. Cítíš v něm klid, empatii a preciznost — jako v dobrém rozhovoru u ohně.',
       en: 'The best companion for long texts, reflection and thinking aloud. Calm, empathetic and precise — like a good talk by the fire.',
       ru: 'Лучший собеседник для длинных текстов, рефлексии и размышлений вслух. Спокойный, чуткий и точный — как разговор у костра.',
+      es: 'El mejor compañero para textos largos, reflexión y pensar en voz alta. Calmado, empático y preciso — como una buena conversación junto al fuego.',
     },
     personal: {
       cs: 'Pomáhá mi s psaním, reflexí a rozhodováním, když je třeba klidná hlava.',
       en: 'Helps me with writing, reflection and decisions when a calm mind is needed.',
       ru: 'Помогает с текстами, рефлексией и решениями, когда нужен ясный ум.',
+      es: 'Me ayuda con la escritura, la reflexión y las decisiones cuando hace falta una mente serena.',
     },
   },
   {
@@ -390,21 +474,24 @@ export const TOOLS = [
     url: 'https://chatgpt.com',
     initials: 'GPT',
     accent: '#10a37f', // openai green
-    name: { cs: 'ChatGPT', en: 'ChatGPT', ru: 'ChatGPT' },
+    name: { cs: 'ChatGPT', en: 'ChatGPT', ru: 'ChatGPT', es: 'ChatGPT' },
     category: {
       cs: 'Švýcarský nůž',
       en: 'Swiss knife',
       ru: 'Швейцарский нож',
+      es: 'Navaja suiza',
     },
     description: {
       cs: 'Rychlý a univerzální. Překladatel, rešeršér, malý programátor i brainstorm partner v jednom. Tam, kde potřebuješ odpověď hned.',
       en: 'Fast and universal. Translator, researcher, junior coder and brainstorm partner in one. When you need an answer right now.',
       ru: 'Быстрый и универсальный. Переводчик, исследователь, младший программист и брейнсторм-партнёр в одном. Когда ответ нужен сразу.',
+      es: 'Rápido y universal. Traductor, investigador, programador júnior y compañero de brainstorming en uno. Cuando necesitas una respuesta ya.',
     },
     personal: {
       cs: 'Ranní sparring partner pro nápady a urychlovač všech rutin, které bych jinak dělal pomalu.',
       en: 'Morning sparring partner for ideas and accelerator of all the routines I would otherwise do slowly.',
       ru: 'Утренний спарринг-партнёр для идей и ускоритель всей рутины, которую иначе делал бы медленно.',
+      es: 'Sparring matutino para ideas y acelerador de todas las rutinas que de otro modo haría lento.',
     },
   },
   {
@@ -412,21 +499,24 @@ export const TOOLS = [
     url: 'https://v0.app/ref/9D44E8',
     initials: 'V0',
     accent: '#f1e9d8', // cream — v0 is minimal black/white
-    name: { cs: 'V0 by Vercel', en: 'V0 by Vercel', ru: 'V0 от Vercel' },
+    name: { cs: 'V0 by Vercel', en: 'V0 by Vercel', ru: 'V0 от Vercel', es: 'V0 de Vercel' },
     category: {
       cs: 'UI Generátor',
       en: 'UI Generator',
       ru: 'UI-генератор',
+      es: 'Generador de UI',
     },
     description: {
       cs: 'Popíšeš, jak má stránka vypadat — a v několika sekundách máš hotové React + Tailwind komponenty připravené k použití.',
       en: 'Describe how a page should look — and in seconds you have React + Tailwind components ready to use.',
       ru: 'Опиши, как должна выглядеть страница — и за секунды получаешь готовые React + Tailwind компоненты.',
+      es: 'Describe cómo debe lucir una página — y en segundos tienes componentes React + Tailwind listos para usar.',
     },
     personal: {
       cs: 'Skicuji zde rychlé UI koncepty, které pak ručně dotahuji do finální podoby.',
       en: 'I sketch quick UI concepts here, then finish them by hand.',
       ru: 'Набрасываю здесь быстрые UI-концепты, затем довожу их руками.',
+      es: 'Aquí esbozo conceptos rápidos de UI, que luego pulo a mano hasta la forma final.',
     },
   },
 ];
@@ -453,5 +543,12 @@ export const TOOLS_TEASER = {
     subtitle:
       'Шесть инструментов, которые дают мне больше времени для важного. ИИ, генераторы UI, тихий исследователь. Загляни.',
     cta: 'Открыть мастерскую',
+  },
+  es: {
+    kicker: 'Taller',
+    title: 'Mi taller digital',
+    subtitle:
+      'Seis herramientas que me dan más tiempo para lo importante. IA, generadores de UI, un investigador silencioso. Pásate a echar un vistazo.',
+    cta: 'Entrar al taller',
   },
 };

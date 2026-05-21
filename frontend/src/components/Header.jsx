@@ -7,6 +7,7 @@ const LANGS = [
   { code: 'cs', label: 'CZ' },
   { code: 'en', label: 'EN' },
   { code: 'ru', label: 'RU' },
+  { code: 'es', label: 'ES' },
 ];
 
 export default function Header() {
