@@ -127,6 +127,25 @@ function Block({ block, accent }) {
           {block.text} <ExternalLink size={14} />
         </a>
       );
+    case 'video':
+      return (
+        <figure className="my-8">
+          <video
+            src={block.src}
+            poster={block.poster}
+            controls
+            preload="metadata"
+            playsInline
+            className="w-full rounded-sm border"
+            style={{ borderColor: `${accent}40`, background: '#0a0908' }}
+          />
+          {block.caption && (
+            <figcaption className="mono text-[10px] tracking-[0.26em] uppercase text-[#f1e9d8]/55 mt-3 text-center">
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
     default:
       return null;
   }
