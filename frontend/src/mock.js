@@ -149,7 +149,9 @@ export const TRANSLATIONS = {
       email: 'E-mail',
       message: 'Tvá zpráva',
       send: 'Odeslat',
+      sending: 'Odesílám…',
       sent: 'Odesláno — ozvu se ti.',
+      error: 'Chyba při odesílání. Zkus to znovu nebo napiš přímo e-mailem.',
       orReach: 'Nebo přímo:',
     },
     footer: {
@@ -201,7 +203,9 @@ export const TRANSLATIONS = {
       email: 'Email',
       message: 'Your message',
       send: 'Send',
+      sending: 'Sending…',
       sent: 'Sent — I will reply.',
+      error: 'Sending failed. Try again or write me directly by email.',
       orReach: 'Or directly:',
     },
     footer: {
@@ -253,7 +257,9 @@ export const TRANSLATIONS = {
       email: 'Email',
       message: 'Сообщение',
       send: 'Отправить',
+      sending: 'Отправка…',
       sent: 'Отправлено — отвечу.',
+      error: 'Не удалось отправить. Попробуй ещё раз или напиши напрямую.',
       orReach: 'Или напрямую:',
     },
     footer: {
@@ -305,7 +311,9 @@ export const TRANSLATIONS = {
       email: 'Email',
       message: 'Tu mensaje',
       send: 'Enviar',
+      sending: 'Enviando…',
       sent: 'Enviado — te responderé.',
+      error: 'Error al enviar. Inténtalo de nuevo o escríbeme directamente por email.',
       orReach: 'O directamente:',
     },
     footer: {
