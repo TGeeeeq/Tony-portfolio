@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Portfolio from './components/Portfolio';
-import ToolsPage from './components/ToolsPage';
-import BlogListPage from './components/BlogListPage';
-import BlogPostPage from './components/BlogPostPage';
+// Vedlejší routy načítáme líně, ať homepage nestahuje jejich kód
+const ToolsPage = lazy(() => import('./components/ToolsPage'));
+const BlogListPage = lazy(() => import('./components/BlogListPage'));
+const BlogPostPage = lazy(() => import('./components/BlogPostPage'));
 import { Toaster } from './components/ui/sonner';
+import { MatrixRain } from './components/ui/matrix-rain';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -52,8 +54,9 @@ function useReveal() {
 function Shell({ children }) {
   useReveal();
   return (
-    <div className="App grain min-h-screen bg-[#0a0908] text-[#f1e9d8]">
-      {children}
+    <div className="App grain relative min-h-screen bg-[#0a0908] text-[#f1e9d8]">
+      <MatrixRain className="z-0 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.9),rgba(0,0,0,0.22)_55%,transparent_90%)]" />
+      <div className="relative z-10">{children}</div>
       <Toaster theme="dark" position="bottom-right" />
       <Analytics />
       <SpeedInsights />
@@ -67,13 +70,15 @@ function App() {
       <BrowserRouter>
         {/* 3. ScrollToTop musí být uvnitř BrowserRouteru */}
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Shell><Portfolio /></Shell>} />
-          <Route path="/nastroje" element={<Shell><ToolsPage /></Shell>} />
-          <Route path="/tools" element={<Shell><ToolsPage /></Shell>} />
-          <Route path="/blog" element={<Shell><BlogListPage /></Shell>} />
-          <Route path="/blog/:slug" element={<Shell><BlogPostPage /></Shell>} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<Shell><Portfolio /></Shell>} />
+            <Route path="/nastroje" element={<Shell><ToolsPage /></Shell>} />
+            <Route path="/tools" element={<Shell><ToolsPage /></Shell>} />
+            <Route path="/blog" element={<Shell><BlogListPage /></Shell>} />
+            <Route path="/blog/:slug" element={<Shell><BlogPostPage /></Shell>} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </LanguageProvider>
   );
