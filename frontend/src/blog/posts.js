@@ -85,7 +85,6 @@ export const POSTS = [
   },
   body: {
     cs: [
-      { type: 'video', src: 'https://xy2aottbcgqqureu.public.blob.vercel-storage.com/video.mp4' },
       { type: 'p', text: 'Když oslu děláme kopyta, vím přesně, kdy je to dobré a kdy ne. Nesděluje mi to slovy. Sděluje mi to vším ostatním — jak posune váhu, jak uvolní nebo zpevní nohu, jak se změní dech. Někdy stačí pohled. Jediný pohled, kratší než vteřina, který říká: dost, nebo: pokračuj.' },
       { type: 'p', text: 'Trvalo mi roky, než jsem se tohle naučil číst. Nebo spíš — než jsem přestal ignorovat, co jsem vlastně dávno viděl.' },
       { type: 'h2', text: 'Nejdřív se uvolnit' },
@@ -115,7 +114,6 @@ export const POSTS = [
       { type: 'quote', text: 'Zvíře tě nevnímá za to, kdo jsi. Vnímá tě za to, jak jsi. — Tony' },
     ],
     en: [
-      { type: 'video', src: 'https://xy2aottbcgqqureu.public.blob.vercel-storage.com/video.mp4' },
       { type: 'p', text: 'When we trim the donkey\'s hooves, I know exactly when it is going well and when it is not. He does not tell me in words. He tells me in everything else — how he shifts his weight, how his leg softens or stiffens, how his breath changes. Sometimes a glance is enough. One glance, shorter than a second, that says: enough, or: carry on.' },
       { type: 'p', text: 'It took me years to learn to read this. Or rather — to stop ignoring what I had always seen.' },
       { type: 'h2', text: 'First, let go' },
@@ -145,7 +143,6 @@ export const POSTS = [
       { type: 'quote', text: 'An animal does not perceive you for who you are. It perceives you for how you are. — Tony' },
     ],
     ru: [
-      { type: 'video', src: 'https://xy2aottbcgqqureu.public.blob.vercel-storage.com/video.mp4' },
       { type: 'p', text: 'Когда мы чистим ослу копыта, я чётко знаю — идёт хорошо или нет. Он не говорит мне словами. Он говорит всем остальным: как переносит вес, как нога расслабляется или напрягается, как меняется дыхание. Иногда достаточно взгляда. Один взгляд, короче секунды, который говорит: хватит — или: продолжай.' },
       { type: 'p', text: 'Мне потребовались годы, чтобы научиться это читать. Точнее — перестать игнорировать то, что я всегда видел.' },
       { type: 'h2', text: 'Сначала — отпустить' },
@@ -175,7 +172,6 @@ export const POSTS = [
       { type: 'quote', text: 'Животное воспринимает тебя не за то, кто ты есть. А за то, как ты есть. — Tony' },
     ],
     es: [
-      { type: 'video', src: 'https://xy2aottbcgqqureu.public.blob.vercel-storage.com/video.mp4' },
       { type: 'p', text: 'Cuando le hacemos los cascos al burro, sé exactamente cuándo va bien y cuándo no. No me lo dice con palabras. Me lo dice con todo lo demás — cómo cambia el peso, cómo afloja o tensa la pata, cómo cambia la respiración. A veces basta una mirada. Una sola mirada, más corta que un segundo, que dice: basta, o: sigue.' },
       { type: 'p', text: 'Me costó años aprender a leer esto. O más bien — dejar de ignorar lo que en realidad llevaba viendo mucho tiempo.' },
       { type: 'h2', text: 'Primero, soltar' },
