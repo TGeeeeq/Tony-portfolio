@@ -99,6 +99,10 @@ export default function Hero() {
               <img
                 src={ASSETS.photo}
                 alt="Antonín Figueroa"
+                width={800}
+                height={800}
+                fetchpriority="high"
+                decoding="async"
                 className="w-full h-full object-cover grayscale-[20%] contrast-110"
                 draggable={false}
               />

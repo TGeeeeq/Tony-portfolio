@@ -2,10 +2,10 @@
 // This is the only place mock data lives so backend integration later is easy
 
 export const ASSETS = {
-  photo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/njglvfv8_FB_IMG_1777536000343.jpg',
-  nechMeRustLogo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/boxl43il_logo%20plna%20verze%20%281%29%20%281%29.png',
-  impactlyLogo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/lrfiivuj_1773400918362%20%281%29.png',
-  csopLogo: 'https://customer-assets.emergentagent.com/job_b5e6a5d4-f26d-4f00-86df-da3b333b8463/artifacts/7kkqhnxa_1000045893_191943a6369e62429788cd6fc3782cc8-3.%2010.%202025%208_27_06_20260430_100207_0000.png',
+  photo: '/media/hero.webp',
+  nechMeRustLogo: '/media/nechmerust-logo.webp',
+  impactlyLogo: '/media/impactly-logo.webp',
+  csopLogo: '/media/csop-logo.webp',
 };
 
 export const CONTACT = {

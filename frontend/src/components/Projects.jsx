@@ -56,6 +56,8 @@ export default function Projects() {
                     <img
                       src={p.logo}
                       alt={p.name}
+                      loading="lazy"
+                      decoding="async"
                       className={`${
                         p.id === 'impactly'
                           ? 'w-[128%] h-[128%] object-cover object-center'
