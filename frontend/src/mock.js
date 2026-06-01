@@ -154,6 +154,11 @@ export const TRANSLATIONS = {
       error: 'Chyba při odesílání. Zkus to znovu nebo napiš přímo e-mailem.',
       orReach: 'Nebo přímo:',
     },
+    cookies: {
+      text: 'Tento web používá cookies pro anonymní statistiku návštěvnosti. Měřit začnu až s tvým souhlasem.',
+      accept: 'Přijmout',
+      decline: 'Odmítnout',
+    },
     footer: {
       tagline: 'Kořeny v zemi. Vědomí v kódu.',
       rights: 'Všechna práva vyhrazena.',
@@ -207,6 +212,11 @@ export const TRANSLATIONS = {
       sent: 'Sent — I will reply.',
       error: 'Sending failed. Try again or write me directly by email.',
       orReach: 'Or directly:',
+    },
+    cookies: {
+      text: 'This site uses cookies for anonymous visit statistics. Measuring starts only with your consent.',
+      accept: 'Accept',
+      decline: 'Decline',
     },
     footer: {
       tagline: 'Roots in the earth. Awareness in the code.',
@@ -262,6 +272,11 @@ export const TRANSLATIONS = {
       error: 'Не удалось отправить. Попробуй ещё раз или напиши напрямую.',
       orReach: 'Или напрямую:',
     },
+    cookies: {
+      text: 'Этот сайт использует cookies для анонимной статистики посещений. Сбор начнётся только с твоего согласия.',
+      accept: 'Принять',
+      decline: 'Отклонить',
+    },
     footer: {
       tagline: 'Корни в земле. Сознание в коде.',
       rights: 'Все права защищены.',
@@ -315,6 +330,11 @@ export const TRANSLATIONS = {
       sent: 'Enviado — te responderé.',
       error: 'Error al enviar. Inténtalo de nuevo o escríbeme directamente por email.',
       orReach: 'O directamente:',
+    },
+    cookies: {
+      text: 'Esta web usa cookies para estadísticas anónimas de visitas. La medición empieza solo con tu consentimiento.',
+      accept: 'Aceptar',
+      decline: 'Rechazar',
     },
     footer: {
       tagline: 'Raíces en la tierra. Conciencia en el código.',

@@ -30,7 +30,7 @@ export default function Contact() {
           email,
           message,
           subject: `Web — ${name || 'nová zpráva'}`,
-          from_name: 'antoninfigueroa.vercel.app',
+          from_name: 'antoninfigueroa.cz',
           botcheck: '',
         }),
       });
@@ -50,6 +50,9 @@ export default function Contact() {
 
   const inputClass =
     'w-full bg-transparent border border-[#d4a45a]/25 px-4 py-3 text-[15px] text-[#f1e9d8] placeholder:text-[#f1e9d8]/35 focus:outline-none focus:border-[#d4a45a]/70 transition-colors duration-300';
+
+  // Zlom dlouhého e-mailu jen u @, ať se na mobilu neláme uprostřed slova
+  const [emailLocal, emailDomain] = CONTACT.email.split('@');
 
   return (
     <section id="contact" className="section">
@@ -159,8 +162,8 @@ export default function Contact() {
                   <span className="w-9 h-9 border border-[#d4a45a]/40 flex items-center justify-center text-[#d4a45a] group-hover:bg-[#d4a45a] group-hover:text-[#0a0908] transition-all">
                     <Mail size={15} />
                   </span>
-                  <span className="block text-[#f1e9d8] text-[13px] tracking-wide group-hover:text-[#d4a45a] transition-colors break-all">
-                    {CONTACT.email}
+                  <span className="block text-[#f1e9d8] text-[12px] sm:text-[13px] leading-snug tracking-wide group-hover:text-[#d4a45a] transition-colors break-words">
+                    {emailLocal}<wbr />@{emailDomain}
                   </span>
                 </a>
 
@@ -173,7 +176,7 @@ export default function Contact() {
                   <span className="w-9 h-9 border border-[#d4a45a]/40 flex items-center justify-center text-[#d4a45a] group-hover:bg-[#d4a45a] group-hover:text-[#0a0908] transition-all">
                     <Instagram size={15} />
                   </span>
-                  <span className="block text-[#f1e9d8] text-[13px] tracking-wide group-hover:text-[#d4a45a] transition-colors">
+                  <span className="block text-[#f1e9d8] text-[12px] sm:text-[13px] leading-snug tracking-wide group-hover:text-[#d4a45a] transition-colors break-words">
                     @{CONTACT.instagram}
                   </span>
                 </a>
