@@ -117,11 +117,16 @@
                     capture_performance: false,
                 });
             };
-            // odlož na idle, ať PostHog neblokuje FCP/TBT na mobilu
-            if ("requestIdleCallback" in window) {
-                requestIdleCallback(__initPosthog, { timeout: 4000 });
-            } else {
-                window.addEventListener("load", __initPosthog);
+            // spustí analytiku až po souhlasu (volá cookie lišta); odlož na idle, ať neblokuje FCP/TBT
+            window.__afEnableAnalytics = function () {
+                if ("requestIdleCallback" in window) {
+                    requestIdleCallback(__initPosthog, { timeout: 4000 });
+                } else {
+                    window.addEventListener("load", __initPosthog);
+                }
+            };
+            if (localStorage.getItem("af.consent") === "accepted") {
+                window.__afEnableAnalytics();
             }
         </script>
     </body>

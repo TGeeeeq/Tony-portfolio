@@ -9,8 +9,7 @@ const BlogListPage = lazy(() => import('./components/BlogListPage'));
 const BlogPostPage = lazy(() => import('./components/BlogPostPage'));
 import { Toaster } from './components/ui/sonner';
 import { MatrixRain } from './components/ui/matrix-rain';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import CookieConsent from './components/CookieConsent';
 
 // 1. Tato komponenta zajistí, že se stránka při každé změně URL (prokliku) vyroluje nahoru
 function ScrollToTop() {
@@ -58,8 +57,7 @@ function Shell({ children }) {
       <MatrixRain className="z-0 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.9),rgba(0,0,0,0.22)_55%,transparent_90%)]" />
       <div className="relative z-10">{children}</div>
       <Toaster theme="dark" position="bottom-right" />
-      <Analytics />
-      <SpeedInsights />
+      <CookieConsent />
     </div>
   );
 }
