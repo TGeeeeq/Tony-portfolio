@@ -45,12 +45,14 @@ export default function Projects() {
                 {/* Logo */}
                 <div className="md:col-span-2">
                   <div
-                    className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full border border-[#d4a45a]/25 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 ${
+                    className={`relative rounded-full border border-[#d4a45a]/25 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 ${
                       p.id === 'nechmerust'
-                        ? 'bg-gradient-to-br from-[#2a2520] to-[#161310] p-1.5 shadow-[0_0_24px_rgba(212,164,90,0.18)_inset]'
+                        ? 'w-24 h-24 md:w-28 md:h-28 bg-white p-2 shadow-[0_0_24px_rgba(212,164,90,0.18)]'
+                        : p.id === 'csop'
+                        ? 'w-20 h-20 md:w-24 md:h-24 bg-white p-1'
                         : p.id === 'impactly'
-                        ? 'bg-[#0a0908]'
-                        : 'bg-[#0a0908] p-2'
+                        ? 'w-20 h-20 md:w-24 md:h-24 bg-[#0a0908]'
+                        : 'w-20 h-20 md:w-24 md:h-24 bg-[#0a0908] p-2'
                     }`}
                   >
                     <img
