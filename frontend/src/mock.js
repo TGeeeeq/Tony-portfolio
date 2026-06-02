@@ -5,7 +5,7 @@ export const ASSETS = {
   photo: '/media/hero.webp',
   nechMeRustLogo: '/media/nechmerust-logo.webp',
   impactlyLogo: '/media/impactly-logo.webp',
-  csopLogo: '/media/csop-logo.webp',
+  csopLogo: '/media/csop-ostrov-logo.webp',
 };
 
 export const CONTACT = {
