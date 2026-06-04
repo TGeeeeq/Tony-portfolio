@@ -51,8 +51,8 @@ export default function Projects() {
                         : p.id === 'csop'
                         ? 'w-20 h-20 md:w-24 md:h-24 bg-white p-1'
                         : p.id === 'impactly'
-                        ? 'w-20 h-20 md:w-24 md:h-24 bg-[#0a0908]'
-                        : 'w-20 h-20 md:w-24 md:h-24 bg-[#0a0908] p-2'
+                        ? 'w-20 h-20 md:w-24 md:h-24 bg-white'
+                        : 'w-20 h-20 md:w-24 md:h-24 bg-white p-2'
                     }`}
                   >
                     <img
