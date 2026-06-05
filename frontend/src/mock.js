@@ -110,7 +110,7 @@ export const TRANSLATIONS = {
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Tam, kde se kořeny\npotkávají s kódem.',
-      subtitle: 'Propojuji přírodu a duchovní cestu s moderní technologií — od AI po blockchain.',
+      subtitle: 'Jsem vývojář a spolutvůrce neziskovky, který věří, že kód i kořeny patří do jedné půdy. Vyvíjím projekty na průsečíku AI, blockchainu a ochrany přírody.',
       cta1: 'Prozkoumat projekty',
       cta2: 'Spojit se',
       scanLabel: 'SCAN ACTIVE',
@@ -120,18 +120,18 @@ export const TRANSLATIONS = {
     about: {
       kicker: 'Kdo jsem',
       title: 'Most mezi prastarým a budoucím.',
-      p1: 'Jmenuji se Antonín Figueroa. Žiji s nohama v hlíně a očima v kódu. Věřím, že technologie nemá přírodu nahradit — má jí pomoci být slyšet.',
-      p2: 'Pracuji na projektech, které propojují vědomé žití, ochranu krajiny a otevřené nástroje moderní doby — umělou inteligenci, blockchain, distribuované sítě.',
-      p3: 'Pokud máš nápad, projekt nebo otázku — nebo mě naopak chceš inspirovat — neváhej se ozvat.',
+      p1: 'Jsem Antonín Figueroa — vývojář, spolutvůrce platformy Nech mě růst a terénní ochránce přírody v ČSOP Trosečníci Ostrov. Žiji na rozhraní dvou světů: s rukama v hlíně a myslí v kódu.',
+      p2: 'Vyvíjím projekty na průsečíku přírody a technologie — od Impactly, aplikace využívající blockchain ke zviditelnění dobrých skutků, přes ochranu biotopů v regionu Lanškroun, až po AI nástroje pro vědomé žití.',
+      p3: 'Nápad bez spojení zůstane snem. Pokud cítíš, že naše cesty mohou jít kousek spolu — napiš mi.',
     },
     mission: {
       kicker: 'Poslání',
       title: 'Příroda a spiritualita.\nKód a vědomí.',
-      body: 'Spojuji přirozenou duchovní cestu s nástroji moderní doby. AI nám může pomoci poslouchat les. Blockchain může učinit dobré skutky viditelnými. Tělo a dech nás vrací domů.',
+      body: 'Přesvědčení je jednoduché: moderní nástroje musí sloužit životu, ne ho nahradit. AI nám může pomoci naslouchat lesu. Blockchain může učinit dobré skutky viditelnými. A tělo v přírodě nás vrací k tomu podstatnému.',
       pillars: [
-        { title: 'Příroda', text: 'Krajina, půda, voda, divoká místa — to, co tu bylo dřív než my.' },
-        { title: 'Duch', text: 'Vědomé žití, ticho, rituál, vnitřní přírodní cesta.' },
-        { title: 'Technologie', text: 'AI, blockchain a otevřené nástroje ve službě životu.' },
+        { title: 'Příroda', text: 'Krajina, půda, voda, divoká místa — péče o to, co tu bylo dřív než my.' },
+        { title: 'Duch', text: 'Vědomé žití, ticho, rituál a autentická vnitřní cesta.' },
+        { title: 'Technologie', text: 'AI, blockchain a otevřené nástroje ve službě životu a planetě.' },
       ],
     },
     projects: {
@@ -169,7 +169,7 @@ export const TRANSLATIONS = {
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Where roots\nmeet the code.',
-      subtitle: 'Bridging nature and the spiritual path with modern technology — from AI to blockchain.',
+      subtitle: 'Developer and nonprofit co-creator who believes code and roots grow from the same soil. I build projects at the intersection of AI, blockchain, and nature conservation.',
       cta1: 'Explore projects',
       cta2: 'Get in touch',
       scanLabel: 'SCAN ACTIVE',
@@ -179,18 +179,18 @@ export const TRANSLATIONS = {
     about: {
       kicker: 'Who I am',
       title: 'A bridge between the ancient and the becoming.',
-      p1: 'My name is Antonín Figueroa. I live with my feet in the soil and my eyes in the code. I believe technology should not replace nature — it should help her be heard.',
-      p2: 'I work on projects that connect conscious living, landscape stewardship, and the open tools of our era — AI, blockchain, distributed networks.',
-      p3: 'If you have an idea, a project, or a question — or you simply want to inspire me — please reach out.',
+      p1: "I'm Antonín Figueroa — developer, co-creator of the platform Nech mě růst, and field conservationist with ČSOP Trosečníci Ostrov. I live on the boundary of two worlds: hands in the soil, mind in the code.",
+      p2: 'I develop projects at the crossroads of nature and technology — from Impactly, an app using blockchain to make good deeds visible, to habitat conservation in the Lanškroun region, and AI tools for conscious living.',
+      p3: 'An idea without connection remains a dream. If you feel our paths could cross for a while — reach out.',
     },
     mission: {
       kicker: 'Mission',
       title: 'Nature and spirit.\nCode and consciousness.',
-      body: 'I weave a natural spiritual path together with the tools of the modern age. AI can help us listen to the forest. Blockchain can make good deeds visible. Body and breath bring us home.',
+      body: 'The conviction is simple: modern tools must serve life, not replace it. AI can help us listen to the forest. Blockchain can make good deeds visible. And a body in nature returns us to what truly matters.',
       pillars: [
-        { title: 'Nature', text: 'Landscape, soil, water, wild places — what was here before us.' },
-        { title: 'Spirit', text: 'Conscious living, silence, ritual, inner natural path.' },
-        { title: 'Technology', text: 'AI, blockchain and open tools in service of life.' },
+        { title: 'Nature', text: 'Landscape, soil, water, wild places — stewardship of what was here before us.' },
+        { title: 'Spirit', text: 'Conscious living, silence, ritual, and an authentic inner path.' },
+        { title: 'Technology', text: 'AI, blockchain and open tools in service of life and the planet.' },
       ],
     },
     projects: {
@@ -228,7 +228,7 @@ export const TRANSLATIONS = {
     hero: {
       eyebrow: 'Антонин Фигероа',
       title: 'Там, где корни\nвстречают код.',
-      subtitle: 'Соединяю природу и духовный путь с современными технологиями — от ИИ до блокчейна.',
+      subtitle: 'Разработчик и соавтор некоммерческой организации, убеждённый, что код и корни растут из одной почвы. Создаю проекты на пересечении ИИ, блокчейна и защиты природы.',
       cta1: 'К проектам',
       cta2: 'Связаться',
       scanLabel: 'СКАН АКТИВЕН',
@@ -238,18 +238,18 @@ export const TRANSLATIONS = {
     about: {
       kicker: 'Кто я',
       title: 'Мост между древним и становящимся.',
-      p1: 'Меня зовут Антонин Фигероа. Я живу с ногами в земле и глазами в коде. Верю, что технологии не должны заменять природу — они должны помочь ей быть услышанной.',
-      p2: 'Работаю над проектами, соединяющими осознанную жизнь, заботу о ландшафте и открытые инструменты эпохи — ИИ, блокчейн, распределённые сети.',
-      p3: 'Если у тебя есть идея, проект или вопрос — или ты хочешь меня вдохновить — напиши мне.',
+      p1: 'Я — Антонин Фигероа: разработчик, соавтор платформы Nech mě růst и полевой защитник природы в ČSOP Trosečníci Ostrov. Живу на границе двух миров: руки в земле, разум в коде.',
+      p2: 'Создаю проекты на стыке природы и технологий — от Impactly, приложения на блокчейне для видимого воздействия на мир, до охраны биотопов в регионе Ланшкроун и ИИ-инструментов для осознанной жизни.',
+      p3: 'Идея без связи остаётся мечтой. Если чувствуешь, что наши пути могут пересечься — напиши мне.',
     },
     mission: {
       kicker: 'Миссия',
       title: 'Природа и дух.\nКод и сознание.',
-      body: 'Я сплетаю естественный духовный путь с инструментами современной эпохи. ИИ может помочь нам слышать лес. Блокчейн может сделать добрые дела видимыми. Тело и дыхание возвращают нас домой.',
+      body: 'Убеждение простое: современные инструменты должны служить жизни, а не заменять её. ИИ может помочь нам слышать лес. Блокчейн может сделать добрые дела видимыми. А тело в природе возвращает нас к главному.',
       pillars: [
-        { title: 'Природа', text: 'Ландшафт, почва, вода, дикие места — то, что было до нас.' },
-        { title: 'Дух', text: 'Осознанная жизнь, тишина, ритуал, внутренний путь.' },
-        { title: 'Технологии', text: 'ИИ, блокчейн и открытые инструменты на службе жизни.' },
+        { title: 'Природа', text: 'Ландшафт, почва, вода, дикие места — забота о том, что было до нас.' },
+        { title: 'Дух', text: 'Осознанная жизнь, тишина, ритуал и подлинный внутренний путь.' },
+        { title: 'Технологии', text: 'ИИ, блокчейн и открытые инструменты на службе жизни и планеты.' },
       ],
     },
     projects: {
@@ -287,7 +287,7 @@ export const TRANSLATIONS = {
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Donde las raíces\nse encuentran con el código.',
-      subtitle: 'Uno la naturaleza y el camino espiritual con la tecnología moderna — desde la IA hasta blockchain.',
+      subtitle: 'Desarrollador y cofundador de una ONG que cree que el código y las raíces crecen del mismo suelo. Creo proyectos en la intersección de la IA, blockchain y la conservación de la naturaleza.',
       cta1: 'Explorar proyectos',
       cta2: 'Ponerse en contacto',
       scanLabel: 'ESCANEO ACTIVO',
@@ -297,18 +297,18 @@ export const TRANSLATIONS = {
     about: {
       kicker: 'Quién soy',
       title: 'Un puente entre lo ancestral y lo que está por venir.',
-      p1: 'Me llamo Antonín Figueroa. Vivo con los pies en la tierra y los ojos en el código. Creo que la tecnología no debe reemplazar a la naturaleza — debe ayudarla a ser escuchada.',
-      p2: 'Trabajo en proyectos que unen la vida consciente, el cuidado del paisaje y las herramientas abiertas de nuestra época — IA, blockchain, redes distribuidas.',
-      p3: 'Si tienes una idea, un proyecto o una pregunta — o simplemente quieres inspirarme — no dudes en escribirme.',
+      p1: 'Soy Antonín Figueroa — desarrollador, cofundador de la plataforma Nech mě růst y conservacionista de campo en ČSOP Trosečníci Ostrov. Vivo en la frontera de dos mundos: manos en la tierra, mente en el código.',
+      p2: 'Desarrollo proyectos en la intersección de la naturaleza y la tecnología — desde Impactly, una app que usa blockchain para hacer visibles las buenas acciones, hasta la conservación de hábitats en la región de Lanškroun y herramientas de IA para la vida consciente.',
+      p3: 'Una idea sin conexión sigue siendo un sueño. Si sientes que nuestros caminos podrían cruzarse un trecho — escríbeme.',
     },
     mission: {
       kicker: 'Misión',
       title: 'Naturaleza y espíritu.\nCódigo y consciencia.',
-      body: 'Tejo un camino espiritual natural junto con las herramientas de la era moderna. La IA puede ayudarnos a escuchar el bosque. Blockchain puede hacer visibles las buenas acciones. El cuerpo y la respiración nos devuelven a casa.',
+      body: 'La convicción es sencilla: las herramientas modernas deben servir a la vida, no reemplazarla. La IA puede ayudarnos a escuchar el bosque. Blockchain puede hacer visibles las buenas acciones. Y un cuerpo en la naturaleza nos devuelve a lo esencial.',
       pillars: [
-        { title: 'Naturaleza', text: 'Paisaje, tierra, agua, lugares salvajes — lo que estaba aquí antes que nosotros.' },
-        { title: 'Espíritu', text: 'Vida consciente, silencio, ritual, camino interior natural.' },
-        { title: 'Tecnología', text: 'IA, blockchain y herramientas abiertas al servicio de la vida.' },
+        { title: 'Naturaleza', text: 'Paisaje, tierra, agua, lugares salvajes — el cuidado de lo que estaba aquí antes que nosotros.' },
+        { title: 'Espíritu', text: 'Vida consciente, silencio, ritual y un camino interior auténtico.' },
+        { title: 'Tecnología', text: 'IA, blockchain y herramientas abiertas al servicio de la vida y el planeta.' },
       ],
     },
     projects: {
