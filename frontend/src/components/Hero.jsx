@@ -6,6 +6,7 @@ import { useLang } from '../contexts/LanguageContext';
 export default function Hero() {
   const { t } = useLang();
   const [time, setTime] = useState('');
+  const [active, setActive] = useState(false); // touch fallback for the hover reveal
   const wrapRef = useRef(null);
 
   useEffect(() => {
@@ -34,6 +35,21 @@ export default function Hero() {
     };
     el.addEventListener('mousemove', onMove);
     return () => el.removeEventListener('mousemove', onMove);
+  }, []);
+
+  // Touch devices have no hover: auto-play the code⟷nature reveal when the
+  // photo scrolls into view (and let a tap toggle it back).
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el || typeof window === 'undefined') return;
+    const touch = window.matchMedia('(hover: none)').matches;
+    if (!touch || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setActive(entry.isIntersecting),
+      { threshold: 0.55 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   const go = (id) => {
@@ -84,7 +100,8 @@ export default function Hero() {
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
           <div
             ref={wrapRef}
-            className="group relative w-[256px] h-[326px] sm:w-[308px] sm:h-[392px] md:w-[340px] md:h-[434px] photo-frame"
+            onClick={() => setActive((v) => !v)}
+            className={`group relative w-[256px] h-[326px] sm:w-[308px] sm:h-[392px] md:w-[340px] md:h-[434px] photo-frame${active ? ' is-active' : ''}`}
             style={{
               transform: 'perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))',
               transition: 'transform 0.4s ease',
@@ -163,10 +180,10 @@ export default function Hero() {
                 'bottom-2 left-2 border-l border-b',
                 'bottom-2 right-2 border-r border-b',
               ].map((c, i) => (
-                <span key={i} className={`absolute w-5 h-5 border-[#d4a45a] transition-colors duration-700 group-hover:border-[#7fb069] ${c}`} />
+                <span key={i} className={`hud-edge absolute w-5 h-5 border-[#d4a45a] transition-colors duration-700 ${c}`} />
               ))}
               {/* targeting reticle */}
-              <div className="absolute top-1/2 right-6 -translate-y-1/2 w-10 h-10 rounded-full border border-[#d4a45a]/70 transition-colors duration-700 group-hover:border-[#7fb069]/80 flex items-center justify-center animate-blink-soft">
+              <div className="hud-reticle absolute top-1/2 right-6 -translate-y-1/2 w-10 h-10 rounded-full border border-[#d4a45a]/70 transition-colors duration-700 flex items-center justify-center animate-blink-soft">
                 <span className="w-1 h-1 bg-[#d4a45a] rounded-full" />
                 <span className="absolute top-0 left-1/2 w-px h-2 bg-[#d4a45a]" />
                 <span className="absolute bottom-0 left-1/2 w-px h-2 bg-[#d4a45a]" />
