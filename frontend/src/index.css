@@ -208,3 +208,85 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
   background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.65) 100%);
   pointer-events: none;
 }
+
+/* === Hero photo: code ⟷ nature hover ===
+   Resting state reads as cold gold surveillance HUD (the "code" pole).
+   On hover, nature breaks through the tech: the portrait warms to life,
+   a green glow swells, and a vine grows up across the frame. */
+
+/* Photo comes alive on hover: grayscale lifts, colour returns */
+.photo-frame .hero-photo {
+  transition: filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 6s ease;
+}
+.photo-frame:hover .hero-photo {
+  filter: grayscale(0) contrast(1.02) saturate(1.18) brightness(1.05);
+  transform: scale(1.04);
+}
+
+/* Green "living" tint + glow that swell on hover */
+.nature-tint {
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  background: radial-gradient(ellipse at 30% 100%, rgba(127,176,105,0.30), transparent 62%);
+  mix-blend-mode: screen;
+}
+.photo-frame:hover .nature-tint { opacity: 1; }
+
+.photo-frame .nature-ring {
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.photo-frame:hover .nature-ring { opacity: 1; }
+
+/* Vine grows from the lower corner */
+.vine-sway {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: vine-sway 7s ease-in-out infinite;
+}
+.vine-stem {
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  transition: stroke-dashoffset 1.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.photo-frame:hover .vine-stem { stroke-dashoffset: 0; }
+
+.nature-leaf {
+  opacity: 0;
+  transform: scale(0.15);
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.18, 0.9, 0.25, 1.4);
+}
+.photo-frame:hover .nature-leaf { opacity: 1; transform: scale(1); }
+
+@keyframes vine-sway {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(1.6deg); }
+}
+
+/* code ⟷ nature glyph readout */
+.duality-readout {
+  opacity: 0.55;
+  transition: opacity 0.7s ease;
+}
+.photo-frame:hover .duality-readout { opacity: 1; }
+.duality-readout .duality-link {
+  width: 14px;
+  transition: width 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.7s ease;
+}
+.photo-frame:hover .duality-readout .duality-link {
+  width: 30px;
+  background: linear-gradient(90deg, #d4a45a, #7fb069);
+}
+.duality-leaf {
+  color: rgba(127,176,105,0.45);
+  transition: color 0.7s ease, transform 0.7s cubic-bezier(0.18, 0.9, 0.25, 1.4);
+}
+.photo-frame:hover .duality-leaf { color: #7fb069; transform: rotate(-8deg) scale(1.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-sway { animation: none; }
+  .photo-frame .hero-photo,
+  .photo-frame:hover .hero-photo { transform: none; }
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDown, Compass, Sparkles } from 'lucide-react';
+import { ArrowDown, Compass, Sparkles, Code2, Leaf } from 'lucide-react';
 import { ASSETS } from '../mock';
 import { useLang } from '../contexts/LanguageContext';
 
@@ -84,7 +84,7 @@ export default function Hero() {
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
           <div
             ref={wrapRef}
-            className="relative w-[300px] h-[380px] sm:w-[360px] sm:h-[460px] md:w-[400px] md:h-[510px] photo-frame"
+            className="group relative w-[256px] h-[326px] sm:w-[308px] sm:h-[392px] md:w-[340px] md:h-[434px] photo-frame"
             style={{
               transform: 'perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))',
               transition: 'transform 0.4s ease',
@@ -92,6 +92,8 @@ export default function Hero() {
           >
             {/* outer ring */}
             <div className="absolute -inset-6 rounded-full border border-[#d4a45a]/20 animate-spin-slow pointer-events-none" />
+            {/* nature ring — counter-rotating green, revealed on hover */}
+            <div className="nature-ring absolute -inset-6 rounded-full border border-[#7fb069]/30 animate-spin-rev pointer-events-none" />
             <div className="absolute -inset-2 border border-[#d4a45a]/30 pointer-events-none" />
 
             {/* photo container */}
@@ -103,11 +105,53 @@ export default function Hero() {
                 height={800}
                 fetchpriority="high"
                 decoding="async"
-                className="w-full h-full object-cover grayscale-[20%] contrast-110"
+                className="hero-photo w-full h-full object-cover grayscale-[20%] contrast-110"
                 draggable={false}
               />
               {/* tint */}
               <div className="absolute inset-0 bg-gradient-to-b from-[#d4a45a]/8 via-transparent to-[#0a0908]/70 mix-blend-multiply" />
+              {/* nature: living green glow that swells on hover */}
+              <div className="nature-tint absolute inset-0 pointer-events-none" />
+              {/* nature: vine grows up across the frame on hover (organic ⟷ the gold HUD's code) */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 200 260"
+                preserveAspectRatio="xMinYMax meet"
+                fill="none"
+                aria-hidden="true"
+              >
+                <g className="vine-sway">
+                  <path
+                    className="vine-stem"
+                    d="M22,262 C30,206 8,178 34,150 C58,124 38,98 64,72 C78,58 74,40 88,26"
+                    stroke="#7fb069"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    opacity="0.85"
+                  />
+                  {[
+                    { x: 30, y: 196, r: -42, s: 1 },
+                    { x: 22, y: 168, r: 38, s: 0.85 },
+                    { x: 40, y: 138, r: -50, s: 1.05 },
+                    { x: 50, y: 112, r: 36, s: 0.9 },
+                    { x: 60, y: 88, r: -46, s: 0.95 },
+                    { x: 80, y: 52, r: 30, s: 0.8 },
+                    { x: 88, y: 28, r: -28, s: 0.7 },
+                  ].map((l, i) => (
+                    <g key={i} transform={`translate(${l.x} ${l.y}) rotate(${l.r}) scale(${l.s})`}>
+                      <path
+                        className="nature-leaf"
+                        style={{ transitionDelay: `${0.25 + i * 0.13}s` }}
+                        d="M0,0 C9,-6 9,-19 0,-26 C-9,-19 -9,-6 0,0 Z"
+                        fill="#7fb069"
+                        fillOpacity="0.55"
+                        stroke="#9fc987"
+                        strokeWidth="1"
+                      />
+                    </g>
+                  ))}
+                </g>
+              </svg>
               {/* HUD grid */}
               <div className="absolute inset-0 hud-grid opacity-50 animate-hud-flicker" />
               {/* scan bar */}
@@ -119,10 +163,10 @@ export default function Hero() {
                 'bottom-2 left-2 border-l border-b',
                 'bottom-2 right-2 border-r border-b',
               ].map((c, i) => (
-                <span key={i} className={`absolute w-5 h-5 border-[#d4a45a] ${c}`} />
+                <span key={i} className={`absolute w-5 h-5 border-[#d4a45a] transition-colors duration-700 group-hover:border-[#7fb069] ${c}`} />
               ))}
               {/* targeting reticle */}
-              <div className="absolute top-1/2 right-6 -translate-y-1/2 w-10 h-10 rounded-full border border-[#d4a45a]/70 flex items-center justify-center animate-blink-soft">
+              <div className="absolute top-1/2 right-6 -translate-y-1/2 w-10 h-10 rounded-full border border-[#d4a45a]/70 transition-colors duration-700 group-hover:border-[#7fb069]/80 flex items-center justify-center animate-blink-soft">
                 <span className="w-1 h-1 bg-[#d4a45a] rounded-full" />
                 <span className="absolute top-0 left-1/2 w-px h-2 bg-[#d4a45a]" />
                 <span className="absolute bottom-0 left-1/2 w-px h-2 bg-[#d4a45a]" />
@@ -137,6 +181,12 @@ export default function Hero() {
               <div className="absolute bottom-3 left-3 right-3 mono text-[9px] tracking-[0.22em] uppercase text-[#f1e9d8]/70 flex justify-between">
                 <span>{t.hero.sigBlock}</span>
                 <span className="text-[#d4a45a]">{time}</span>
+              </div>
+              {/* code ⟷ nature duality readout */}
+              <div className="duality-readout absolute bottom-9 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                <Code2 size={13} className="text-[#d4a45a]" />
+                <span className="duality-link h-px bg-[#d4a45a]/50 inline-block" />
+                <Leaf size={13} className="duality-leaf" />
               </div>
               {/* glitch tear */}
               <div className="absolute inset-0 pointer-events-none mix-blend-screen">
