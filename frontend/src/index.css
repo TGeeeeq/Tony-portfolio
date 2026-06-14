@@ -59,15 +59,14 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
   body { @apply bg-background text-foreground; }
 }
 
-/* === Animations === */
-@keyframes scan-line {
-  0% { top: -8%; opacity: 0; }
-  8% { opacity: 1; }
-  48% { top: 100%; opacity: 1; }
-  52% { top: 100%; opacity: 1; }
-  92% { top: -8%; opacity: 1; }
-  100% { top: -8%; opacity: 0; }
+/* Scan-bloom driver: one animatable property powers the whole reveal. */
+@property --reveal {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
 }
+
+/* === Animations === */
 @keyframes scan-glow {
   0%, 100% { box-shadow: 0 0 0 rgba(212,164,90,0); }
   50% { box-shadow: 0 0 32px rgba(212,164,90,0.4); }
@@ -114,7 +113,6 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
   80% { transform: translate(1px, 1px); }
 }
 
-.animate-scan-line { animation: scan-line 6s ease-in-out infinite; }
 .animate-scan-glow { animation: scan-glow 6s ease-in-out infinite; }
 .animate-hud-flicker { animation: hud-flicker 4s ease-in-out infinite; }
 .animate-blink-soft { animation: blink-soft 1.6s ease-in-out infinite; }
@@ -191,14 +189,19 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
   mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
 }
 
-.scan-bar {
+/* Scanner line — position follows --reveal (sweeps bottom→top),
+   brightest at mid-travel; gold leading edge bleeds into green in its wake. */
+.sb-scan-line {
   position: absolute;
-  top: 0;
   left: 0; right: 0;
-  height: 56px;
-  background: linear-gradient(180deg, transparent, rgba(212,164,90,0.18) 45%, rgba(212,164,90,0.7) 50%, rgba(212,164,90,0.18) 55%, transparent);
+  height: 58px;
+  top: calc((1 - var(--reveal)) * 100%);
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, transparent, rgba(212,164,90,0.16) 40%, rgba(244,222,160,0.9) 50%, rgba(127,176,105,0.55) 60%, transparent);
+  opacity: calc(var(--reveal) * (1 - var(--reveal)) * 4);
   filter: blur(0.4px);
   mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .photo-frame::after {
@@ -209,101 +212,91 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
   pointer-events: none;
 }
 
-/* === Hero photo: code ⟷ nature reveal ===
-   Resting state reads as cold gold surveillance HUD (the "code" pole).
-   On reveal, nature breaks through the tech: the portrait warms to life,
-   a green glow swells, and a vine grows up across the frame.
-   The reveal fires on hover (pointer devices) and on .is-active, which
-   touch devices set when the photo scrolls into view or is tapped. */
+/* === Hero portrait: scan-driven nature bloom ===
+   `--reveal` (0→1) is transitioned by .is-active and drives every layer:
+   the scanner sweeps bottom→top, the warm photo + green growth are revealed
+   in its wake, and the gold "code" HUD dissolves ahead of it. Each botanical
+   element blooms as a clamp() of (--reveal − --at), so the whole effect
+   reverses for free when --reveal animates back to 0. */
 
-/* Photo comes alive: grayscale lifts, colour returns */
-.photo-frame .hero-photo {
-  transition: filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 6s ease;
+.scanwrap {
+  --reveal: 0;
+  transition: --reveal 2.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
-.photo-frame:hover .hero-photo,
-.photo-frame.is-active .hero-photo {
-  filter: grayscale(0) contrast(1.02) saturate(1.18) brightness(1.05);
-  transform: scale(1.04);
+.scanwrap.is-active { --reveal: 1; }
+
+/* Photo: cold grayscale base vs. warm live copy revealed from the bottom up */
+.hp-base { filter: grayscale(0.85) contrast(1.12) brightness(0.92); }
+.hp-live {
+  filter: contrast(1.04) saturate(1.3) brightness(1.06);
+  clip-path: inset(calc((1 - var(--reveal)) * 100%) 0 0 0);
+  transform: scale(calc(1 + 0.04 * var(--reveal)));
+  transform-origin: center;
 }
 
-/* Green "living" tint + glow that swell on reveal */
-.nature-tint {
-  opacity: 0;
-  transition: opacity 0.9s ease;
-  background: radial-gradient(ellipse at 30% 100%, rgba(127,176,105,0.30), transparent 62%);
+/* Tints: gold recedes ahead of the line, green living glow fills in behind it */
+.sb-code-tint { clip-path: inset(0 0 calc(var(--reveal) * 100%) 0); }
+.sb-nature-tint {
+  background: radial-gradient(ellipse at 50% 88%, rgba(127,176,105,0.34), transparent 66%);
   mix-blend-mode: screen;
+  clip-path: inset(calc((1 - var(--reveal)) * 100%) 0 0 0);
 }
-.photo-frame:hover .nature-tint,
-.photo-frame.is-active .nature-tint { opacity: 1; }
 
-.photo-frame .nature-ring {
-  opacity: 0;
-  transition: opacity 0.9s ease;
+/* Rings: gold "code" ring fades, green "nature" ring rises */
+.sb-nature-ring { opacity: var(--reveal); }
+.sb-code-ring { opacity: calc(1 - 0.7 * var(--reveal)); }
+.sb-code-edge { opacity: calc(1 - 0.6 * var(--reveal)); }
+
+/* HUD chrome dissolves as nature takes over */
+.sb-code-grid { clip-path: inset(0 0 calc(var(--reveal) * 100%) 0); }
+.sb-chrome { opacity: calc(1 - 0.85 * var(--reveal)); }
+
+/* Interaction hint — present at rest, gone once scanned */
+.sb-hint {
+  opacity: calc((1 - var(--reveal)) * 0.85);
+  transition: opacity 0.4s ease;
 }
-.photo-frame:hover .nature-ring,
-.photo-frame.is-active .nature-ring { opacity: 1; }
 
-/* HUD edges + reticle warm from gold to green as nature takes over */
-.photo-frame:hover .hud-edge,
-.photo-frame.is-active .hud-edge { border-color: #7fb069; }
-.photo-frame:hover .hud-reticle,
-.photo-frame.is-active .hud-reticle { border-color: rgba(127,176,105,0.8); }
+/* Botanicals: each blooms exactly as the rising line crosses its --at,
+   and wilts in perfect reverse, because opacity/scale are pure functions
+   of --reveal (no per-element timing to invert). */
+.sb-item {
+  --win: 0.16;
+  --p: clamp(0, calc((var(--reveal) - var(--at)) / var(--win)), 1);
+  opacity: var(--p);
+  transform-box: fill-box;
+}
+.sb-leaf {
+  transform-origin: center bottom;
+  transform: scale(calc(0.16 + 0.84 * var(--p)));
+}
+.sb-flower {
+  transform-origin: center;
+  transform: scale(calc(0.05 + 0.95 * var(--p))) rotate(calc((1 - var(--p)) * -40deg));
+}
 
-/* Vine grows from the lower corner */
-.vine-sway {
+/* Vine stems draw from the base upward across their own [--from, --to] span */
+.sb-vine {
+  fill: none;
+  --draw: clamp(0, calc((var(--to) - var(--reveal)) / (var(--to) - var(--from))), 1);
+  stroke-dasharray: 400;
+  stroke-dashoffset: calc(var(--draw) * 400px);
+  opacity: clamp(0, calc((var(--reveal) - var(--from)) / 0.05), 1);
+}
+
+/* Gentle idle life for the foliage */
+.sb-sway {
   transform-box: fill-box;
   transform-origin: bottom center;
-  animation: vine-sway 7s ease-in-out infinite;
+  animation: sb-sway 7s ease-in-out infinite;
 }
-.vine-stem {
-  stroke-dasharray: 420;
-  stroke-dashoffset: 420;
-  transition: stroke-dashoffset 1.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+@keyframes sb-sway {
+  0%, 100% { transform: rotate(-1.4deg); }
+  50% { transform: rotate(1.4deg); }
 }
-.photo-frame:hover .vine-stem,
-.photo-frame.is-active .vine-stem { stroke-dashoffset: 0; }
-
-.nature-leaf {
-  opacity: 0;
-  transform: scale(0.15);
-  transform-box: fill-box;
-  transform-origin: bottom center;
-  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.18, 0.9, 0.25, 1.4);
-}
-.photo-frame:hover .nature-leaf,
-.photo-frame.is-active .nature-leaf { opacity: 1; transform: scale(1); }
-
-@keyframes vine-sway {
-  0%, 100% { transform: rotate(-1.6deg); }
-  50% { transform: rotate(1.6deg); }
-}
-
-/* code ⟷ nature glyph readout */
-.duality-readout {
-  opacity: 0.55;
-  transition: opacity 0.7s ease;
-}
-.photo-frame:hover .duality-readout,
-.photo-frame.is-active .duality-readout { opacity: 1; }
-.duality-readout .duality-link {
-  width: 14px;
-  transition: width 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.7s ease;
-}
-.photo-frame:hover .duality-readout .duality-link,
-.photo-frame.is-active .duality-readout .duality-link {
-  width: 30px;
-  background: linear-gradient(90deg, #d4a45a, #7fb069);
-}
-.duality-leaf {
-  color: rgba(127,176,105,0.45);
-  transition: color 0.7s ease, transform 0.7s cubic-bezier(0.18, 0.9, 0.25, 1.4);
-}
-.photo-frame:hover .duality-leaf,
-.photo-frame.is-active .duality-leaf { color: #7fb069; transform: rotate(-8deg) scale(1.12); }
 
 @media (prefers-reduced-motion: reduce) {
-  .vine-sway { animation: none; }
-  .photo-frame .hero-photo,
-  .photo-frame:hover .hero-photo,
-  .photo-frame.is-active .hero-photo { transform: none; }
+  .scanwrap { transition: none; }
+  .sb-sway { animation: none; }
+  .hp-live { transform: none; }
 }
