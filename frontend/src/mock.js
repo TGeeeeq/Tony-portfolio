@@ -2,7 +2,7 @@
 // This is the only place mock data lives so backend integration later is easy
 
 export const ASSETS = {
-  photo: '/media/hero.webp',
+  photo: '/media/tf.webp',
   nechMeRustLogo: '/media/nechmerust-logo.webp',
   impactlyLogo: '/media/impactly-logo.webp',
   csopLogo: '/media/csop-ostrov-logo.webp',
@@ -116,7 +116,7 @@ export const TRANSLATIONS = {
       scanLabel: 'SCAN ACTIVE',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
-      bloomHint: 'KLIKNI · ROZKVÉST',
+      greet: 'ahoj, jsem Tony',
     },
     about: {
       kicker: 'Kdo jsem',
@@ -176,7 +176,7 @@ export const TRANSLATIONS = {
       scanLabel: 'SCAN ACTIVE',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
-      bloomHint: 'CLICK · BLOOM',
+      greet: "hi, I'm Tony",
     },
     about: {
       kicker: 'Who I am',
@@ -236,7 +236,7 @@ export const TRANSLATIONS = {
       scanLabel: 'СКАН АКТИВЕН',
       coords: "ШИР 49°47'41 С · ДОЛ 15°23'25 В",
       sigBlock: 'ПОДПИСЬ: A.F. // ID 0xAF-1988',
-      bloomHint: 'НАЖМИ · РАСЦВЕСТИ',
+      greet: 'привет, я Тони',
     },
     about: {
       kicker: 'Кто я',
@@ -296,7 +296,7 @@ export const TRANSLATIONS = {
       scanLabel: 'ESCANEO ACTIVO',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'FIRMA: A.F. // ID 0xAF-1988',
-      bloomHint: 'CLIC · FLORECER',
+      greet: 'hola, soy Tony',
     },
     about: {
       kicker: 'Quién soy',
