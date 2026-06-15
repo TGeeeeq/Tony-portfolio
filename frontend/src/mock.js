@@ -116,7 +116,6 @@ export const TRANSLATIONS = {
       scanLabel: 'SCAN ACTIVE',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
-      greet: 'ahoj, jsem Tony',
     },
     about: {
       kicker: 'Kdo jsem',
@@ -176,7 +175,6 @@ export const TRANSLATIONS = {
       scanLabel: 'SCAN ACTIVE',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
-      greet: "hi, I'm Tony",
     },
     about: {
       kicker: 'Who I am',
@@ -236,7 +234,6 @@ export const TRANSLATIONS = {
       scanLabel: 'СКАН АКТИВЕН',
       coords: "ШИР 49°47'41 С · ДОЛ 15°23'25 В",
       sigBlock: 'ПОДПИСЬ: A.F. // ID 0xAF-1988',
-      greet: 'привет, я Тони',
     },
     about: {
       kicker: 'Кто я',
@@ -296,7 +293,6 @@ export const TRANSLATIONS = {
       scanLabel: 'ESCANEO ACTIVO',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'FIRMA: A.F. // ID 0xAF-1988',
-      greet: 'hola, soy Tony',
     },
     about: {
       kicker: 'Quién soy',

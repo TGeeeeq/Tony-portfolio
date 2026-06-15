@@ -260,16 +260,12 @@ export default function HeroPortrait({ t, time }) {
           )
         )}
 
-        {/* hover greeting */}
+        {/* hover greeting — a friendly wave */}
         <div
-          className={`greet-bubble absolute z-30 -top-7 left-3 flex items-center gap-2.5 pl-2 pr-3.5 py-1.5${greet ? ' is-on' : ''}`}
+          className={`greet-bubble absolute z-30 -top-7 left-4 p-1.5${greet ? ' is-on' : ''}`}
           aria-hidden="true"
         >
-          <img src="/media/wave.gif" alt="" width={46} height={46} className="w-[42px] h-[42px] shrink-0" draggable={false} />
-          <span className="mono text-[11px] sm:text-[12px] leading-snug text-[#f1e9d8] whitespace-nowrap">
-            <span className="text-[#d4a45a]">// </span>
-            {t.hero.greet}
-          </span>
+          <img src="/media/wave.gif" alt="" width={48} height={48} className="w-[44px] h-[44px] block" draggable={false} />
         </div>
       </div>
     </div>
