@@ -980,9 +980,9 @@ export const PRICING = {
       id: 'tvorba-webu',
       kind: 'project',
       items: [
-        { key: 'landing', priceFrom: 9000 },
-        { key: 'redesign', priceFrom: 12000 },
-        { key: 'firemni', priceFrom: 20000 },
+        { key: 'landing', priceFrom: 5000 },
+        { key: 'redesign', priceFrom: 9000 },
+        { key: 'firemni', priceFrom: 15000 },
       ],
     },
     {
