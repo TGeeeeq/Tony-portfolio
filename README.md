@@ -3,27 +3,49 @@
 Personal portfolio site bridging nature, spirit, and modern technology.
 Built with **React (CRA + craco)** + **TailwindCSS** + **shadcn/ui**.
 
-Live: _set after Netlify deploy_
+Live: **https://www.antoninfigueroa.cz**
 
 ---
 
-## 🚀 Deploy on Vercel
+## 🚀 Deploy (Forpsi shared hosting)
 
-This repo is preconfigured with `vercel.json` using Vercel's **Services** (multi-service) preset.
+The site runs on **Forpsi** shared hosting (Apache) at **https://www.antoninfigueroa.cz**,
+served as a static CRA build from the `/www/` web root.
 
-1. Go to https://vercel.com/new
-2. **Import Git Repository** → choose `TGeeeeq/Tony-portfolio`
-3. Vercel auto-detects `vercel.json` and shows the **Services** preset:
-   - **frontend** → Create React App, served at `/`
-4. Click **Deploy**. First build takes ~2–3 minutes.
-5. (Optional) Add a custom domain in **Project → Settings → Domains**.
+### Automatic — GitHub Actions (FTP)
 
-No environment variables are required.
+Every push to `main` runs `.github/workflows/deploy-forpsi.yml`, which builds the
+frontend and uploads `frontend/build/` to Forpsi over FTP.
 
-> 💡 The `backend/` folder exists but is **not** included in `vercel.json`,
-> so Vercel will not try to deploy it. Add it later if/when needed.
+Required repository **secrets** (Settings → Secrets and variables → Actions):
 
-> 💡 `netlify.toml` is also included for flexibility but Vercel ignores it.
+| Secret         | Example                  |
+|----------------|--------------------------|
+| `FTP_SERVER`   | `ftpx.forpsi.com`        |
+| `FTP_USERNAME` | `www.antoninfigueroa.cz` |
+| `FTP_PASSWORD` | the current FTP password |
+
+Optional repo **variable** `FTP_SERVER_DIR` overrides the web root (defaults to `/www/`).
+
+> ⚠️ If Forpsi's FTP password is rotated, update the `FTP_PASSWORD` secret too —
+> otherwise the deploy fails with `530 Login authentication failed`.
+
+### Manual — FTP from your machine
+
+Credentials live in `.env.deploy` (git-ignored). Build, then mirror the output up:
+
+```bash
+cd frontend && CI=false GENERATE_SOURCEMAP=false yarn build && cd ..
+set -a; . ./.env.deploy; set +a
+lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" \
+  -e "set ftp:ssl-allow no; mirror -R ./frontend/build/ ${FTP_REMOTE:-/www}/ ; bye"
+```
+
+### SPA routing
+
+`frontend/public/.htaccess` rewrites all non-file routes to `index.html`, so client-side
+routes (`/sluzby`, `/nastroje`, `/blog/...`) work on direct load and refresh. CRA copies
+it into `frontend/build/` automatically.
 
 ---
 
@@ -42,7 +64,8 @@ yarn build          # production build into frontend/build
 
 | What                                | File                                       |
 |-------------------------------------|--------------------------------------------|
-| All text & translations (CS/EN/RU)  | `frontend/src/mock.js`                     |
+| All text & translations (CS/EN/RU/ES)| `frontend/src/mock.js`                     |
+| Services & pricing (data + i18n)     | `frontend/src/mock.js` (`PRICING`, `pricing`)|
 | Projects, contacts, image URLs      | `frontend/src/mock.js`                     |
 | Colors / fonts / animations         | `frontend/src/index.css`                   |
 | Hero & spy-scanner photo            | `frontend/src/components/Hero.jsx`         |
