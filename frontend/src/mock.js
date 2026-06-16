@@ -106,7 +106,7 @@ export const PROJECTS = [
 
 export const TRANSLATIONS = {
   cs: {
-    nav: { about: 'O mně', projects: 'Projekty', mission: 'Poslání', tools: 'Nástroje', blog: 'Blog', contact: 'Kontakt' },
+    nav: { about: 'O mně', projects: 'Projekty', services: 'Služby', mission: 'Poslání', tools: 'Nástroje', blog: 'Blog', contact: 'Kontakt' },
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Tam, kde se kořeny\npotkávají s kódem.',
@@ -163,9 +163,103 @@ export const TRANSLATIONS = {
       tagline: 'Kořeny v zemi. Vědomí v kódu.',
       rights: 'Všechna práva vyhrazena.',
     },
+    pricing: {
+      kicker: 'Služby',
+      title: 'Postarám se\no celý váš web.',
+      subtitle:
+        'Web, hosting, doména, e-mail i obsah — všechno na jednom místě. Bez agentury, za ceny dostupné malým spolkům a neziskovkám.',
+      statement:
+        'Nejsem agentura. Jsem jeden člověk, který udrží pohromadě web, hosting, doménu, e-mail i obsah — a ví, co dělá.',
+      forWhom:
+        'Pracuji s moderními nástroji včetně AI. Výsledek: zlomek ceny agentury při zachované kvalitě. Pro malé spolky, neziskovky a každého, kdo nechce řešit techniku.',
+      fromLabel: 'od',
+      perMonth: '/ měsíc',
+      perHour: '/ hodina',
+      freeConsult: 'První konzultace zdarma',
+      vatNote: 'Ceny jsou uvedeny bez DPH.',
+      highlightBadge: 'Vše v jednom',
+      refsLabel: 'Kde to běží',
+      back: '← Zpět na úvod',
+      kindPausal: 'Měsíční paušál',
+      kindProject: 'Jednorázově',
+      kindHourly: 'Hodinová sazba',
+      ctaHeading: 'Máte zájem nebo otázku?',
+      ctaText:
+        'Napište mi a domluvíme se. Nezavazujete se k ničemu — první konzultace je zdarma.',
+      ctaButton: 'Napsat zprávu',
+      services: {
+        'sprava-webu': {
+          title: 'Správa webu',
+          description:
+            'Pravidelná péče o web — aktualizace, zálohy, bezpečnost, monitoring. Bez starostí.',
+          tiers: {
+            zakladni: {
+              name: 'Základní',
+              includes: [
+                'Aktualizace WordPressu, šablony a pluginů',
+                'Týdenní zálohy',
+                'Monitoring dostupnosti',
+                'Bezpečnostní kontrola',
+              ],
+            },
+            standard: {
+              name: 'Standard',
+              includes: [
+                'Vše ze základního',
+                'Až 1 hodina drobných úprav v ceně',
+                'Měsíční report',
+                'Reakce do 48 hodin',
+              ],
+            },
+            kompletni: {
+              name: 'Kompletní péče',
+              includes: [
+                'Vše ze standardu',
+                'Až 2 hodiny úprav v ceně',
+                'Doména a hosting v ceně',
+                'Pravidelná komunikace',
+                'Reakce do 24 hodin',
+              ],
+            },
+          },
+        },
+        'tvorba-webu': {
+          title: 'Tvorba webu',
+          description:
+            'Nový web od návrhu po spuštění. Funkční, rychlý, přizpůsobený vašim potřebám.',
+          items: {
+            landing: {
+              name: 'Landing page / jednoduchý web',
+              note: 'Prezentační stránka, web spolku, osobní web.',
+            },
+            redesign: {
+              name: 'Redesign existujícího webu',
+              note: 'Nový vzhled a struktura na stávajícím obsahu.',
+            },
+            firemni: {
+              name: 'Firemní nebo organizační web',
+              note: 'Větší web s více sekcemi, formuláři a správou obsahu.',
+            },
+          },
+        },
+        'technicke-prace': {
+          title: 'Technické práce',
+          description:
+            'Jednorázové technické úkony — nastavení, migrace, integrace, konzultace.',
+          examples: [
+            'Nastavení domény, DNS, SSL',
+            'Migrace webu na nový hosting',
+            'Nastavení Google Workspace nebo firemního e-mailu',
+            'Organizace Google Drive',
+            'Technická konzultace',
+          ],
+          note: 'Minimální fakturovaný čas: 1 hodina. První konzultace zdarma.',
+        },
+      },
+    },
   },
   en: {
-    nav: { about: 'About', projects: 'Projects', mission: 'Mission', tools: 'Tools', blog: 'Blog', contact: 'Contact' },
+    nav: { about: 'About', projects: 'Projects', services: 'Services', mission: 'Mission', tools: 'Tools', blog: 'Blog', contact: 'Contact' },
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Where roots\nmeet the code.',
@@ -222,9 +316,103 @@ export const TRANSLATIONS = {
       tagline: 'Roots in the earth. Awareness in the code.',
       rights: 'All rights reserved.',
     },
+    pricing: {
+      kicker: 'Services',
+      title: 'I take care\nof your whole site.',
+      subtitle:
+        'Website, hosting, domain, email and content — all in one place. No agency, at prices small clubs and nonprofits can afford.',
+      statement:
+        "I'm not an agency. I'm one person who keeps your website, hosting, domain, email and content together — and knows what he's doing.",
+      forWhom:
+        "I work with modern tools, including AI. The result: a fraction of an agency's price, with the quality kept. For small clubs, nonprofits and anyone who'd rather not deal with the tech.",
+      fromLabel: 'from',
+      perMonth: '/ month',
+      perHour: '/ hour',
+      freeConsult: 'First consultation free',
+      vatNote: 'Prices are listed without VAT.',
+      highlightBadge: 'All in one',
+      refsLabel: 'Where it runs',
+      back: '← Back home',
+      kindPausal: 'Monthly retainer',
+      kindProject: 'One-off project',
+      kindHourly: 'Hourly rate',
+      ctaHeading: 'Interested, or have a question?',
+      ctaText:
+        "Write to me and we'll figure it out. No commitment — the first consultation is free.",
+      ctaButton: 'Send a message',
+      services: {
+        'sprava-webu': {
+          title: 'Website care',
+          description:
+            'Regular care for your site — updates, backups, security, monitoring. Worry-free.',
+          tiers: {
+            zakladni: {
+              name: 'Basic',
+              includes: [
+                'WordPress, theme & plugin updates',
+                'Weekly backups',
+                'Uptime monitoring',
+                'Security check',
+              ],
+            },
+            standard: {
+              name: 'Standard',
+              includes: [
+                'Everything in Basic',
+                'Up to 1 hour of small edits included',
+                'Monthly report',
+                'Response within 48 hours',
+              ],
+            },
+            kompletni: {
+              name: 'Complete care',
+              includes: [
+                'Everything in Standard',
+                'Up to 2 hours of edits included',
+                'Domain & hosting included',
+                'Regular communication',
+                'Response within 24 hours',
+              ],
+            },
+          },
+        },
+        'tvorba-webu': {
+          title: 'Web creation',
+          description:
+            'A new site from design to launch. Functional, fast, tailored to your needs.',
+          items: {
+            landing: {
+              name: 'Landing page / simple site',
+              note: 'A presentation page, club site, personal site.',
+            },
+            redesign: {
+              name: 'Redesign of an existing site',
+              note: 'New look and structure on your existing content.',
+            },
+            firemni: {
+              name: 'Company or organisation site',
+              note: 'A larger site with more sections, forms and content management.',
+            },
+          },
+        },
+        'technicke-prace': {
+          title: 'Technical work',
+          description:
+            'One-off technical tasks — setup, migration, integration, consulting.',
+          examples: [
+            'Domain, DNS and SSL setup',
+            'Website migration to new hosting',
+            'Google Workspace or company email setup',
+            'Google Drive organisation',
+            'Technical consultation',
+          ],
+          note: 'Minimum billed time: 1 hour. First consultation free.',
+        },
+      },
+    },
   },
   ru: {
-    nav: { about: 'Обо мне', projects: 'Проекты', mission: 'Миссия', tools: 'Инструменты', blog: 'Блог', contact: 'Контакт' },
+    nav: { about: 'Обо мне', projects: 'Проекты', services: 'Услуги', mission: 'Миссия', tools: 'Инструменты', blog: 'Блог', contact: 'Контакт' },
     hero: {
       eyebrow: 'Антонин Фигероа',
       title: 'Там, где корни\nвстречают код.',
@@ -281,9 +469,103 @@ export const TRANSLATIONS = {
       tagline: 'Корни в земле. Сознание в коде.',
       rights: 'Все права защищены.',
     },
+    pricing: {
+      kicker: 'Услуги',
+      title: 'Беру на себя\nвесь ваш сайт.',
+      subtitle:
+        'Сайт, хостинг, домен, почта и контент — всё в одном месте. Без агентства, по ценам, доступным небольшим объединениям и НКО.',
+      statement:
+        'Я не агентство. Я один человек, который держит вместе сайт, хостинг, домен, почту и контент — и знает своё дело.',
+      forWhom:
+        'Работаю с современными инструментами, включая ИИ. Результат — доля цены агентства при сохранённом качестве. Для небольших объединений, НКО и всех, кто не хочет возиться с техникой.',
+      fromLabel: 'от',
+      perMonth: '/ месяц',
+      perHour: '/ час',
+      freeConsult: 'Первая консультация бесплатно',
+      vatNote: 'Цены указаны без НДС.',
+      highlightBadge: 'Всё включено',
+      refsLabel: 'Где это работает',
+      back: '← На главную',
+      kindPausal: 'Ежемесячно',
+      kindProject: 'Разовый проект',
+      kindHourly: 'Почасовая ставка',
+      ctaHeading: 'Интересно или есть вопрос?',
+      ctaText:
+        'Напишите мне, и договоримся. Без обязательств — первая консультация бесплатно.',
+      ctaButton: 'Написать',
+      services: {
+        'sprava-webu': {
+          title: 'Поддержка сайта',
+          description:
+            'Регулярная забота о сайте — обновления, резервные копии, безопасность, мониторинг. Без забот.',
+          tiers: {
+            zakladni: {
+              name: 'Базовый',
+              includes: [
+                'Обновления WordPress, темы и плагинов',
+                'Еженедельные бэкапы',
+                'Мониторинг доступности',
+                'Проверка безопасности',
+              ],
+            },
+            standard: {
+              name: 'Стандарт',
+              includes: [
+                'Всё из базового',
+                'До 1 часа мелких правок включено',
+                'Ежемесячный отчёт',
+                'Ответ в течение 48 часов',
+              ],
+            },
+            kompletni: {
+              name: 'Полная забота',
+              includes: [
+                'Всё из стандарта',
+                'До 2 часов правок включено',
+                'Домен и хостинг включены',
+                'Регулярная коммуникация',
+                'Ответ в течение 24 часов',
+              ],
+            },
+          },
+        },
+        'tvorba-webu': {
+          title: 'Создание сайта',
+          description:
+            'Новый сайт от дизайна до запуска. Функциональный, быстрый, под ваши задачи.',
+          items: {
+            landing: {
+              name: 'Лендинг / простой сайт',
+              note: 'Презентационная страница, сайт объединения, личный сайт.',
+            },
+            redesign: {
+              name: 'Редизайн существующего сайта',
+              note: 'Новый вид и структура на существующем контенте.',
+            },
+            firemni: {
+              name: 'Корпоративный сайт',
+              note: 'Более крупный сайт с разделами, формами и управлением контентом.',
+            },
+          },
+        },
+        'technicke-prace': {
+          title: 'Технические работы',
+          description:
+            'Разовые технические задачи — настройка, миграция, интеграция, консультации.',
+          examples: [
+            'Настройка домена, DNS, SSL',
+            'Миграция сайта на новый хостинг',
+            'Настройка Google Workspace или корпоративной почты',
+            'Организация Google Drive',
+            'Техническая консультация',
+          ],
+          note: 'Минимальное оплачиваемое время: 1 час. Первая консультация бесплатно.',
+        },
+      },
+    },
   },
   es: {
-    nav: { about: 'Sobre mí', projects: 'Proyectos', mission: 'Misión', tools: 'Herramientas', blog: 'Blog', contact: 'Contacto' },
+    nav: { about: 'Sobre mí', projects: 'Proyectos', services: 'Servicios', mission: 'Misión', tools: 'Herramientas', blog: 'Blog', contact: 'Contacto' },
     hero: {
       eyebrow: 'Antonín Figueroa',
       title: 'Donde las raíces\nse encuentran con el código.',
@@ -339,6 +621,100 @@ export const TRANSLATIONS = {
     footer: {
       tagline: 'Raíces en la tierra. Conciencia en el código.',
       rights: 'Todos los derechos reservados.',
+    },
+    pricing: {
+      kicker: 'Servicios',
+      title: 'Me ocupo\nde toda tu web.',
+      subtitle:
+        'Web, hosting, dominio, correo y contenido — todo en un solo lugar. Sin agencia, a precios al alcance de pequeñas asociaciones y ONG.',
+      statement:
+        'No soy una agencia. Soy una persona que mantiene unidos la web, el hosting, el dominio, el correo y el contenido — y sabe lo que hace.',
+      forWhom:
+        'Trabajo con herramientas modernas, incluida la IA. El resultado: una fracción del precio de una agencia, manteniendo la calidad. Para pequeñas asociaciones, ONG y cualquiera que prefiera no lidiar con la técnica.',
+      fromLabel: 'desde',
+      perMonth: '/ mes',
+      perHour: '/ hora',
+      freeConsult: 'Primera consulta gratis',
+      vatNote: 'Precios sin IVA.',
+      highlightBadge: 'Todo en uno',
+      refsLabel: 'Dónde funciona',
+      back: '← Volver al inicio',
+      kindPausal: 'Cuota mensual',
+      kindProject: 'Proyecto puntual',
+      kindHourly: 'Tarifa por horas',
+      ctaHeading: '¿Te interesa o tienes una pregunta?',
+      ctaText:
+        'Escríbeme y lo vemos. Sin compromiso — la primera consulta es gratis.',
+      ctaButton: 'Enviar mensaje',
+      services: {
+        'sprava-webu': {
+          title: 'Mantenimiento web',
+          description:
+            'Cuidado regular de tu web — actualizaciones, copias, seguridad, monitorización. Sin preocupaciones.',
+          tiers: {
+            zakladni: {
+              name: 'Básico',
+              includes: [
+                'Actualizaciones de WordPress, plantilla y plugins',
+                'Copias semanales',
+                'Monitorización de disponibilidad',
+                'Revisión de seguridad',
+              ],
+            },
+            standard: {
+              name: 'Estándar',
+              includes: [
+                'Todo lo del Básico',
+                'Hasta 1 hora de pequeños ajustes incluida',
+                'Informe mensual',
+                'Respuesta en 48 horas',
+              ],
+            },
+            kompletni: {
+              name: 'Cuidado completo',
+              includes: [
+                'Todo lo del Estándar',
+                'Hasta 2 horas de ajustes incluidas',
+                'Dominio y hosting incluidos',
+                'Comunicación regular',
+                'Respuesta en 24 horas',
+              ],
+            },
+          },
+        },
+        'tvorba-webu': {
+          title: 'Creación web',
+          description:
+            'Una web nueva del diseño al lanzamiento. Funcional, rápida, adaptada a tus necesidades.',
+          items: {
+            landing: {
+              name: 'Landing / web sencilla',
+              note: 'Página de presentación, web de asociación, web personal.',
+            },
+            redesign: {
+              name: 'Rediseño de una web existente',
+              note: 'Nuevo aspecto y estructura sobre tu contenido actual.',
+            },
+            firemni: {
+              name: 'Web de empresa u organización',
+              note: 'Una web mayor con más secciones, formularios y gestión de contenido.',
+            },
+          },
+        },
+        'technicke-prace': {
+          title: 'Trabajos técnicos',
+          description:
+            'Tareas técnicas puntuales — configuración, migración, integración, consultoría.',
+          examples: [
+            'Configuración de dominio, DNS y SSL',
+            'Migración de la web a un nuevo hosting',
+            'Configuración de Google Workspace o correo corporativo',
+            'Organización de Google Drive',
+            'Consultoría técnica',
+          ],
+          note: 'Tiempo mínimo facturado: 1 hora. Primera consulta gratis.',
+        },
+      },
     },
   },
 };
@@ -578,5 +954,72 @@ export const TOOLS_TEASER = {
     subtitle:
       'Seis herramientas que me dan más tiempo para lo importante. IA, generadores de UI, un investigador silencioso. Pásate a echar un vistazo.',
     cta: 'Entrar al taller',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// PRICING / SLUŽBY
+// Numbers + structure live here once; all display text is in TRANSLATIONS[lang].pricing,
+// keyed by the same id / tier-key. Components merge the two.
+// ---------------------------------------------------------------------------
+
+export const PRICING = {
+  currency: 'Kč',
+  hourlyRate: 500,
+  services: [
+    {
+      id: 'sprava-webu',
+      kind: 'pausal',
+      tiers: [
+        { key: 'zakladni', price: 750 },
+        { key: 'standard', price: 1250 },
+        { key: 'kompletni', price: 2000, highlighted: true },
+      ],
+    },
+    {
+      id: 'tvorba-webu',
+      kind: 'project',
+      items: [
+        { key: 'landing', priceFrom: 9000 },
+        { key: 'redesign', priceFrom: 12000 },
+        { key: 'firemni', priceFrom: 20000 },
+      ],
+    },
+    {
+      id: 'technicke-prace',
+      kind: 'hourly',
+    },
+  ],
+};
+
+// Teaser banner shown on the home page (Projekty → Služby → Nástroje)
+export const SERVICES_TEASER = {
+  cs: {
+    kicker: 'Služby',
+    title: 'Postarám se o váš web',
+    subtitle:
+      'Správa, tvorba i jednorázové technické práce — za zlomek ceny agentury. Pro malé spolky a neziskovky.',
+    cta: 'Zobrazit ceník',
+  },
+  en: {
+    kicker: 'Services',
+    title: 'I take care of your website',
+    subtitle:
+      "Care, creation and one-off technical work — at a fraction of an agency's price. For small clubs and nonprofits.",
+    cta: 'See pricing',
+  },
+  ru: {
+    kicker: 'Услуги',
+    title: 'Позабочусь о вашем сайте',
+    subtitle:
+      'Поддержка, создание и разовые технические работы — за долю цены агентства. Для небольших объединений и НКО.',
+    cta: 'Смотреть цены',
+  },
+  es: {
+    kicker: 'Servicios',
+    title: 'Me ocupo de tu web',
+    subtitle:
+      'Mantenimiento, creación y trabajos técnicos puntuales — a una fracción del precio de una agencia. Para pequeñas asociaciones y ONG.',
+    cta: 'Ver precios',
   },
 };

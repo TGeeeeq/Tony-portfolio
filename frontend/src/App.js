@@ -5,6 +5,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import Portfolio from './components/Portfolio';
 // Vedlejší routy načítáme líně, ať homepage nestahuje jejich kód
 const ToolsPage = lazy(() => import('./components/ToolsPage'));
+const ServicesPage = lazy(() => import('./components/ServicesPage'));
 const BlogListPage = lazy(() => import('./components/BlogListPage'));
 const BlogPostPage = lazy(() => import('./components/BlogPostPage'));
 import { Toaster } from './components/ui/sonner';
@@ -73,6 +74,8 @@ function App() {
             <Route path="/" element={<Shell><Portfolio /></Shell>} />
             <Route path="/nastroje" element={<Shell><ToolsPage /></Shell>} />
             <Route path="/tools" element={<Shell><ToolsPage /></Shell>} />
+            <Route path="/sluzby" element={<Shell><ServicesPage /></Shell>} />
+            <Route path="/services" element={<Shell><ServicesPage /></Shell>} />
             <Route path="/blog" element={<Shell><BlogListPage /></Shell>} />
             <Route path="/blog/:slug" element={<Shell><BlogPostPage /></Shell>} />
           </Routes>

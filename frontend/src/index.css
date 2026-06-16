@@ -212,6 +212,13 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
   100% { opacity: 0.4; transform: scale(0.82); filter: none; }
 }
 
+/* highlighted pricing tier: soft breathing glow behind the orbit ring */
+@keyframes tier-breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%      { opacity: 0.7; transform: scale(1.06); }
+}
+.tier-breathe { animation: tier-breathe 6.5s ease-in-out infinite; }
+
 .leaf { transform-box: fill-box; transform-origin: center bottom; }
 
 /* hover greeting bubble */
@@ -247,6 +254,7 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
 @media (prefers-reduced-motion: reduce) {
   .animate-spin-slow, .animate-spin-rev { animation: none; }
   .chain-block { animation: none; opacity: 0.6; }
+  .tier-breathe { animation: none; }
   .photo-frame { transform: none; transition: none; }
   .greet-bubble { transition: opacity 0.2s ease; transform: none; }
   .greet-bubble.is-on { transform: none; }
