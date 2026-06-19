@@ -6,6 +6,8 @@ export const ASSETS = {
   nechMeRustLogo: '/media/nechmerust-logo.webp',
   impactlyLogo: '/media/impactly-logo.webp',
   csopLogo: '/media/csop-ostrov-logo.webp',
+  skolaLogo: '/media/skola-pokojny-bojovnik-logo.jpg',
+  vejcechvalovLogo: '/media/vejcechvalov-logo.svg',
 };
 
 export const CONTACT = {
@@ -102,6 +104,64 @@ export const PROJECTS = [
       es: 'Trabajo de campo, cuidado del paisaje, mapeo de biotopos y conexión de la comunidad local con la naturaleza. Acciones concretas en un lugar concreto.',
     },
   },
+  {
+    id: 'skola-pokojny-bojovnik',
+    name: 'Škola pokojný bojovník',
+    logo: ASSETS.skolaLogo,
+    website: 'https://www.skolapokojnybojovnik.cz',
+    instagram: null,
+    instagramUrl: null,
+    accent: '#c0392b',
+    year: '2024 — present',
+    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный', es: 'Activo' },
+    title: {
+      cs: 'Škola pokojný bojovník',
+      en: 'Škola pokojný bojovník',
+      ru: 'Škola pokojný bojovník',
+      es: 'Škola pokojný bojovník',
+    },
+    tagline: {
+      cs: 'Bojová umění pro děti i dospělé. Web, který roste s komunitou.',
+      en: 'Martial arts for children and adults. A site that grows with the community.',
+      ru: 'Боевые искусства для детей и взрослых. Сайт, растущий вместе с сообществом.',
+      es: 'Artes marciales para niños y adultos. Una web que crece con la comunidad.',
+    },
+    description: {
+      cs: 'Tvorba a správa webu pro školu bojových umění v Praze. Přehledný prezentační web s přihláškami, rozvrhem lekcí a aktualitami.',
+      en: 'Website creation and management for a martial arts school in Prague. A clear presentation site with registrations, class schedule and news.',
+      ru: 'Создание и ведение сайта для школы боевых искусств в Праге. Удобный презентационный сайт с записью, расписанием занятий и новостями.',
+      es: 'Creación y gestión de web para una escuela de artes marciales en Praga. Un sitio claro con inscripciones, horario de clases y novedades.',
+    },
+  },
+  {
+    id: 'vejcechvalov',
+    name: 'Vejce Chvalov',
+    logo: ASSETS.vejcechvalovLogo,
+    website: 'https://www.vejcechvalov.cz',
+    instagram: null,
+    instagramUrl: null,
+    accent: '#e8b84b',
+    year: '2025 — present',
+    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный', es: 'Activo' },
+    title: {
+      cs: 'Vejce Chvalov + Vaječný deník',
+      en: 'Vejce Chvalov + Egg Diary',
+      ru: 'Vejce Chvalov + Яичный дневник',
+      es: 'Vejce Chvalov + Diario de Huevos',
+    },
+    tagline: {
+      cs: 'Živé zásoby vajec — databáze na míru, která promítá stav skladu přímo na web.',
+      en: 'Live egg stock — a custom database that mirrors inventory state directly to the web.',
+      ru: 'Живой склад яиц — база данных на заказ, отображающая состояние запасов прямо на сайте.',
+      es: 'Stock de huevos en vivo — una base de datos a medida que refleja el inventario directamente en la web.',
+    },
+    description: {
+      cs: 'Web a vlastní databázová aplikace pro malou farmu ve Chvalově. Vaječný deník v reálném čase sleduje stav skladu a automaticky ho zobrazuje zákazníkům na webu. Řešení na míru bez zbytečných systémů.',
+      en: 'Website and custom database app for a small farm in Chvalov. The Egg Diary tracks stock in real time and automatically displays availability to customers on the site. Tailor-made, no unnecessary systems.',
+      ru: 'Сайт и собственное приложение с базой данных для небольшой фермы в Хваловe. Яичный дневник отслеживает запасы в реальном времени и автоматически показывает наличие покупателям на сайте.',
+      es: 'Web y aplicación de base de datos personalizada para una pequeña granja en Chvalov. El Diario de Huevos rastrea el inventario en tiempo real y muestra automáticamente la disponibilidad a los clientes en la web.',
+    },
+  },
 ];
 
 export const TRANSLATIONS = {
@@ -187,6 +247,19 @@ export const TRANSLATIONS = {
       ctaText:
         'Napište mi a domluvíme se. Nezavazujete se k ničemu — první konzultace je zdarma.',
       ctaButton: 'Napsat zprávu',
+      comparison: {
+        heading: 'Kolik to stojí u agentury vs. u mě',
+        agencyCol: 'Agentura',
+        meCol: 'Já',
+        savingsLabel: 'Ušetříte',
+        rows: [
+          { label: 'Správa webu / měsíc', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'až 70 %' },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'od 5 000 Kč', savings: 'až 75 %' },
+          { label: 'Firemní web', agency: '80 000 – 200 000 Kč', me: 'od 15 000 Kč', savings: 'až 85 %' },
+          { label: 'Hodinová sazba', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'až 80 %' },
+        ],
+        note: 'Ceny agentur jsou orientační průměr českého trhu. Neznamená to nižší kvalitu — znamená to méně režie, přímou komunikaci a AI nástroje v procesu.',
+      },
       services: {
         'sprava-webu': {
           title: 'Správa webu',
@@ -340,6 +413,19 @@ export const TRANSLATIONS = {
       ctaText:
         "Write to me and we'll figure it out. No commitment — the first consultation is free.",
       ctaButton: 'Send a message',
+      comparison: {
+        heading: 'Agency prices vs. my prices',
+        agencyCol: 'Agency',
+        meCol: 'Me',
+        savingsLabel: 'You save',
+        rows: [
+          { label: 'Website care / month', agency: '2,000 – 5,000 Kč', me: '750 – 2,000 Kč', savings: 'up to 70 %' },
+          { label: 'Landing page', agency: '20,000 – 60,000 Kč', me: 'from 5,000 Kč', savings: 'up to 75 %' },
+          { label: 'Company website', agency: '80,000 – 200,000 Kč', me: 'from 15,000 Kč', savings: 'up to 85 %' },
+          { label: 'Hourly rate', agency: '1,000 – 2,500 Kč', me: '500 Kč', savings: 'up to 80 %' },
+        ],
+        note: 'Agency prices are indicative averages for the Czech market. This does not mean lower quality — it means less overhead, direct communication, and AI tools in the process.',
+      },
       services: {
         'sprava-webu': {
           title: 'Website care',
@@ -493,6 +579,19 @@ export const TRANSLATIONS = {
       ctaText:
         'Напишите мне, и договоримся. Без обязательств — первая консультация бесплатно.',
       ctaButton: 'Написать',
+      comparison: {
+        heading: 'Цены агентства vs. мои цены',
+        agencyCol: 'Агентство',
+        meCol: 'Я',
+        savingsLabel: 'Экономия',
+        rows: [
+          { label: 'Поддержка сайта / месяц', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'до 70 %' },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'от 5 000 Kč', savings: 'до 75 %' },
+          { label: 'Корпоративный сайт', agency: '80 000 – 200 000 Kč', me: 'от 15 000 Kč', savings: 'до 85 %' },
+          { label: 'Почасовая ставка', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'до 80 %' },
+        ],
+        note: 'Цены агентств — ориентировочный средний показатель чешского рынка. Это не означает более низкое качество: это меньше накладных расходов, прямое общение и ИИ-инструменты в процессе.',
+      },
       services: {
         'sprava-webu': {
           title: 'Поддержка сайта',
@@ -646,6 +745,19 @@ export const TRANSLATIONS = {
       ctaText:
         'Escríbeme y lo vemos. Sin compromiso — la primera consulta es gratis.',
       ctaButton: 'Enviar mensaje',
+      comparison: {
+        heading: 'Precios de agencia vs. mis precios',
+        agencyCol: 'Agencia',
+        meCol: 'Yo',
+        savingsLabel: 'Ahorras',
+        rows: [
+          { label: 'Mantenimiento web / mes', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'hasta 70 %' },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'desde 5 000 Kč', savings: 'hasta 75 %' },
+          { label: 'Web corporativa', agency: '80 000 – 200 000 Kč', me: 'desde 15 000 Kč', savings: 'hasta 85 %' },
+          { label: 'Tarifa por horas', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'hasta 80 %' },
+        ],
+        note: 'Los precios de las agencias son una media orientativa del mercado checo. No significa menor calidad — significa menos gastos generales, comunicación directa y herramientas de IA en el proceso.',
+      },
       services: {
         'sprava-webu': {
           title: 'Mantenimiento web',
