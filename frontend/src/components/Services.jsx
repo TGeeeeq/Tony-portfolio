@@ -260,13 +260,31 @@ export default function Services() {
                         {row.me}
                       </td>
                       <td className="py-4 px-4 text-right mono text-[12px] text-[#7fb069]">
-                        {row.savings}
+                        {row.savings ?? '—'}
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
               <p className="mt-5 text-[13px] text-[#f1e9d8]/40 leading-relaxed italic">{p.comparison.note}</p>
+            </div>
+          </div>
+        )}
+
+        {/* Scope note */}
+        {p.scopeNote && (
+          <div className="reveal mt-8 border-l-2 border-[#d4a45a]/30 pl-5 max-w-2xl">
+            <p className="serif italic text-[#f1e9d8]/70 leading-relaxed">{p.scopeNote}</p>
+          </div>
+        )}
+
+        {/* Barter */}
+        {p.barter && (
+          <div className="reveal mt-16 md:mt-20 border border-[#7fb069]/20 bg-[#0d130d]/40 backdrop-blur-sm p-7 md:p-9 relative overflow-hidden">
+            <div className="pointer-events-none absolute -top-12 -right-12 w-40 h-40 rounded-full bg-[#7fb069]/08 blur-3xl" />
+            <div className="relative">
+              <h3 className="serif text-xl text-[#f1e9d8]">{p.barter.heading}</h3>
+              <p className="mt-3 text-[14px] text-[#f1e9d8]/70 leading-relaxed max-w-2xl">{p.barter.text}</p>
             </div>
           </div>
         )}

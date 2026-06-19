@@ -253,12 +253,17 @@ export const TRANSLATIONS = {
         meCol: 'Já',
         savingsLabel: 'Ušetříte',
         rows: [
-          { label: 'Správa webu / měsíc', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'až 70 %' },
-          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'od 5 000 Kč', savings: 'až 75 %' },
-          { label: 'Firemní web', agency: '80 000 – 200 000 Kč', me: 'od 15 000 Kč', savings: 'až 85 %' },
+          { label: 'Správa webu / měsíc', agency: '2 000 – 5 000 Kč', me: '3 750 – 5 000 Kč', savings: null },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'od 8 000 Kč', savings: 'až 60 %' },
+          { label: 'Firemní web', agency: '80 000 – 200 000 Kč', me: 'od 18 000 Kč', savings: 'až 77 %' },
           { label: 'Hodinová sazba', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'až 80 %' },
         ],
         note: 'Ceny agentur jsou orientační průměr českého trhu. Neznamená to nižší kvalitu — znamená to méně režie, přímou komunikaci a AI nástroje v procesu.',
+      },
+      scopeNote: 'Výsledná cena vždy záleží na rozsahu a konkrétních požadavcích. Detaily si klidně projdeme spolu — osobně nebo po telefonu.',
+      barter: {
+        heading: 'Nejste zastáncem peněz? Já také ne vždy.',
+        text: 'Nevylučuju výměnný obchod — služba za službu, nebo třeba materiál pro Louku. Pokud máš zajímavý nápad na výměnu, napiš mi a domluvíme se osobně.',
       },
       services: {
         'sprava-webu': {
@@ -419,12 +424,17 @@ export const TRANSLATIONS = {
         meCol: 'Me',
         savingsLabel: 'You save',
         rows: [
-          { label: 'Website care / month', agency: '2,000 – 5,000 Kč', me: '750 – 2,000 Kč', savings: 'up to 70 %' },
-          { label: 'Landing page', agency: '20,000 – 60,000 Kč', me: 'from 5,000 Kč', savings: 'up to 75 %' },
-          { label: 'Company website', agency: '80,000 – 200,000 Kč', me: 'from 15,000 Kč', savings: 'up to 85 %' },
+          { label: 'Website care / month', agency: '2,000 – 5,000 Kč', me: '3,750 – 5,000 Kč', savings: null },
+          { label: 'Landing page', agency: '20,000 – 60,000 Kč', me: 'from 8,000 Kč', savings: 'up to 60 %' },
+          { label: 'Company website', agency: '80,000 – 200,000 Kč', me: 'from 18,000 Kč', savings: 'up to 77 %' },
           { label: 'Hourly rate', agency: '1,000 – 2,500 Kč', me: '500 Kč', savings: 'up to 80 %' },
         ],
         note: 'Agency prices are indicative averages for the Czech market. This does not mean lower quality — it means less overhead, direct communication, and AI tools in the process.',
+      },
+      scopeNote: 'The final price always depends on the scope and specifics. Happy to walk through the details together — in person or over the phone.',
+      barter: {
+        heading: 'Not a fan of money? Me neither — sometimes.',
+        text: "I'm open to barter — a service for a service, or perhaps materials for Louka. If you have an interesting idea for an exchange, write to me and we'll work something out in person.",
       },
       services: {
         'sprava-webu': {
@@ -585,12 +595,17 @@ export const TRANSLATIONS = {
         meCol: 'Я',
         savingsLabel: 'Экономия',
         rows: [
-          { label: 'Поддержка сайта / месяц', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'до 70 %' },
-          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'от 5 000 Kč', savings: 'до 75 %' },
-          { label: 'Корпоративный сайт', agency: '80 000 – 200 000 Kč', me: 'от 15 000 Kč', savings: 'до 85 %' },
+          { label: 'Поддержка сайта / месяц', agency: '2 000 – 5 000 Kč', me: '3 750 – 5 000 Kč', savings: null },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'от 8 000 Kč', savings: 'до 60 %' },
+          { label: 'Корпоративный сайт', agency: '80 000 – 200 000 Kč', me: 'от 18 000 Kč', savings: 'до 77 %' },
           { label: 'Почасовая ставка', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'до 80 %' },
         ],
         note: 'Цены агентств — ориентировочный средний показатель чешского рынка. Это не означает более низкое качество: это меньше накладных расходов, прямое общение и ИИ-инструменты в процессе.',
+      },
+      scopeNote: 'Итоговая цена всегда зависит от объёма и конкретных требований. Детали обсудим вместе — лично или по телефону.',
+      barter: {
+        heading: 'Не сторонник денег? Я тоже не всегда.',
+        text: 'Обмен не исключаю — услуга за услугу или, например, материалы для Louka. Если есть интересная идея для обмена — напишите, договоримся лично.',
       },
       services: {
         'sprava-webu': {
@@ -751,12 +766,17 @@ export const TRANSLATIONS = {
         meCol: 'Yo',
         savingsLabel: 'Ahorras',
         rows: [
-          { label: 'Mantenimiento web / mes', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'hasta 70 %' },
-          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'desde 5 000 Kč', savings: 'hasta 75 %' },
-          { label: 'Web corporativa', agency: '80 000 – 200 000 Kč', me: 'desde 15 000 Kč', savings: 'hasta 85 %' },
+          { label: 'Mantenimiento web / mes', agency: '2 000 – 5 000 Kč', me: '3 750 – 5 000 Kč', savings: null },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'desde 8 000 Kč', savings: 'hasta 60 %' },
+          { label: 'Web corporativa', agency: '80 000 – 200 000 Kč', me: 'desde 18 000 Kč', savings: 'hasta 77 %' },
           { label: 'Tarifa por horas', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'hasta 80 %' },
         ],
         note: 'Los precios de las agencias son una media orientativa del mercado checo. No significa menor calidad — significa menos gastos generales, comunicación directa y herramientas de IA en el proceso.',
+      },
+      scopeNote: 'El precio final siempre depende del alcance y los requisitos concretos. Con gusto lo revisamos juntos — en persona o por teléfono.',
+      barter: {
+        heading: '¿No eres fan del dinero? Yo tampoco siempre.',
+        text: 'El intercambio no está descartado — un servicio por un servicio, o quizás materiales para Louka. Si tienes una idea interesante para un intercambio, escríbeme y lo hablamos en persona.',
       },
       services: {
         'sprava-webu': {
@@ -1083,18 +1103,18 @@ export const PRICING = {
       id: 'sprava-webu',
       kind: 'pausal',
       tiers: [
-        { key: 'zakladni', price: 750 },
-        { key: 'standard', price: 1250 },
-        { key: 'kompletni', price: 2000, highlighted: true },
+        { key: 'zakladni', price: 3750 },
+        { key: 'standard', price: 4250 },
+        { key: 'kompletni', price: 5000, highlighted: true },
       ],
     },
     {
       id: 'tvorba-webu',
       kind: 'project',
       items: [
-        { key: 'landing', priceFrom: 5000 },
-        { key: 'redesign', priceFrom: 9000 },
-        { key: 'firemni', priceFrom: 15000 },
+        { key: 'landing', priceFrom: 8000 },
+        { key: 'redesign', priceFrom: 12000 },
+        { key: 'firemni', priceFrom: 18000 },
       ],
     },
     {
