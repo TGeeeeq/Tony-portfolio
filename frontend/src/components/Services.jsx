@@ -229,6 +229,48 @@ export default function Services() {
           </div>
         </div>
 
+        {/* Pricing comparison — agency vs. me */}
+        {p.comparison && (
+          <div className="mt-16 md:mt-24">
+            <span className="reveal eyebrow block">{p.comparison.heading}</span>
+            <div className="reveal mt-8 overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th className="text-left py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#f1e9d8]/40 font-normal border-b border-[#d4a45a]/15 w-2/5" />
+                    <th className="text-right py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#f1e9d8]/40 font-normal border-b border-[#d4a45a]/15">
+                      {p.comparison.agencyCol}
+                    </th>
+                    <th className="text-right py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#d4a45a]/80 font-normal border-b border-[#d4a45a]/40">
+                      {p.comparison.meCol}
+                    </th>
+                    <th className="text-right py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#7fb069]/70 font-normal border-b border-[#d4a45a]/15">
+                      {p.comparison.savingsLabel}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {p.comparison.rows.map((row, i) => (
+                    <tr key={i} className="group border-b border-[#d4a45a]/08 hover:bg-[#d4a45a]/04 transition-colors duration-200">
+                      <td className="py-4 px-4 text-[14px] text-[#f1e9d8]/80 leading-snug">{row.label}</td>
+                      <td className="py-4 px-4 text-right mono text-[13px] text-[#f1e9d8]/40 line-through decoration-[#f1e9d8]/20">
+                        {row.agency}
+                      </td>
+                      <td className="py-4 px-4 text-right mono text-[13px] text-[#d4a45a] font-medium">
+                        {row.me}
+                      </td>
+                      <td className="py-4 px-4 text-right mono text-[12px] text-[#7fb069]">
+                        {row.savings}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="mt-5 text-[13px] text-[#f1e9d8]/40 leading-relaxed italic">{p.comparison.note}</p>
+            </div>
+          </div>
+        )}
+
         {/* References */}
         <div className="mt-16 md:mt-24">
           <span className="reveal eyebrow block">{p.refsLabel}</span>
