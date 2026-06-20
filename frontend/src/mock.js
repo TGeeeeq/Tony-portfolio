@@ -104,6 +104,11 @@ export const PROJECTS = [
       es: 'Trabajo de campo, cuidado del paisaje, mapeo de biotopos y conexión de la comunidad local con la naturaleza. Acciones concretas en un lugar concreto.',
     },
   },
+];
+
+// Realizace na míru — zobrazují se jako ukázky práce v sekci Služby (Tvorba webu),
+// ne na hlavní stránce mezi vlastními projekty.
+export const REALIZATIONS = [
   {
     id: 'skola-pokojny-bojovnik',
     name: 'Škola pokojný bojovník',
@@ -131,6 +136,40 @@ export const PROJECTS = [
       en: 'Website creation and management for a martial arts school in Prague. A clear presentation site with registrations, class schedule and news.',
       ru: 'Создание и ведение сайта для школы боевых искусств в Праге. Удобный презентационный сайт с записью, расписанием занятий и новостями.',
       es: 'Creación y gestión de web para una escuela de artes marciales en Praga. Un sitio claro con inscripciones, horario de clases y novedades.',
+    },
+    work: {
+      cs: [
+        'Tvorba a kompletní přepsání webu',
+        'Google Search Console',
+        'Registrace a optimalizace pro Seznam',
+        'SEO — optimalizace pro vyhledávače',
+        'GEO — optimalizace pro AI vyhledávání',
+        'Průběžná správa a aktualizace',
+      ],
+      en: [
+        'Website build and full rewrite',
+        'Google Search Console',
+        'Seznam registration and optimization',
+        'SEO — search engine optimization',
+        'GEO — generative / AI search optimization',
+        'Ongoing management and updates',
+      ],
+      ru: [
+        'Создание и полная переработка сайта',
+        'Google Search Console',
+        'Регистрация и оптимизация для Seznam',
+        'SEO — поисковая оптимизация',
+        'GEO — оптимизация под AI-поиск',
+        'Постоянное ведение и обновления',
+      ],
+      es: [
+        'Creación y reescritura completa de la web',
+        'Google Search Console',
+        'Registro y optimización para Seznam',
+        'SEO — optimización para buscadores',
+        'GEO — optimización para búsqueda con IA',
+        'Gestión y actualizaciones continuas',
+      ],
     },
   },
   {
@@ -160,6 +199,36 @@ export const PROJECTS = [
       en: 'Website and custom database app for a small farm in Chvalov. The Egg Diary tracks stock in real time and automatically displays availability to customers on the site. Tailor-made, no unnecessary systems.',
       ru: 'Сайт и собственное приложение с базой данных для небольшой фермы в Хваловe. Яичный дневник отслеживает запасы в реальном времени и автоматически показывает наличие покупателям на сайте.',
       es: 'Web y aplicación de base de datos personalizada para una pequeña granja en Chvalov. El Diario de Huevos rastrea el inventario en tiempo real y muestra automáticamente la disponibilidad a los clientes en la web.',
+    },
+    work: {
+      cs: [
+        'Tvorba webu',
+        'Správa domény',
+        'Vlastní databáze a její propojení s webem',
+        'Vaječný deník — živý stav skladu na webu',
+        'Celková průběžná správa',
+      ],
+      en: [
+        'Website build',
+        'Domain management',
+        'Custom database connected to the site',
+        'Egg Diary — live stock state on the web',
+        'Complete ongoing management',
+      ],
+      ru: [
+        'Создание сайта',
+        'Управление доменом',
+        'Собственная база данных, связанная с сайтом',
+        'Яичный дневник — живой склад на сайте',
+        'Полное постоянное ведение',
+      ],
+      es: [
+        'Creación de la web',
+        'Gestión del dominio',
+        'Base de datos propia conectada a la web',
+        'Diario de Huevos — stock en vivo en la web',
+        'Gestión integral continua',
+      ],
     },
   },
 ];
@@ -239,6 +308,7 @@ export const TRANSLATIONS = {
       vatNote: 'Ceny jsou uvedeny bez DPH.',
       highlightBadge: 'Vše v jednom',
       refsLabel: 'Kde to běží',
+      realizaceLabel: 'Ukázky realizací',
       back: '← Zpět na úvod',
       kindPausal: 'Měsíční paušál',
       kindProject: 'Jednorázově',
@@ -253,7 +323,7 @@ export const TRANSLATIONS = {
         meCol: 'Já',
         savingsLabel: 'Ušetříte',
         rows: [
-          { label: 'Správa webu / měsíc', agency: '2 000 – 5 000 Kč', me: '3 750 – 5 000 Kč', savings: null },
+          { label: 'Správa webu / měsíc', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'až 70 %' },
           { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'od 8 000 Kč', savings: 'až 60 %' },
           { label: 'Firemní web', agency: '80 000 – 200 000 Kč', me: 'od 18 000 Kč', savings: 'až 77 %' },
           { label: 'Hodinová sazba', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'až 80 %' },
@@ -274,7 +344,7 @@ export const TRANSLATIONS = {
             zakladni: {
               name: 'Základní',
               includes: [
-                'Aktualizace WordPressu, šablony a pluginů',
+                'Aktualizace systému a komponent webu',
                 'Týdenní zálohy',
                 'Monitoring dostupnosti',
                 'Bezpečnostní kontrola',
@@ -410,6 +480,7 @@ export const TRANSLATIONS = {
       vatNote: 'Prices are listed without VAT.',
       highlightBadge: 'All in one',
       refsLabel: 'Where it runs',
+      realizaceLabel: 'Selected work',
       back: '← Back home',
       kindPausal: 'Monthly retainer',
       kindProject: 'One-off project',
@@ -424,7 +495,7 @@ export const TRANSLATIONS = {
         meCol: 'Me',
         savingsLabel: 'You save',
         rows: [
-          { label: 'Website care / month', agency: '2,000 – 5,000 Kč', me: '3,750 – 5,000 Kč', savings: null },
+          { label: 'Website care / month', agency: '2,000 – 5,000 Kč', me: '750 – 2,000 Kč', savings: 'up to 70 %' },
           { label: 'Landing page', agency: '20,000 – 60,000 Kč', me: 'from 8,000 Kč', savings: 'up to 60 %' },
           { label: 'Company website', agency: '80,000 – 200,000 Kč', me: 'from 18,000 Kč', savings: 'up to 77 %' },
           { label: 'Hourly rate', agency: '1,000 – 2,500 Kč', me: '500 Kč', savings: 'up to 80 %' },
@@ -445,7 +516,7 @@ export const TRANSLATIONS = {
             zakladni: {
               name: 'Basic',
               includes: [
-                'WordPress, theme & plugin updates',
+                'System and website component updates',
                 'Weekly backups',
                 'Uptime monitoring',
                 'Security check',
@@ -581,6 +652,7 @@ export const TRANSLATIONS = {
       vatNote: 'Цены указаны без НДС.',
       highlightBadge: 'Всё включено',
       refsLabel: 'Где это работает',
+      realizaceLabel: 'Примеры работ',
       back: '← На главную',
       kindPausal: 'Ежемесячно',
       kindProject: 'Разовый проект',
@@ -595,7 +667,7 @@ export const TRANSLATIONS = {
         meCol: 'Я',
         savingsLabel: 'Экономия',
         rows: [
-          { label: 'Поддержка сайта / месяц', agency: '2 000 – 5 000 Kč', me: '3 750 – 5 000 Kč', savings: null },
+          { label: 'Поддержка сайта / месяц', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'до 70 %' },
           { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'от 8 000 Kč', savings: 'до 60 %' },
           { label: 'Корпоративный сайт', agency: '80 000 – 200 000 Kč', me: 'от 18 000 Kč', savings: 'до 77 %' },
           { label: 'Почасовая ставка', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'до 80 %' },
@@ -616,7 +688,7 @@ export const TRANSLATIONS = {
             zakladni: {
               name: 'Базовый',
               includes: [
-                'Обновления WordPress, темы и плагинов',
+                'Обновления системы и компонентов сайта',
                 'Еженедельные бэкапы',
                 'Мониторинг доступности',
                 'Проверка безопасности',
@@ -752,6 +824,7 @@ export const TRANSLATIONS = {
       vatNote: 'Precios sin IVA.',
       highlightBadge: 'Todo en uno',
       refsLabel: 'Dónde funciona',
+      realizaceLabel: 'Trabajos realizados',
       back: '← Volver al inicio',
       kindPausal: 'Cuota mensual',
       kindProject: 'Proyecto puntual',
@@ -766,7 +839,7 @@ export const TRANSLATIONS = {
         meCol: 'Yo',
         savingsLabel: 'Ahorras',
         rows: [
-          { label: 'Mantenimiento web / mes', agency: '2 000 – 5 000 Kč', me: '3 750 – 5 000 Kč', savings: null },
+          { label: 'Mantenimiento web / mes', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'hasta 70 %' },
           { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'desde 8 000 Kč', savings: 'hasta 60 %' },
           { label: 'Web corporativa', agency: '80 000 – 200 000 Kč', me: 'desde 18 000 Kč', savings: 'hasta 77 %' },
           { label: 'Tarifa por horas', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'hasta 80 %' },
@@ -787,7 +860,7 @@ export const TRANSLATIONS = {
             zakladni: {
               name: 'Básico',
               includes: [
-                'Actualizaciones de WordPress, plantilla y plugins',
+                'Actualizaciones del sistema y los componentes web',
                 'Copias semanales',
                 'Monitorización de disponibilidad',
                 'Revisión de seguridad',
@@ -1103,9 +1176,9 @@ export const PRICING = {
       id: 'sprava-webu',
       kind: 'pausal',
       tiers: [
-        { key: 'zakladni', price: 3750 },
-        { key: 'standard', price: 4250 },
-        { key: 'kompletni', price: 5000, highlighted: true },
+        { key: 'zakladni', price: 750 },
+        { key: 'standard', price: 1250 },
+        { key: 'kompletni', price: 2000, highlighted: true },
       ],
     },
     {

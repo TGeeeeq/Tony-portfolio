@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Check, ArrowLeft, Sparkles, ExternalLink } from 'lucide-react';
-import { PRICING, PROJECTS, CONTACT } from '../mock';
+import { PRICING, PROJECTS, REALIZATIONS, CONTACT } from '../mock';
 import { formatPrice } from '../lib/price';
 import { useLang } from '../contexts/LanguageContext';
 
@@ -99,7 +99,7 @@ export default function Services() {
   const sprava = PRICING.services.find((s) => s.id === 'sprava-webu');
   const tvorba = PRICING.services.find((s) => s.id === 'tvorba-webu');
   const techText = p.services['technicke-prace'];
-  const refs = PROJECTS.filter((pr) => pr.website);
+  const refs = [...PROJECTS, ...REALIZATIONS].filter((pr) => pr.website);
 
   const goContact = () => {
     navigate('/');
@@ -193,6 +193,68 @@ export default function Services() {
                 </div>
               );
             })}
+          </div>
+
+          {/* Realizace na míru — ukázky práce přesunuté z hlavní stránky */}
+          <div className="mt-12 md:mt-14">
+            <span className="reveal eyebrow block">{p.realizaceLabel}</span>
+            <div className="reveal mt-6 grid md:grid-cols-2 gap-4 md:gap-5">
+              {REALIZATIONS.map((r, i) => (
+                <div
+                  key={r.id}
+                  className="border border-[#d4a45a]/15 bg-[#141312]/40 backdrop-blur-sm p-6 md:p-7 transition-all duration-500 hover:border-[#d4a45a]/45 hover:-translate-y-1"
+                  style={{ transitionDelay: `${i * 0.08}s` }}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white border border-[#d4a45a]/20 overflow-hidden flex items-center justify-center">
+                      <img
+                        src={r.logo}
+                        alt={r.name}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-[85%] h-[85%] object-contain"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="serif text-xl text-[#f1e9d8] leading-tight">{r.name}</h4>
+                      <span
+                        className="mono text-[9px] tracking-[0.22em] uppercase"
+                        style={{ color: r.accent }}
+                      >
+                        {r.status[lang]}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="mt-4 serif italic text-[15px] text-[#f1e9d8]/85 leading-snug">
+                    {r.tagline[lang]}
+                  </p>
+                  <p className="mt-3 text-[14px] text-[#f1e9d8]/65 leading-relaxed">
+                    {r.description[lang]}
+                  </p>
+                  {r.work && (
+                    <ul className="mt-4 space-y-2">
+                      {r.work[lang].map((line, j) => (
+                        <li key={j} className="flex items-start gap-2.5 text-[13px] text-[#f1e9d8]/75 leading-snug">
+                          <Check size={14} className="text-[#7fb069] mt-0.5 flex-shrink-0" />
+                          <span>{line}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {r.website && (
+                    <a
+                      href={r.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-5 inline-flex items-center gap-1.5 mono text-[10px] tracking-[0.18em] uppercase text-[#f1e9d8]/70 border border-[#d4a45a]/25 px-3 py-1.5 hover:border-[#d4a45a] hover:text-[#d4a45a] transition-all duration-300"
+                    >
+                      <ExternalLink size={12} />
+                      {t.projects.visit}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

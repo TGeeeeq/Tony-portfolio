@@ -47,7 +47,7 @@ export default function Projects() {
                     {p.status[lang]}
                   </span>
                 </div>
-                <p className="mt-0.5 text-[13px] text-[#f1e9d8]/50 leading-snug truncate">
+                <p className="mt-0.5 text-[13px] text-[#f1e9d8]/50 leading-snug">
                   {p.tagline[lang]}
                 </p>
               </div>
