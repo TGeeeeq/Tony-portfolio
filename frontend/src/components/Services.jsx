@@ -99,7 +99,11 @@ export default function Services() {
   const sprava = PRICING.services.find((s) => s.id === 'sprava-webu');
   const tvorba = PRICING.services.find((s) => s.id === 'tvorba-webu');
   const techText = p.services['technicke-prace'];
-  const refs = [...PROJECTS, ...REALIZATIONS].filter((pr) => pr.website);
+  const caseStudies = [
+    PROJECTS.find((pr) => pr.id === 'nechmerust'),
+    PROJECTS.find((pr) => pr.id === 'csop'),
+    ...REALIZATIONS,
+  ].filter(Boolean);
 
   const goContact = () => {
     navigate('/');
@@ -195,63 +199,42 @@ export default function Services() {
             })}
           </div>
 
-          {/* Realizace na míru — ukázky práce přesunuté z hlavní stránky */}
+          {/* Realizace na míru — kompaktní ukázky práce */}
           <div className="mt-12 md:mt-14">
             <span className="reveal eyebrow block">{p.realizaceLabel}</span>
-            <div className="reveal mt-6 grid md:grid-cols-2 gap-4 md:gap-5">
-              {REALIZATIONS.map((r, i) => (
+            <div className="reveal mt-6 grid sm:grid-cols-2 gap-3 md:gap-4">
+              {caseStudies.map((r, i) => (
                 <div
                   key={r.id}
-                  className="border border-[#d4a45a]/15 bg-[#141312]/40 backdrop-blur-sm p-6 md:p-7 transition-all duration-500 hover:border-[#d4a45a]/45 hover:-translate-y-1"
-                  style={{ transitionDelay: `${i * 0.08}s` }}
+                  className="border border-[#d4a45a]/15 bg-[#141312]/40 backdrop-blur-sm p-4 md:p-5 flex items-start gap-3.5 transition-all duration-500 hover:border-[#d4a45a]/45"
+                  style={{ transitionDelay: `${i * 0.06}s` }}
                 >
-                  <div className="flex items-center gap-3.5">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white border border-[#d4a45a]/20 overflow-hidden flex items-center justify-center">
-                      <img
-                        src={r.logo}
-                        alt={r.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-[85%] h-[85%] object-contain"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="serif text-xl text-[#f1e9d8] leading-tight">{r.name}</h4>
-                      <span
-                        className="mono text-[9px] tracking-[0.22em] uppercase"
-                        style={{ color: r.accent }}
-                      >
-                        {r.status[lang]}
-                      </span>
-                    </div>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-[#d4a45a]/20 overflow-hidden flex items-center justify-center">
+                    <img
+                      src={r.logo}
+                      alt={r.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-[85%] h-[85%] object-contain"
+                    />
                   </div>
-                  <p className="mt-4 serif italic text-[15px] text-[#f1e9d8]/85 leading-snug">
-                    {r.tagline[lang]}
-                  </p>
-                  <p className="mt-3 text-[14px] text-[#f1e9d8]/65 leading-relaxed">
-                    {r.description[lang]}
-                  </p>
-                  {r.work && (
-                    <ul className="mt-4 space-y-2">
-                      {r.work[lang].map((line, j) => (
-                        <li key={j} className="flex items-start gap-2.5 text-[13px] text-[#f1e9d8]/75 leading-snug">
-                          <Check size={14} className="text-[#7fb069] mt-0.5 flex-shrink-0" />
-                          <span>{line}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {r.website && (
-                    <a
-                      href={r.website}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 mono text-[10px] tracking-[0.18em] uppercase text-[#f1e9d8]/70 border border-[#d4a45a]/25 px-3 py-1.5 hover:border-[#d4a45a] hover:text-[#d4a45a] transition-all duration-300"
-                    >
-                      <ExternalLink size={12} />
-                      {t.projects.visit}
-                    </a>
-                  )}
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h4 className="serif text-base text-[#f1e9d8] leading-tight">{r.name}</h4>
+                      {r.website && (
+                        <a
+                          href={r.website}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${r.name} — ${t.projects.visit}`}
+                          className="text-[#f1e9d8]/40 hover:text-[#d4a45a] transition-colors duration-300"
+                        >
+                          <ExternalLink size={13} />
+                        </a>
+                      )}
+                    </div>
+                    <p className="mt-1 text-[13px] text-[#f1e9d8]/60 leading-snug">{r.summary[lang]}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -350,30 +333,6 @@ export default function Services() {
             </div>
           </div>
         )}
-
-        {/* References */}
-        <div className="mt-16 md:mt-24">
-          <span className="reveal eyebrow block">{p.refsLabel}</span>
-          <div className="reveal mt-6 flex flex-wrap items-center gap-x-10 gap-y-5">
-            {refs.map((pr) => (
-              <a
-                key={pr.id}
-                href={pr.website}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-3 text-[#f1e9d8]/70 hover:text-[#d4a45a] transition-colors duration-300"
-              >
-                <img
-                  src={pr.logo}
-                  alt={pr.name}
-                  className="w-9 h-9 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                />
-                <span className="serif text-lg">{pr.name}</span>
-                <ExternalLink size={13} className="opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-              </a>
-            ))}
-          </div>
-        </div>
 
         {/* CTA */}
         <div className="reveal mt-20 relative overflow-hidden border border-[#d4a45a]/20 bg-[#141312]/50 p-8 md:p-12 text-center">

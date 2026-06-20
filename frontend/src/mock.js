@@ -45,6 +45,12 @@ export const PROJECTS = [
       ru: 'Платформа и сообщество для тех, кто ищет возвращения к корням, подлинному я и естественному ритму жизни.',
       es: 'Santuario animal y comunidad para quienes buscan el regreso a las raíces, al yo auténtico y al ritmo natural de la vida. Compartimos inspiración, rituales y herramientas prácticas para el día a día.',
     },
+    summary: {
+      cs: 'Tvorba a kompletní správa webu — hosting, doména, e-mail i obsah pro neziskovku.',
+      en: 'Website build and full management — hosting, domain, e-mail and content for the nonprofit.',
+      ru: 'Создание и полное ведение сайта — хостинг, домен, почта и контент для НКО.',
+      es: 'Creación y gestión integral de la web — hosting, dominio, correo y contenido para la ONG.',
+    },
   },
   {
     id: 'impactly',
@@ -103,6 +109,12 @@ export const PROJECTS = [
       ru: 'Полевая работа, забота о ландшафте, картирование биотопов и связь местного сообщества с природой.',
       es: 'Trabajo de campo, cuidado del paisaje, mapeo de biotopos y conexión de la comunidad local con la naturaleza. Acciones concretas en un lugar concreto.',
     },
+    summary: {
+      cs: 'Tvorba a správa webu pro ochranářský spolek — od návrhu po provoz i obsah.',
+      en: 'Website build and management for a conservation group — from design to running it.',
+      ru: 'Создание и ведение сайта для природоохранного объединения — от дизайна до эксплуатации.',
+      es: 'Creación y gestión de la web para un grupo conservacionista — del diseño a la operación.',
+    },
   },
 ];
 
@@ -137,39 +149,11 @@ export const REALIZATIONS = [
       ru: 'Создание и ведение сайта для школы боевых искусств в Праге. Удобный презентационный сайт с записью, расписанием занятий и новостями.',
       es: 'Creación y gestión de web para una escuela de artes marciales en Praga. Un sitio claro con inscripciones, horario de clases y novedades.',
     },
-    work: {
-      cs: [
-        'Tvorba a kompletní přepsání webu',
-        'Google Search Console',
-        'Registrace a optimalizace pro Seznam',
-        'SEO — optimalizace pro vyhledávače',
-        'GEO — optimalizace pro AI vyhledávání',
-        'Průběžná správa a aktualizace',
-      ],
-      en: [
-        'Website build and full rewrite',
-        'Google Search Console',
-        'Seznam registration and optimization',
-        'SEO — search engine optimization',
-        'GEO — generative / AI search optimization',
-        'Ongoing management and updates',
-      ],
-      ru: [
-        'Создание и полная переработка сайта',
-        'Google Search Console',
-        'Регистрация и оптимизация для Seznam',
-        'SEO — поисковая оптимизация',
-        'GEO — оптимизация под AI-поиск',
-        'Постоянное ведение и обновления',
-      ],
-      es: [
-        'Creación y reescritura completa de la web',
-        'Google Search Console',
-        'Registro y optimización para Seznam',
-        'SEO — optimización para buscadores',
-        'GEO — optimización para búsqueda con IA',
-        'Gestión y actualizaciones continuas',
-      ],
+    summary: {
+      cs: 'Tvorba a přepsání webu, SEO i GEO, Search Console, Seznam a průběžná správa.',
+      en: 'Website build and rewrite, SEO & GEO, Search Console, Seznam and ongoing management.',
+      ru: 'Создание и переработка сайта, SEO и GEO, Search Console, Seznam и постоянное ведение.',
+      es: 'Creación y reescritura de la web, SEO y GEO, Search Console, Seznam y gestión continua.',
     },
   },
   {
@@ -200,35 +184,11 @@ export const REALIZATIONS = [
       ru: 'Сайт и собственное приложение с базой данных для небольшой фермы в Хваловe. Яичный дневник отслеживает запасы в реальном времени и автоматически показывает наличие покупателям на сайте.',
       es: 'Web y aplicación de base de datos personalizada para una pequeña granja en Chvalov. El Diario de Huevos rastrea el inventario en tiempo real y muestra automáticamente la disponibilidad a los clientes en la web.',
     },
-    work: {
-      cs: [
-        'Tvorba webu',
-        'Správa domény',
-        'Vlastní databáze a její propojení s webem',
-        'Vaječný deník — živý stav skladu na webu',
-        'Celková průběžná správa',
-      ],
-      en: [
-        'Website build',
-        'Domain management',
-        'Custom database connected to the site',
-        'Egg Diary — live stock state on the web',
-        'Complete ongoing management',
-      ],
-      ru: [
-        'Создание сайта',
-        'Управление доменом',
-        'Собственная база данных, связанная с сайтом',
-        'Яичный дневник — живой склад на сайте',
-        'Полное постоянное ведение',
-      ],
-      es: [
-        'Creación de la web',
-        'Gestión del dominio',
-        'Base de datos propia conectada a la web',
-        'Diario de Huevos — stock en vivo en la web',
-        'Gestión integral continua',
-      ],
+    summary: {
+      cs: 'Web s vlastní databází (vaječný deník v reálném čase), správa domény i celkový provoz.',
+      en: 'Website with a custom database (real-time egg diary), domain management and full operation.',
+      ru: 'Сайт с собственной базой (яичный дневник в реальном времени), управление доменом и полное сопровождение.',
+      es: 'Web con base de datos propia (diario de huevos en tiempo real), gestión del dominio y operación integral.',
     },
   },
 ];
