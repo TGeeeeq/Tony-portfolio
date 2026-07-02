@@ -85,7 +85,7 @@ export const PROJECTS = [
     id: 'csop',
     name: 'ČSOP Trosečníci Ostrov',
     logo: ASSETS.csopLogo,
-    website: 'https://trosecnici.vercel.app',
+    website: 'https://csoptrosecnici.cz',
     instagram: 'csoptrosecnici',
     instagramUrl: 'https://www.instagram.com/csoptrosecnici',
     accent: '#6ea8c4',
