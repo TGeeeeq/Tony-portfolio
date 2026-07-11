@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Layers, Clock, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, Layers, Clock, Sparkles, ArrowUpRight, Coins } from 'lucide-react';
 import { SERVICES_TEASER, PRICING } from '../mock';
 import { formatPrice } from '../lib/price';
 import { useLang } from '../contexts/LanguageContext';
@@ -81,6 +81,14 @@ export default function ServicesTeaser() {
                 </div>
               ))}
             </div>
+
+            {/* payment options note */}
+            {st.paymentNote && (
+              <div className="mt-6 flex items-start gap-2.5 text-[13px] text-[#f1e9d8]/60 leading-relaxed">
+                <Coins size={15} className="text-[#7fb069] mt-0.5 flex-shrink-0" />
+                <span>{st.paymentNote}</span>
+              </div>
+            )}
 
             {/* cta */}
             <div className="mt-8 inline-flex items-center gap-2 mono text-[11px] tracking-[0.24em] uppercase text-[#f1e9d8] group-hover:text-[#d4a45a] transition-colors duration-400">

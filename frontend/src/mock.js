@@ -293,7 +293,7 @@ export const TRANSLATIONS = {
       scopeNote: 'Výsledná cena vždy záleží na rozsahu a konkrétních požadavcích. Detaily si klidně projdeme spolu — osobně nebo po telefonu.',
       barter: {
         heading: 'Nejste zastáncem peněz? Já také ne vždy.',
-        text: 'Nevylučuju výměnný obchod — služba za službu, nebo třeba materiál pro Louku. Pokud máš zajímavý nápad na výměnu, napiš mi a domluvíme se osobně.',
+        text: 'Platit můžete klasicky penězi, ale klidně i Bitcoinem či jinou kryptoměnou. A nevylučuju ani výměnný obchod — služba za službu, nebo třeba materiál pro Louku. Jsem otevřený všem způsobům; pokud máš zajímavý nápad, napiš mi a domluvíme se osobně.',
       },
       services: {
         'sprava-webu': {
@@ -465,7 +465,7 @@ export const TRANSLATIONS = {
       scopeNote: 'The final price always depends on the scope and specifics. Happy to walk through the details together — in person or over the phone.',
       barter: {
         heading: 'Not a fan of money? Me neither — sometimes.',
-        text: "I'm open to barter — a service for a service, or perhaps materials for Louka. If you have an interesting idea for an exchange, write to me and we'll work something out in person.",
+        text: "You can pay the classic way with money, but also with Bitcoin or another cryptocurrency. And I'm open to barter too — a service for a service, or perhaps materials for Louka. I'm open to all options; if you have an interesting idea, write to me and we'll work something out in person.",
       },
       services: {
         'sprava-webu': {
@@ -637,7 +637,7 @@ export const TRANSLATIONS = {
       scopeNote: 'Итоговая цена всегда зависит от объёма и конкретных требований. Детали обсудим вместе — лично или по телефону.',
       barter: {
         heading: 'Не сторонник денег? Я тоже не всегда.',
-        text: 'Обмен не исключаю — услуга за услугу или, например, материалы для Louka. Если есть интересная идея для обмена — напишите, договоримся лично.',
+        text: 'Платить можно как обычно — деньгами, а можно и биткоином или другой криптовалютой. Обмен тоже не исключаю — услуга за услугу или, например, материалы для Louka. Я открыт ко всем вариантам: если есть интересная идея — напишите, договоримся лично.',
       },
       services: {
         'sprava-webu': {
@@ -809,7 +809,7 @@ export const TRANSLATIONS = {
       scopeNote: 'El precio final siempre depende del alcance y los requisitos concretos. Con gusto lo revisamos juntos — en persona o por teléfono.',
       barter: {
         heading: '¿No eres fan del dinero? Yo tampoco siempre.',
-        text: 'El intercambio no está descartado — un servicio por un servicio, o quizás materiales para Louka. Si tienes una idea interesante para un intercambio, escríbeme y lo hablamos en persona.',
+        text: 'Puedes pagar de forma clásica con dinero, pero también con Bitcoin u otra criptomoneda. Y tampoco descarto el intercambio — un servicio por un servicio, o quizás materiales para Louka. Estoy abierto a todas las opciones; si tienes una idea interesante, escríbeme y lo hablamos en persona.',
       },
       services: {
         'sprava-webu': {
@@ -1164,6 +1164,7 @@ export const SERVICES_TEASER = {
     title: 'Postarám se o váš web',
     subtitle:
       'Správa, tvorba i jednorázové technické práce — za zlomek ceny agentury. Pro malé spolky a neziskovky.',
+    paymentNote: 'Peníze, Bitcoin i jiné kryptoměny, nebo výměnný obchod — jsem otevřený všem způsobům platby.',
     cta: 'Zobrazit ceník',
   },
   en: {
@@ -1171,6 +1172,7 @@ export const SERVICES_TEASER = {
     title: 'I take care of your website',
     subtitle:
       "Care, creation and one-off technical work — at a fraction of an agency's price. For small clubs and nonprofits.",
+    paymentNote: "Money, Bitcoin and other cryptocurrencies, or barter — I'm open to all forms of payment.",
     cta: 'See pricing',
   },
   ru: {
@@ -1178,6 +1180,7 @@ export const SERVICES_TEASER = {
     title: 'Позабочусь о вашем сайте',
     subtitle:
       'Поддержка, создание и разовые технические работы — за долю цены агентства. Для небольших объединений и НКО.',
+    paymentNote: 'Деньги, биткоин и другие криптовалюты или обмен — я открыт ко всем способам оплаты.',
     cta: 'Смотреть цены',
   },
   es: {
@@ -1185,6 +1188,7 @@ export const SERVICES_TEASER = {
     title: 'Me ocupo de tu web',
     subtitle:
       'Mantenimiento, creación y trabajos técnicos puntuales — a una fracción del precio de una agencia. Para pequeñas asociaciones y ONG.',
+    paymentNote: 'Dinero, Bitcoin y otras criptomonedas, o intercambio — estoy abierto a todas las formas de pago.',
     cta: 'Ver precios',
   },
 };
