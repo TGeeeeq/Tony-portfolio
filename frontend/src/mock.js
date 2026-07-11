@@ -8,6 +8,7 @@ export const ASSETS = {
   csopLogo: '/media/csop-ostrov-logo.webp',
   skolaLogo: '/media/skola-pokojny-bojovnik-logo.jpg',
   vejcechvalovLogo: '/media/vejcechvalov-logo.svg',
+  loukarunLogo: '/media/loukarun-logo.png',
 };
 
 export const CONTACT = {
@@ -189,6 +190,41 @@ export const REALIZATIONS = [
       en: 'Website with a custom database (real-time egg diary), domain management and full operation.',
       ru: 'Сайт с собственной базой (яичный дневник в реальном времени), управление доменом и полное сопровождение.',
       es: 'Web con base de datos propia (diario de huevos en tiempo real), gestión del dominio y operación integral.',
+    },
+  },
+  {
+    id: 'loukarun',
+    name: 'Louka Run',
+    logo: ASSETS.loukarunLogo,
+    website: 'https://www.nechmerust.org/loukarun',
+    instagram: null,
+    instagramUrl: null,
+    accent: '#7cb342',
+    year: '2026 — present',
+    status: { cs: 'Aktivní', en: 'Active', ru: 'Активный', es: 'Activo' },
+    title: {
+      cs: 'Louka Run',
+      en: 'Louka Run',
+      ru: 'Louka Run',
+      es: 'Louka Run',
+    },
+    tagline: {
+      cs: 'Veselá běhací hra se skutečnými zvířátky z azylu Nech mě růst — celý výtěžek jde zvířatům.',
+      en: 'A cheerful runner game with real animals from the Nech mě růst sanctuary — all proceeds go to the animals.',
+      ru: 'Весёлый раннер с настоящими животными из приюта Nech mě růst — вся выручка идёт животным.',
+      es: 'Un alegre juego de correr con animales reales del santuario Nech mě růst — toda la recaudación es para los animales.',
+    },
+    description: {
+      cs: 'Endless runner ve stylu Temple Run: osel Karel, ovečka Pogo, kráva Avala a další skuteční obyvatelé azylu běží loukou, sadem i lesem, sbírají mrkvičky a mince. Kompletní vývoj hry — procedurální grafika v canvasu, zvuk přes WebAudio, PWA a vydání pro Google Play přes Capacitor.',
+      en: 'A Temple Run–style endless runner: donkey Karel, sheep Pogo, cow Avala and other real sanctuary residents run through meadows, orchards and forests collecting carrots and coins. Full game development — procedural canvas graphics, WebAudio sound, PWA and a Google Play release via Capacitor.',
+      ru: 'Бесконечный раннер в стиле Temple Run: осёл Карел, овечка Пого, корова Авала и другие настоящие обитатели приюта бегут лугом, садом и лесом, собирая морковки и монеты. Полная разработка игры — процедурная графика на canvas, звук через WebAudio, PWA и релиз в Google Play через Capacitor.',
+      es: 'Un endless runner al estilo Temple Run: el burro Karel, la oveja Pogo, la vaca Avala y otros habitantes reales del santuario corren por prados, huertos y bosques recogiendo zanahorias y monedas. Desarrollo completo del juego — gráficos procedurales en canvas, sonido con WebAudio, PWA y lanzamiento en Google Play vía Capacitor.',
+    },
+    summary: {
+      cs: 'Kompletní vývoj mobilní a webové hry — grafika, zvuk, PWA i vydání na Google Play. Výtěžek pro azyl.',
+      en: 'Full web & mobile game development — graphics, sound, PWA and Google Play release. Proceeds support the sanctuary.',
+      ru: 'Полная разработка веб- и мобильной игры — графика, звук, PWA и релиз в Google Play. Выручка — приюту.',
+      es: 'Desarrollo completo del juego web y móvil — gráficos, sonido, PWA y lanzamiento en Google Play. La recaudación apoya al santuario.',
     },
   },
 ];
