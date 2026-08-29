@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Layers, Clock, Sparkles, ArrowUpRight, Coins } from 'lucide-react';
-import { SERVICES_TEASER, PRICING } from '../mock';
-import { formatPrice } from '../lib/price';
+import { SERVICES_TEASER } from '../mock';
 import { useLang } from '../contexts/LanguageContext';
 
 // Compact banner between Projects and Tools — links to /sluzby
@@ -11,30 +10,10 @@ export default function ServicesTeaser() {
   const st = SERVICES_TEASER[lang];
   const p = t.pricing;
 
-  const sprava = PRICING.services.find((s) => s.id === 'sprava-webu');
-  const tvorba = PRICING.services.find((s) => s.id === 'tvorba-webu');
-  const minSprava = Math.min(...sprava.tiers.map((x) => x.price));
-  const minTvorba = Math.min(...tvorba.items.map((x) => x.priceFrom));
-
   const cards = [
-    {
-      id: 'sprava',
-      Icon: ShieldCheck,
-      title: p.services['sprava-webu'].title,
-      price: `${p.fromLabel} ${formatPrice(minSprava, lang, PRICING.currency)} ${p.perMonth}`,
-    },
-    {
-      id: 'tvorba',
-      Icon: Layers,
-      title: p.services['tvorba-webu'].title,
-      price: `${p.fromLabel} ${formatPrice(minTvorba, lang, PRICING.currency)}`,
-    },
-    {
-      id: 'hodin',
-      Icon: Clock,
-      title: p.services['technicke-prace'].title,
-      price: `${formatPrice(PRICING.hourlyRate, lang, PRICING.currency)} ${p.perHour}`,
-    },
+    { id: 'sprava', Icon: ShieldCheck, title: p.services['sprava-webu'].title, kind: p.kindPausal },
+    { id: 'tvorba', Icon: Layers, title: p.services['tvorba-webu'].title, kind: p.kindProject },
+    { id: 'hodin', Icon: Clock, title: p.services['technicke-prace'].title, kind: p.kindHourly },
   ];
 
   return (
@@ -63,7 +42,7 @@ export default function ServicesTeaser() {
               </span>
             </div>
 
-            {/* mini cards: entry price per service */}
+            {/* mini cards: one per service */}
             <div className="mt-10 grid sm:grid-cols-3 gap-4">
               {cards.map((c, i) => (
                 <div
@@ -77,7 +56,7 @@ export default function ServicesTeaser() {
                     </span>
                     <span className="serif text-lg leading-tight text-[#f1e9d8]">{c.title}</span>
                   </div>
-                  <div className="mt-3 mono text-[12px] tracking-[0.12em] text-[#d4a45a]">{c.price}</div>
+                  <div className="mt-3 mono text-[11px] tracking-[0.18em] uppercase text-[#d4a45a]/80">{c.kind}</div>
                 </div>
               ))}
             </div>

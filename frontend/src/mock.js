@@ -297,11 +297,8 @@ export const TRANSLATIONS = {
         'Nejsem agentura. Jsem jeden člověk, který udrží pohromadě web, hosting, doménu, e-mail i obsah — a ví, co dělá.',
       forWhom:
         'Pracuji s moderními nástroji včetně AI. Výsledek: zlomek ceny agentury při zachované kvalitě. Pro malé spolky, neziskovky a každého, kdo nechce řešit techniku.',
-      fromLabel: 'od',
-      perMonth: '/ měsíc',
-      perHour: '/ hodina',
+      byAgreement: 'Cena dohodou',
       freeConsult: 'První konzultace zdarma',
-      vatNote: 'Ceny jsou uvedeny bez DPH.',
       highlightBadge: 'Vše v jednom',
       refsLabel: 'Kde to běží',
       realizaceLabel: 'Ukázky realizací',
@@ -314,22 +311,25 @@ export const TRANSLATIONS = {
         'Napište mi a domluvíme se. Nezavazujete se k ničemu — první konzultace je zdarma.',
       ctaButton: 'Napsat zprávu',
       comparison: {
-        heading: 'Kolik to stojí u agentury vs. u mě',
+        heading: 'Kolik za takové služby běžně účtují agentury',
         agencyCol: 'Agentura',
-        meCol: 'Já',
-        savingsLabel: 'Ušetříte',
+        meCol: 'U mě',
         rows: [
-          { label: 'Správa webu / měsíc', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'až 70 %' },
-          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'od 8 000 Kč', savings: 'až 60 %' },
-          { label: 'Firemní web', agency: '80 000 – 200 000 Kč', me: 'od 18 000 Kč', savings: 'až 77 %' },
-          { label: 'Hodinová sazba', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'až 80 %' },
+          { label: 'Správa webu / měsíc', agency: '2 000 – 5 000 Kč' },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč' },
+          { label: 'Firemní web', agency: '80 000 – 200 000 Kč' },
+          { label: 'Hodinová sazba', agency: '1 000 – 2 500 Kč' },
         ],
-        note: 'Ceny agentur jsou orientační průměr českého trhu. Neznamená to nižší kvalitu — znamená to méně režie, přímou komunikaci a AI nástroje v procesu.',
+        note: 'Ceny agentur jsou orientační průměr českého trhu — jen pro představu, o jakých částkách se běžně mluví. Já pevný ceník nemám. Cena u mě vzniká z domluvy: z toho, v jaké jste situaci a jaké řešení nakonec dává smysl.',
       },
-      scopeNote: 'Výsledná cena vždy záleží na rozsahu a konkrétních požadavcích. Detaily si klidně projdeme spolu — osobně nebo po telefonu.',
+      scopeNote: 'Nemám pevný ceník a ani ho mít nechci. Všechno je o domluvě — o vaší situaci, o tom, co skutečně potřebujete, a o řešení, na kterém se spolu shodneme. Detaily si klidně projdeme osobně nebo po telefonu.',
       barter: {
         heading: 'Nejste zastáncem peněz? Já také ne vždy.',
-        text: 'Platit můžete klasicky penězi, ale klidně i Bitcoinem či jinou kryptoměnou. A nevylučuju ani výměnný obchod — služba za službu, nebo třeba materiál pro Louku. Jsem otevřený všem způsobům; pokud máš zajímavý nápad, napiš mi a domluvíme se osobně.',
+        text: 'Platit můžete klasicky penězi, ale klidně i Bitcoinem či jinou kryptoměnou. Nevylučuju ani spolupráci nebo výměnný obchod — služba za službu, pomoc s projektem, nebo třeba materiál pro Louku. Jsem otevřený všem způsobům; pokud máš zajímavý nápad, napiš mi a domluvíme se osobně.',
+      },
+      grants: {
+        heading: 'Pomůžu i s granty',
+        text: 'Spolky a neziskovky mají nárok na programy, o kterých často vůbec nevědí — Google for Nonprofits (včetně Ad Grants, tedy reklamy zdarma), Microsoft for Nonprofits, zvýhodněné licence a cloudové kredity. Umím pomoct s žádostí i s následným nastavením, ať už u mě něco dalšího objednáte, nebo ne.',
       },
       services: {
         'sprava-webu': {
@@ -469,11 +469,8 @@ export const TRANSLATIONS = {
         "I'm not an agency. I'm one person who keeps your website, hosting, domain, email and content together — and knows what he's doing.",
       forWhom:
         "I work with modern tools, including AI. The result: a fraction of an agency's price, with the quality kept. For small clubs, nonprofits and anyone who'd rather not deal with the tech.",
-      fromLabel: 'from',
-      perMonth: '/ month',
-      perHour: '/ hour',
+      byAgreement: 'Price by agreement',
       freeConsult: 'First consultation free',
-      vatNote: 'Prices are listed without VAT.',
       highlightBadge: 'All in one',
       refsLabel: 'Where it runs',
       realizaceLabel: 'Selected work',
@@ -486,22 +483,25 @@ export const TRANSLATIONS = {
         "Write to me and we'll figure it out. No commitment — the first consultation is free.",
       ctaButton: 'Send a message',
       comparison: {
-        heading: 'Agency prices vs. my prices',
+        heading: 'What agencies normally charge for this kind of work',
         agencyCol: 'Agency',
-        meCol: 'Me',
-        savingsLabel: 'You save',
+        meCol: 'With me',
         rows: [
-          { label: 'Website care / month', agency: '2,000 – 5,000 Kč', me: '750 – 2,000 Kč', savings: 'up to 70 %' },
-          { label: 'Landing page', agency: '20,000 – 60,000 Kč', me: 'from 8,000 Kč', savings: 'up to 60 %' },
-          { label: 'Company website', agency: '80,000 – 200,000 Kč', me: 'from 18,000 Kč', savings: 'up to 77 %' },
-          { label: 'Hourly rate', agency: '1,000 – 2,500 Kč', me: '500 Kč', savings: 'up to 80 %' },
+          { label: 'Website care / month', agency: '2,000 – 5,000 Kč' },
+          { label: 'Landing page', agency: '20,000 – 60,000 Kč' },
+          { label: 'Company website', agency: '80,000 – 200,000 Kč' },
+          { label: 'Hourly rate', agency: '1,000 – 2,500 Kč' },
         ],
-        note: 'Agency prices are indicative averages for the Czech market. This does not mean lower quality — it means less overhead, direct communication, and AI tools in the process.',
+        note: 'Agency prices are indicative averages for the Czech market — just to give you a sense of the sums usually involved. I have no fixed price list. With me the price comes out of a conversation: your situation, and the solution that ends up making sense.',
       },
-      scopeNote: 'The final price always depends on the scope and specifics. Happy to walk through the details together — in person or over the phone.',
+      scopeNote: "I have no fixed price list, and I don't want one. It all comes down to an agreement — your situation, what you actually need, and the solution we settle on together. Happy to walk through the details in person or over the phone.",
       barter: {
         heading: 'Not a fan of money? Me neither — sometimes.',
-        text: "You can pay the classic way with money, but also with Bitcoin or another cryptocurrency. And I'm open to barter too — a service for a service, or perhaps materials for Louka. I'm open to all options; if you have an interesting idea, write to me and we'll work something out in person.",
+        text: "You can pay the classic way with money, but also with Bitcoin or another cryptocurrency. I'm equally open to collaboration or barter — a service for a service, help with a project, or perhaps materials for Louka. I'm open to all options; if you have an interesting idea, write to me and we'll work something out in person.",
+      },
+      grants: {
+        heading: 'I can help with grants too',
+        text: 'Nonprofits and associations qualify for programmes they often have no idea about — Google for Nonprofits (including Ad Grants, i.e. free advertising), Microsoft for Nonprofits, discounted licences and cloud credits. I can help with the application and the setup afterwards, whether or not you order anything else from me.',
       },
       services: {
         'sprava-webu': {
@@ -641,11 +641,8 @@ export const TRANSLATIONS = {
         'Я не агентство. Я один человек, который держит вместе сайт, хостинг, домен, почту и контент — и знает своё дело.',
       forWhom:
         'Работаю с современными инструментами, включая ИИ. Результат — доля цены агентства при сохранённом качестве. Для небольших объединений, НКО и всех, кто не хочет возиться с техникой.',
-      fromLabel: 'от',
-      perMonth: '/ месяц',
-      perHour: '/ час',
+      byAgreement: 'Цена по договорённости',
       freeConsult: 'Первая консультация бесплатно',
-      vatNote: 'Цены указаны без НДС.',
       highlightBadge: 'Всё включено',
       refsLabel: 'Где это работает',
       realizaceLabel: 'Примеры работ',
@@ -658,22 +655,25 @@ export const TRANSLATIONS = {
         'Напишите мне, и договоримся. Без обязательств — первая консультация бесплатно.',
       ctaButton: 'Написать',
       comparison: {
-        heading: 'Цены агентства vs. мои цены',
+        heading: 'Сколько за такие услуги обычно берут агентства',
         agencyCol: 'Агентство',
-        meCol: 'Я',
-        savingsLabel: 'Экономия',
+        meCol: 'У меня',
         rows: [
-          { label: 'Поддержка сайта / месяц', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'до 70 %' },
-          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'от 8 000 Kč', savings: 'до 60 %' },
-          { label: 'Корпоративный сайт', agency: '80 000 – 200 000 Kč', me: 'от 18 000 Kč', savings: 'до 77 %' },
-          { label: 'Почасовая ставка', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'до 80 %' },
+          { label: 'Поддержка сайта / месяц', agency: '2 000 – 5 000 Kč' },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč' },
+          { label: 'Корпоративный сайт', agency: '80 000 – 200 000 Kč' },
+          { label: 'Почасовая ставка', agency: '1 000 – 2 500 Kč' },
         ],
-        note: 'Цены агентств — ориентировочный средний показатель чешского рынка. Это не означает более низкое качество: это меньше накладных расходов, прямое общение и ИИ-инструменты в процессе.',
+        note: 'Цены агентств — ориентировочный средний показатель чешского рынка, просто чтобы дать представление о суммах. У меня фиксированного прайса нет. Цена рождается из договорённости: из вашей ситуации и того решения, которое в итоге имеет смысл.',
       },
-      scopeNote: 'Итоговая цена всегда зависит от объёма и конкретных требований. Детали обсудим вместе — лично или по телефону.',
+      scopeNote: 'У меня нет фиксированного прайса — и я его иметь не хочу. Всё решает договорённость: ваша ситуация, что вам действительно нужно и какое решение мы вместе выберем. Детали обсудим лично или по телефону.',
       barter: {
         heading: 'Не сторонник денег? Я тоже не всегда.',
-        text: 'Платить можно как обычно — деньгами, а можно и биткоином или другой криптовалютой. Обмен тоже не исключаю — услуга за услугу или, например, материалы для Louka. Я открыт ко всем вариантам: если есть интересная идея — напишите, договоримся лично.',
+        text: 'Платить можно как обычно — деньгами, а можно и биткоином или другой криптовалютой. Не исключаю и сотрудничество или обмен — услуга за услугу, помощь с проектом или, например, материалы для Louka. Я открыт ко всем вариантам: если есть интересная идея — напишите, договоримся лично.',
+      },
+      grants: {
+        heading: 'Помогу и с грантами',
+        text: 'НКО и объединения имеют право на программы, о которых часто даже не знают: Google for Nonprofits (включая Ad Grants — бесплатную рекламу), Microsoft for Nonprofits, льготные лицензии и облачные кредиты. Помогу и с заявкой, и с последующей настройкой — независимо от того, закажете ли вы у меня что-то ещё.',
       },
       services: {
         'sprava-webu': {
@@ -813,11 +813,8 @@ export const TRANSLATIONS = {
         'No soy una agencia. Soy una persona que mantiene unidos la web, el hosting, el dominio, el correo y el contenido — y sabe lo que hace.',
       forWhom:
         'Trabajo con herramientas modernas, incluida la IA. El resultado: una fracción del precio de una agencia, manteniendo la calidad. Para pequeñas asociaciones, ONG y cualquiera que prefiera no lidiar con la técnica.',
-      fromLabel: 'desde',
-      perMonth: '/ mes',
-      perHour: '/ hora',
+      byAgreement: 'Precio a convenir',
       freeConsult: 'Primera consulta gratis',
-      vatNote: 'Precios sin IVA.',
       highlightBadge: 'Todo en uno',
       refsLabel: 'Dónde funciona',
       realizaceLabel: 'Trabajos realizados',
@@ -830,22 +827,25 @@ export const TRANSLATIONS = {
         'Escríbeme y lo vemos. Sin compromiso — la primera consulta es gratis.',
       ctaButton: 'Enviar mensaje',
       comparison: {
-        heading: 'Precios de agencia vs. mis precios',
+        heading: 'Lo que suelen cobrar las agencias por este tipo de trabajo',
         agencyCol: 'Agencia',
-        meCol: 'Yo',
-        savingsLabel: 'Ahorras',
+        meCol: 'Conmigo',
         rows: [
-          { label: 'Mantenimiento web / mes', agency: '2 000 – 5 000 Kč', me: '750 – 2 000 Kč', savings: 'hasta 70 %' },
-          { label: 'Landing page', agency: '20 000 – 60 000 Kč', me: 'desde 8 000 Kč', savings: 'hasta 60 %' },
-          { label: 'Web corporativa', agency: '80 000 – 200 000 Kč', me: 'desde 18 000 Kč', savings: 'hasta 77 %' },
-          { label: 'Tarifa por horas', agency: '1 000 – 2 500 Kč', me: '500 Kč', savings: 'hasta 80 %' },
+          { label: 'Mantenimiento web / mes', agency: '2 000 – 5 000 Kč' },
+          { label: 'Landing page', agency: '20 000 – 60 000 Kč' },
+          { label: 'Web corporativa', agency: '80 000 – 200 000 Kč' },
+          { label: 'Tarifa por horas', agency: '1 000 – 2 500 Kč' },
         ],
-        note: 'Los precios de las agencias son una media orientativa del mercado checo. No significa menor calidad — significa menos gastos generales, comunicación directa y herramientas de IA en el proceso.',
+        note: 'Los precios de las agencias son una media orientativa del mercado checo — solo para dar una idea de las cifras habituales. Yo no tengo tarifa fija. Conmigo el precio nace del acuerdo: de tu situación y de la solución que acabe teniendo sentido.',
       },
-      scopeNote: 'El precio final siempre depende del alcance y los requisitos concretos. Con gusto lo revisamos juntos — en persona o por teléfono.',
+      scopeNote: 'No tengo una tarifa fija, ni la quiero. Todo es cuestión de acuerdo: tu situación, lo que realmente necesitas y la solución que elijamos juntos. Con gusto lo revisamos en persona o por teléfono.',
       barter: {
         heading: '¿No eres fan del dinero? Yo tampoco siempre.',
-        text: 'Puedes pagar de forma clásica con dinero, pero también con Bitcoin u otra criptomoneda. Y tampoco descarto el intercambio — un servicio por un servicio, o quizás materiales para Louka. Estoy abierto a todas las opciones; si tienes una idea interesante, escríbeme y lo hablamos en persona.',
+        text: 'Puedes pagar de forma clásica con dinero, pero también con Bitcoin u otra criptomoneda. Tampoco descarto la colaboración ni el intercambio — un servicio por un servicio, ayuda con un proyecto, o quizás materiales para Louka. Estoy abierto a todas las opciones; si tienes una idea interesante, escríbeme y lo hablamos en persona.',
+      },
+      grants: {
+        heading: 'También ayudo con subvenciones',
+        text: 'Las ONG y asociaciones tienen acceso a programas que a menudo desconocen: Google for Nonprofits (incluidos los Ad Grants, es decir, publicidad gratuita), Microsoft for Nonprofits, licencias con descuento y créditos en la nube. Puedo ayudarte con la solicitud y con la configuración posterior, encargues o no algo más conmigo.',
       },
       services: {
         'sprava-webu': {
@@ -1160,31 +1160,25 @@ export const TOOLS_TEASER = {
 
 // ---------------------------------------------------------------------------
 // PRICING / SLUŽBY
-// Numbers + structure live here once; all display text is in TRANSLATIONS[lang].pricing,
+// Structure only — no price list. All display text is in TRANSLATIONS[lang].pricing,
 // keyed by the same id / tier-key. Components merge the two.
 // ---------------------------------------------------------------------------
 
 export const PRICING = {
-  currency: 'Kč',
-  hourlyRate: 500,
   services: [
     {
       id: 'sprava-webu',
       kind: 'pausal',
       tiers: [
-        { key: 'zakladni', price: 750 },
-        { key: 'standard', price: 1250 },
-        { key: 'kompletni', price: 2000, highlighted: true },
+        { key: 'zakladni' },
+        { key: 'standard' },
+        { key: 'kompletni', highlighted: true },
       ],
     },
     {
       id: 'tvorba-webu',
       kind: 'project',
-      items: [
-        { key: 'landing', priceFrom: 8000 },
-        { key: 'redesign', priceFrom: 12000 },
-        { key: 'firemni', priceFrom: 18000 },
-      ],
+      items: [{ key: 'landing' }, { key: 'redesign' }, { key: 'firemni' }],
     },
     {
       id: 'technicke-prace',
@@ -1200,31 +1194,31 @@ export const SERVICES_TEASER = {
     title: 'Postarám se o váš web',
     subtitle:
       'Správa, tvorba i jednorázové technické práce — za zlomek ceny agentury. Pro malé spolky a neziskovky.',
-    paymentNote: 'Peníze, Bitcoin i jiné kryptoměny, nebo výměnný obchod — jsem otevřený všem způsobům platby.',
-    cta: 'Zobrazit ceník',
+    paymentNote: 'Žádný pevný ceník — cena je vždy o domluvě. Peníze, Bitcoin i jiné kryptoměny, spolupráce nebo výměnný obchod.',
+    cta: 'Zobrazit služby',
   },
   en: {
     kicker: 'Services',
     title: 'I take care of your website',
     subtitle:
       "Care, creation and one-off technical work — at a fraction of an agency's price. For small clubs and nonprofits.",
-    paymentNote: "Money, Bitcoin and other cryptocurrencies, or barter — I'm open to all forms of payment.",
-    cta: 'See pricing',
+    paymentNote: 'No fixed price list — the price is always a matter of agreement. Money, Bitcoin and other cryptocurrencies, collaboration or barter.',
+    cta: 'See services',
   },
   ru: {
     kicker: 'Услуги',
     title: 'Позабочусь о вашем сайте',
     subtitle:
       'Поддержка, создание и разовые технические работы — за долю цены агентства. Для небольших объединений и НКО.',
-    paymentNote: 'Деньги, биткоин и другие криптовалюты или обмен — я открыт ко всем способам оплаты.',
-    cta: 'Смотреть цены',
+    paymentNote: 'Фиксированного прайса нет — цена всегда по договорённости. Деньги, биткоин и другие криптовалюты, сотрудничество или обмен.',
+    cta: 'Смотреть услуги',
   },
   es: {
     kicker: 'Servicios',
     title: 'Me ocupo de tu web',
     subtitle:
       'Mantenimiento, creación y trabajos técnicos puntuales — a una fracción del precio de una agencia. Para pequeñas asociaciones y ONG.',
-    paymentNote: 'Dinero, Bitcoin y otras criptomonedas, o intercambio — estoy abierto a todas las formas de pago.',
-    cta: 'Ver precios',
+    paymentNote: 'Sin tarifa fija — el precio siempre es cuestión de acuerdo. Dinero, Bitcoin y otras criptomonedas, colaboración o intercambio.',
+    cta: 'Ver servicios',
   },
 };

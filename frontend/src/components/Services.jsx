@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Check, ArrowLeft, Sparkles, ExternalLink } from 'lucide-react';
+import { Check, ArrowLeft, Sparkles, ExternalLink, Gift } from 'lucide-react';
 import { PRICING, PROJECTS, REALIZATIONS, CONTACT } from '../mock';
-import { formatPrice } from '../lib/price';
 import { useLang } from '../contexts/LanguageContext';
 
 // Decorative rotating dashed ring — echoes the hero "blockchain orbit".
@@ -47,7 +46,7 @@ function OrbitRing() {
   );
 }
 
-function TierCard({ tier, text, lang, p, index }) {
+function TierCard({ tier, text, p, index }) {
   const highlighted = !!tier.highlighted;
   return (
     <div
@@ -70,11 +69,8 @@ function TierCard({ tier, text, lang, p, index }) {
 
       <div className="relative">
         <h4 className="serif text-2xl text-[#f1e9d8]">{text.name}</h4>
-        <div className="mt-3 flex items-end gap-1.5">
-          <span className="serif text-4xl text-[#d4a45a] leading-none">
-            {formatPrice(tier.price, lang, PRICING.currency)}
-          </span>
-          <span className="mono text-[11px] tracking-[0.12em] text-[#f1e9d8]/55 mb-1">{p.perMonth}</span>
+        <div className="mt-3 mono text-[11px] tracking-[0.2em] uppercase text-[#d4a45a]/80">
+          {p.byAgreement}
         </div>
         <ul className="mt-6 space-y-2.5">
           {text.includes.map((line, i) => (
@@ -160,7 +156,6 @@ export default function Services() {
                 key={tier.key}
                 tier={tier}
                 text={p.services['sprava-webu'].tiers[tier.key]}
-                lang={lang}
                 p={p}
                 index={i}
               />
@@ -187,11 +182,8 @@ export default function Services() {
                   style={{ transitionDelay: `${i * 0.08}s` }}
                 >
                   <h4 className="serif text-xl text-[#f1e9d8] leading-tight">{it.name}</h4>
-                  <div className="mt-3 flex items-end gap-1.5">
-                    <span className="mono text-[11px] tracking-[0.14em] text-[#f1e9d8]/55 mb-1">{p.fromLabel}</span>
-                    <span className="serif text-3xl text-[#d4a45a] leading-none">
-                      {formatPrice(item.priceFrom, lang, PRICING.currency)}
-                    </span>
+                  <div className="mt-3 mono text-[11px] tracking-[0.2em] uppercase text-[#d4a45a]/80">
+                    {p.byAgreement}
                   </div>
                   <p className="mt-4 text-[14px] text-[#f1e9d8]/65 leading-relaxed">{it.note}</p>
                 </div>
@@ -252,10 +244,7 @@ export default function Services() {
           <p className="reveal body-lg mt-3 max-w-2xl">{techText.description}</p>
           <div className="reveal mt-8 border border-[#d4a45a]/15 bg-[#141312]/40 backdrop-blur-sm p-7 md:p-9 grid md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4">
-              <span className="serif text-5xl text-[#d4a45a] leading-none">
-                {formatPrice(PRICING.hourlyRate, lang, PRICING.currency)}
-              </span>
-              <div className="mono text-[11px] tracking-[0.14em] text-[#f1e9d8]/55 mt-2">{p.perHour}</div>
+              <span className="serif text-3xl text-[#d4a45a] leading-tight">{p.byAgreement}</span>
               <div className="mt-5 inline-flex items-center gap-2 mono text-[10px] tracking-[0.2em] uppercase px-2.5 py-1 border border-[#7fb069]/40 text-[#9ae66e]">
                 <Sparkles size={12} /> {p.freeConsult}
               </div>
@@ -282,15 +271,12 @@ export default function Services() {
               <table className="w-full border-collapse">
                 <thead>
                   <tr>
-                    <th className="text-left py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#f1e9d8]/40 font-normal border-b border-[#d4a45a]/15 w-2/5" />
+                    <th className="text-left py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#f1e9d8]/40 font-normal border-b border-[#d4a45a]/15 w-1/2" />
                     <th className="text-right py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#f1e9d8]/40 font-normal border-b border-[#d4a45a]/15">
                       {p.comparison.agencyCol}
                     </th>
                     <th className="text-right py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#d4a45a]/80 font-normal border-b border-[#d4a45a]/40">
                       {p.comparison.meCol}
-                    </th>
-                    <th className="text-right py-3 px-4 mono text-[10px] tracking-[0.22em] uppercase text-[#7fb069]/70 font-normal border-b border-[#d4a45a]/15">
-                      {p.comparison.savingsLabel}
                     </th>
                   </tr>
                 </thead>
@@ -298,14 +284,11 @@ export default function Services() {
                   {p.comparison.rows.map((row, i) => (
                     <tr key={i} className="group border-b border-[#d4a45a]/08 hover:bg-[#d4a45a]/04 transition-colors duration-200">
                       <td className="py-4 px-4 text-[14px] text-[#f1e9d8]/80 leading-snug">{row.label}</td>
-                      <td className="py-4 px-4 text-right mono text-[13px] text-[#f1e9d8]/40 line-through decoration-[#f1e9d8]/20">
+                      <td className="py-4 px-4 text-right mono text-[13px] text-[#f1e9d8]/45">
                         {row.agency}
                       </td>
                       <td className="py-4 px-4 text-right mono text-[13px] text-[#d4a45a] font-medium">
-                        {row.me}
-                      </td>
-                      <td className="py-4 px-4 text-right mono text-[12px] text-[#7fb069]">
-                        {row.savings ?? '—'}
+                        {p.byAgreement}
                       </td>
                     </tr>
                   ))}
@@ -334,6 +317,20 @@ export default function Services() {
           </div>
         )}
 
+        {/* Grants — Google / Microsoft nonprofit programmes */}
+        {p.grants && (
+          <div className="reveal mt-4 border border-[#d4a45a]/20 bg-[#141312]/40 backdrop-blur-sm p-7 md:p-9 relative overflow-hidden">
+            <div className="pointer-events-none absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-[#d4a45a]/08 blur-3xl" />
+            <div className="relative">
+              <h3 className="serif text-xl text-[#f1e9d8] flex items-center gap-2.5">
+                <Gift size={18} className="text-[#d4a45a] flex-shrink-0" />
+                {p.grants.heading}
+              </h3>
+              <p className="mt-3 text-[14px] text-[#f1e9d8]/70 leading-relaxed max-w-2xl">{p.grants.text}</p>
+            </div>
+          </div>
+        )}
+
         {/* CTA */}
         <div className="reveal mt-20 relative overflow-hidden border border-[#d4a45a]/20 bg-[#141312]/50 p-8 md:p-12 text-center">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,164,90,0.08),transparent_70%)]" />
@@ -347,16 +344,15 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Footer row: VAT note + back */}
-        <div className="mt-12 flex items-center justify-between flex-wrap gap-4">
+        {/* Footer row: back */}
+        <div className="mt-12">
           <Link
             to="/"
-            className="group flex items-center gap-2 text-[#f1e9d8]/70 hover:text-[#d4a45a] transition-colors duration-300 mono text-[11px] tracking-[0.26em] uppercase"
+            className="group inline-flex items-center gap-2 text-[#f1e9d8]/70 hover:text-[#d4a45a] transition-colors duration-300 mono text-[11px] tracking-[0.26em] uppercase"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform duration-300" />
             {p.back}
           </Link>
-          <span className="mono text-[10px] tracking-[0.26em] uppercase text-[#f1e9d8]/40">{p.vatNote}</span>
         </div>
       </div>
     </section>
