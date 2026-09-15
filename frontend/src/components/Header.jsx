@@ -31,7 +31,6 @@ export default function Header() {
     { id: 'projects', label: t.nav.projects, section: 'projects' },
     { id: 'services', label: t.nav.services, to: '/sluzby' },
     { id: 'mission', label: t.nav.mission, section: 'mission' },
-    { id: 'tools', label: t.nav.tools, to: '/nastroje' },
     { id: 'blog', label: t.nav.blog, to: '/blog' },
     { id: 'contact', label: t.nav.contact, section: 'contact' },
   ];
