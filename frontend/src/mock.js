@@ -241,6 +241,9 @@ export const TRANSLATIONS = {
       scanLabel: 'SCAN ACTIVE',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
+      bloomHint: 'NECH MĚ ROZKVÉST',
+      bloomOn: 'ROZKVETLO',
+      bloomAria: 'Nechat na portrétu rozkvést květinovou masku',
     },
     about: {
       kicker: 'Kdo jsem',
@@ -413,6 +416,9 @@ export const TRANSLATIONS = {
       scanLabel: 'SCAN ACTIVE',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'SIGNATURE: A.F. // ID 0xAF-1988',
+      bloomHint: 'LET ME BLOOM',
+      bloomOn: 'IN BLOOM',
+      bloomAria: 'Let the flower mask bloom on the portrait',
     },
     about: {
       kicker: 'Who I am',
@@ -585,6 +591,9 @@ export const TRANSLATIONS = {
       scanLabel: 'СКАН АКТИВЕН',
       coords: "ШИР 49°47'41 С · ДОЛ 15°23'25 В",
       sigBlock: 'ПОДПИСЬ: A.F. // ID 0xAF-1988',
+      bloomHint: 'ДАЙ МНЕ РАСЦВЕСТИ',
+      bloomOn: 'В ЦВЕТУ',
+      bloomAria: 'Дать цветочной маске расцвести на портрете',
     },
     about: {
       kicker: 'Кто я',
@@ -757,6 +766,9 @@ export const TRANSLATIONS = {
       scanLabel: 'ESCANEO ACTIVO',
       coords: "LAT 49°47'41 N · LON 15°23'25 E",
       sigBlock: 'FIRMA: A.F. // ID 0xAF-1988',
+      bloomHint: 'DÉJAME FLORECER',
+      bloomOn: 'EN FLOR',
+      bloomAria: 'Dejar florecer la máscara de flores en el retrato',
     },
     about: {
       kicker: 'Quién soy',

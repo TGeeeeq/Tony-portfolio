@@ -181,10 +181,11 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
   pointer-events: none;
 }
 
-/* === Hero portrait: orbit — chain & root ===
-   Counter-rotating gold "blockchain" and green "nature" rings frame a clean
-   portrait; a <canvas> field morphs gold data into green pollen near the
-   cursor. Idle motion is paused for prefers-reduced-motion (below + in JS). */
+/* === Hero portrait: orbit + flower mask ===
+   A gold "blockchain" ring frames a clean portrait over a faint <canvas> field
+   of gold data turning into green pollen near the cursor. Hover (or tap)
+   grows the flower mask (FlowerMask.jsx). Idle motion is paused for
+   prefers-reduced-motion (below + in JS). */
 
 .hp-stage { --rx: 0deg; --ry: 0deg; }
 
@@ -219,43 +220,87 @@ code, .mono { font-family: 'JetBrains Mono', monospace; }
 }
 .tier-breathe { animation: tier-breathe 6.5s ease-in-out infinite; }
 
-.leaf { transform-box: fill-box; transform-origin: center bottom; }
-
-/* hover greeting bubble */
-.greet-bubble {
-  background: #120f0b;
-  border: 1px solid rgba(212, 164, 90, 0.45);
-  border-radius: 6px;
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.75), 0 0 18px -4px rgba(212, 164, 90, 0.35);
+/* --- flower mask ---
+   Every element carries grow timing (--d delay, --t duration) and mirrored
+   wilt timing (--rd, --rt); transitions make mid-way reversal seamless. */
+.fm { pointer-events: none; overflow: visible; }
+.fm-draw {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
   opacity: 0;
-  transform: translateY(8px) scale(0.92);
-  transform-origin: bottom left;
-  transition: opacity 0.16s ease, transform 0.16s ease;
-  pointer-events: none;
+  transition: stroke-dashoffset var(--rt) cubic-bezier(0.55, 0, 0.75, 0.3) var(--rd),
+              opacity 0.2s linear calc(var(--rd) + var(--rt));
 }
-.greet-bubble.is-on {
+.fm.is-on .fm-draw {
+  stroke-dashoffset: 0;
   opacity: 1;
-  transform: translateY(0) scale(1);
-  transition: opacity 0.26s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.26s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: stroke-dashoffset var(--t) cubic-bezier(0.3, 0.1, 0.45, 1) var(--d), opacity 0.01s linear var(--d);
 }
-.greet-bubble::after {
-  content: '';
-  position: absolute;
-  left: 24px;
-  bottom: -5px;
-  width: 9px;
-  height: 9px;
-  background: #120f0b;
-  border-right: 1px solid rgba(212, 164, 90, 0.45);
-  border-bottom: 1px solid rgba(212, 164, 90, 0.45);
-  transform: rotate(45deg);
+/* the blueprint glows while drawing, then steps back behind the foliage */
+.fm.is-on .fm-outline { opacity: 0.16; animation: fm-blueprint 3.4s ease both; }
+@keyframes fm-blueprint {
+  0%   { opacity: 0; }
+  6%   { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0.16; }
 }
+.fm-pop {
+  opacity: 0;
+  transform: scale(0.001) rotate(var(--r0, -35deg));
+  transition: transform var(--rt) cubic-bezier(0.5, 0, 0.8, 0.4) var(--rd), opacity var(--rt) linear var(--rd);
+}
+.fm.is-on .fm-pop {
+  opacity: 1;
+  transform: none;
+  transition: transform var(--t) cubic-bezier(0.3, 1.45, 0.55, 1) var(--d), opacity calc(var(--t) * 0.4) linear var(--d);
+}
+.fm.is-on .fm-node { opacity: 0; animation: fm-node 2.6s ease var(--d) both; }
+@keyframes fm-node {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.fm-wave { opacity: 1; }
+.fm-fade { opacity: 0; transition: opacity var(--rt) ease var(--rd); }
+.fm.is-on .fm-fade { opacity: var(--o, 1); transition: opacity var(--t) ease var(--d); }
+
+.fm-seeds { transition: opacity 0.5s ease 0.4s; }
+.fm.is-on .fm-seeds { opacity: 0; transition-delay: 0s; }
+.fm-seed-dot { animation: fm-seed 2.4s ease-in-out infinite; }
+@keyframes fm-seed {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 0.95; }
+}
+
+.fm-sway { animation: fm-sway 3.4s ease-in-out infinite alternate; }
+@keyframes fm-sway {
+  from { transform: rotate(-7deg); }
+  to   { transform: rotate(7deg); }
+}
+
+.fm-mote { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.fm.is-on .fm-mote { animation: fm-mote 4.6s ease-in-out var(--d) infinite; }
+@keyframes fm-mote {
+  0%   { opacity: 0;   transform: translate(0, 0); }
+  30%  { opacity: 0.9; }
+  100% { opacity: 0;   transform: translate(10px, -46px); }
+}
+
+/* the photo recedes a touch so the blooms carry the frame */
+.hp-photo img { transition: filter 1.6s ease; }
+.hp-photo.is-bloom img { filter: saturate(0.88) brightness(0.93) contrast(1.04); }
+
+.photo-frame:focus-visible { outline: 1px solid #d4a45a; outline-offset: 6px; }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-spin-slow, .animate-spin-rev { animation: none; }
   .chain-block { animation: none; opacity: 0.6; }
   .tier-breathe { animation: none; }
   .photo-frame { transform: none; transition: none; }
-  .greet-bubble { transition: opacity 0.2s ease; transform: none; }
-  .greet-bubble.is-on { transform: none; }
+  .fm { opacity: 0; transition: opacity 0.6s ease; }
+  .fm.is-on { opacity: 1; }
+  .fm .fm-draw, .fm .fm-pop, .fm .fm-fade { transition: none !important; stroke-dashoffset: 0; opacity: var(--o, 1); transform: none; }
+  .fm.is-on .fm-outline { opacity: 0.16; }
+  .fm-sway, .fm-seed-dot, .fm.is-on .fm-mote, .fm.is-on .fm-outline, .fm.is-on .fm-node { animation: none; }
 }

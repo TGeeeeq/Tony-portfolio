@@ -52,7 +52,11 @@ Detailní checklist: `.claude/skills/read-before-edit/SKILL.md`.
 - Komponenty v `frontend/src/components/`
 - Statická média v `frontend/public/media/`
 
-## Co bylo naposledy změněno (2026-07-11)
+## Co bylo naposledy změněno (2026-09-22)
+- Hero portrét: květinová maska superhrdiny (`components/FlowerMask.jsx`) — hover roste (zlaté PCB traces → blueprint → šlahouny → listí → mák/kopretina/chrpa/zvonek), odjetí uvadne, klik/tap zamkne. Geometrie je v pixelech fotky `tf.webp` (900×900) — **při výměně fotky se musí přeměřit** `OUTLINE`, `EYE`, `TRACES`, `VINES`, `FLOWERS`.
+- Zjednodušení: odstraněn zelený listový orbit a hover pozdrav (`wave.gif` je teď nepoužitý), zeslabené částice, HUD hint `bloomHint`/`bloomOn` (CS/EN/RU/ES)
+
+## Změny 2026-07-11
 - Platební možnosti: poznámka „peníze / Bitcoin a kryptoměny / výměnný obchod" na hlavní stránce (ServicesTeaser) + rozšířená barter sekce na /sluzby (všechny 4 jazyky)
 - Nový skill `.claude/skills/read-before-edit` (guardrail: Read před Edit)
 

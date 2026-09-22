@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ASSETS } from '../mock';
+import FlowerMask from './FlowerMask';
 
-/* === Hero portrait: "Orbit — chain & root" ===
-   A clean full-colour portrait is the anchor. Around it two counter-rotating
-   orbits embody the site's poles: a gold *blockchain* ring (a chain of blocks,
-   one lighting in sequence as if freshly mined) and a green *nature* ring of
-   drifting leaves. Behind everything a <canvas> field of gold "data" squares,
-   wired into a faint network mesh, melts into soft green "pollen" wherever the
-   cursor passes — code becoming life and back. Everything stills for
-   prefers-reduced-motion. */
+/* === Hero portrait: "Chain & bloom" ===
+   A clean full-colour portrait is the anchor, framed by a single gold
+   *blockchain* orbit (a chain of blocks, one lighting in sequence as if freshly
+   mined). Behind it a faint <canvas> field of gold "data" squares melts into
+   green "pollen" wherever the cursor passes. Hovering the portrait grows a
+   half-face flower mask out of gold circuitry (FlowerMask); a click or tap
+   keeps it in bloom. Everything stills for prefers-reduced-motion. */
 
 const TAU = Math.PI * 2;
 // Place n nodes evenly on a circle of radius r within a 0–200 viewBox.
@@ -18,7 +18,6 @@ const ring = (n, r) =>
     return { i, x: 100 + r * Math.cos(a), y: 100 + r * Math.sin(a), deg: (a * 180) / Math.PI };
   });
 const BLOCKS = ring(12, 86); // gold chain
-const LEAVES = ring(10, 95); // green growth
 
 const DATA = [212, 164, 90]; // #d4a45a — the "code" pole
 const LIFE = [127, 176, 105]; // #7fb069 — the "nature" pole
@@ -26,7 +25,14 @@ const LIFE = [127, 176, 105]; // #7fb069 — the "nature" pole
 export default function HeroPortrait({ t, time }) {
   const stageRef = useRef(null);
   const canvasRef = useRef(null);
-  const [greet, setGreet] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [locked, setLocked] = useState(false);
+  const bloom = hover || locked;
+
+  const toggle = () => {
+    setLocked(!locked);
+    if (locked) setHover(false);
+  };
 
   // Particle field + pointer-driven morph + parallax tilt (one rAF loop).
   useEffect(() => {
@@ -113,7 +119,7 @@ export default function HeroPortrait({ t, time }) {
           if (b.n > 0.5) continue;
           const dx = a.x - b.x, dy = a.y - b.y, dd = dx * dx + dy * dy;
           if (dd < 4900) {
-            const o = (1 - Math.sqrt(dd) / 70) * 0.15 * (1 - a.n) * (1 - b.n);
+            const o = (1 - Math.sqrt(dd) / 70) * 0.1 * (1 - a.n) * (1 - b.n);
             ctx.strokeStyle = `rgba(212,164,90,${o.toFixed(3)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -129,7 +135,7 @@ export default function HeroPortrait({ t, time }) {
         const cg = Math.round(DATA[1] + (LIFE[1] - DATA[1]) * n);
         const cb = Math.round(DATA[2] + (LIFE[2] - DATA[2]) * n);
         const tw = animate ? 0.5 + 0.5 * Math.sin(p.ph + now * 0.002) : 0.7;
-        const alpha = 0.32 + 0.42 * tw;
+        const alpha = 0.22 + 0.3 * tw;
         const s = p.sz * (1 + 0.55 * n);
         if (n < 0.4) {
           ctx.fillStyle = `rgba(${cr},${cg},${cb},${alpha.toFixed(3)})`;
@@ -159,30 +165,9 @@ export default function HeroPortrait({ t, time }) {
     };
   }, []);
 
-  // Touch devices (no hover): greet once when the portrait scrolls into view.
-  useEffect(() => {
-    const el = stageRef.current;
-    if (!el || typeof window === 'undefined') return;
-    if (!window.matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setGreet(true);
-          setTimeout(() => setGreet(false), 3600);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.6 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
     <div
       ref={stageRef}
-      onMouseEnter={() => setGreet(true)}
-      onMouseLeave={() => setGreet(false)}
       className="hp-stage relative flex items-center justify-center w-[300px] h-[384px] sm:w-[392px] sm:h-[480px] md:w-[470px] md:h-[536px]"
     >
       {/* particle field — code ⟷ nature, behind all */}
@@ -213,21 +198,24 @@ export default function HeroPortrait({ t, time }) {
         </svg>
       </div>
 
-      {/* green nature orbit */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[262px] h-[262px] sm:w-[342px] sm:h-[342px] md:w-[412px] md:h-[412px] pointer-events-none">
-        <svg viewBox="0 0 200 200" fill="none" className="w-full h-full animate-spin-rev" aria-hidden="true">
-          {LEAVES.map((l) => (
-            <g key={l.i} transform={`translate(${l.x} ${l.y}) rotate(${l.deg + 90})`}>
-              <path className="leaf" d="M0,0 C4,-3.4 4.2,-10 0,-13.6 C-4.2,-10 -4,-3.4 0,0 Z" fill="#7fb069" fillOpacity="0.5" />
-              <path d="M0,-1.5 L0,-12" stroke="#cdebab" strokeWidth="0.4" strokeOpacity="0.55" />
-            </g>
-          ))}
-        </svg>
-      </div>
-
       {/* portrait frame */}
-      <div className="photo-frame relative z-20 w-[256px] h-[326px] sm:w-[300px] sm:h-[382px] md:w-[340px] md:h-[432px]">
-        <div className="hp-photo absolute inset-0 overflow-hidden bg-[#141312] border border-[#d4a45a]/20">
+      <div
+        role="button"
+        tabIndex={0}
+        aria-pressed={bloom}
+        aria-label={t.hero.bloomAria}
+        onPointerEnter={(e) => e.pointerType === 'mouse' && setHover(true)}
+        onPointerLeave={(e) => e.pointerType === 'mouse' && setHover(false)}
+        onClick={toggle}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        }}
+        className="photo-frame relative z-20 cursor-pointer select-none w-[256px] h-[326px] sm:w-[300px] sm:h-[382px] md:w-[340px] md:h-[432px]"
+      >
+        <div className={`hp-photo absolute inset-0 overflow-hidden bg-[#141312] border border-[#d4a45a]/20${bloom ? ' is-bloom' : ''}`}>
           <img
             src={ASSETS.photo}
             alt="Antonín Figueroa"
@@ -238,18 +226,20 @@ export default function HeroPortrait({ t, time }) {
             className="absolute inset-0 w-full h-full object-cover object-[50%_28%]"
             draggable={false}
           />
+          <FlowerMask on={bloom} />
+
           {/* legibility scrims */}
           <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#0a0908]/70 to-transparent pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a0908]/80 to-transparent pointer-events-none" />
 
           {/* HUD telemetry */}
-          <div className="absolute top-3 left-3 mono text-[9px] tracking-[0.24em] uppercase text-[#d4a45a]/90 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#d4a45a] animate-blink-soft" />
-            {t.hero.scanLabel}
+          <div className="absolute top-3 left-3 mono text-[9px] tracking-[0.24em] uppercase text-[#d4a45a]/80 flex items-center gap-1.5">
+            <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-700 ${bloom ? 'bg-[#7fb069]' : 'bg-[#d4a45a] animate-blink-soft'}`} />
+            {bloom ? t.hero.bloomOn : t.hero.bloomHint}
           </div>
-          <div className="absolute bottom-3 left-3 right-3 mono text-[9px] tracking-[0.22em] uppercase text-[#f1e9d8]/70 flex justify-between gap-2">
-            <span>{t.hero.sigBlock}</span>
-            <span className="text-[#d4a45a] tabular-nums">{time}</span>
+          <div className="absolute bottom-3 left-3 right-3 mono text-[9px] tracking-[0.22em] uppercase text-[#f1e9d8]/50 flex justify-between gap-2">
+            <span className="truncate">{t.hero.sigBlock}</span>
+            <span className="text-[#d4a45a] tabular-nums whitespace-nowrap">{time}</span>
           </div>
         </div>
 
@@ -259,14 +249,6 @@ export default function HeroPortrait({ t, time }) {
             <span key={i} className={`absolute z-10 w-5 h-5 border-[#d4a45a]/70 ${c}`} />
           )
         )}
-
-        {/* hover greeting — a friendly wave */}
-        <div
-          className={`greet-bubble absolute z-30 -top-7 left-4 p-1.5${greet ? ' is-on' : ''}`}
-          aria-hidden="true"
-        >
-          <img src="/media/wave.gif" alt="" width={48} height={48} className="w-[44px] h-[44px] block" draggable={false} />
-        </div>
       </div>
     </div>
   );
