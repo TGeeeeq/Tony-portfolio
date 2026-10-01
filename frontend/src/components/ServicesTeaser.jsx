@@ -4,6 +4,7 @@ import { ShieldCheck, Layers, Clock, Sparkles, ArrowUpRight, Coins } from 'lucid
 import { SERVICES_TEASER } from '../mock';
 import { useLang } from '../contexts/LanguageContext';
 import { trackSpot } from './Projects';
+import Split from './Split';
 
 // Compact banner between Projects and Contact — links to /sluzby
 export default function ServicesTeaser() {
@@ -23,7 +24,7 @@ export default function ServicesTeaser() {
         <Link
           to="/sluzby"
           onMouseMove={trackSpot}
-          className="reveal group spotlight block overflow-hidden rounded-[1.5rem] border border-[#f1e9d8]/10 bg-[#0c1912]/80 backdrop-blur-sm transition-all duration-500 hover:border-[#e8b04a]/50"
+          className="reveal r-flip group spotlight block overflow-hidden rounded-[1.5rem] border border-[#f1e9d8]/10 bg-[#0c1912]/80 backdrop-blur-sm transition-all duration-500 hover:border-[#e8b04a]/50"
         >
           <div className="checker h-3 opacity-80" />
           <div className="rasta-line h-[3px]" />
@@ -38,7 +39,7 @@ export default function ServicesTeaser() {
                   <span className="move-tag"><span className="glyph">♔</span> 4. O-O</span>
                 </div>
                 <h2 className="heading-lg mt-6 text-[#f1e9d8] group-hover:text-[#e8b04a] transition-colors duration-500">
-                  {st.title}
+                  <Split text={st.title} />
                 </h2>
                 <p className="body-lg mt-5">{st.subtitle}</p>
               </div>

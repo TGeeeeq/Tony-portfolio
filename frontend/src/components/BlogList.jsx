@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, Clock, ArrowLeft } from 'lucide-react';
 import { POSTS, BLOG_PAGE } from '../blog/posts';
 import { useLang } from '../contexts/LanguageContext';
+import Split from './Split';
 
 export default function BlogList() {
   const { lang } = useLang();
@@ -21,12 +22,8 @@ export default function BlogList() {
           <div className="animate-fade-up" style={{ animationDelay: '0.05s' }}>
             <span className="eyebrow">{bp.kicker}</span>
           </div>
-          <h1 className="heading-xl mt-6 animate-fade-up" style={{ animationDelay: '0.15s' }}>
-            {bp.title.split('\n').map((line, i) => (
-              <span key={i} className="block">
-                {i === 1 ? <span className="gold-text italic">{line}</span> : line}
-              </span>
-            ))}
+          <h1 className="heading-xl mt-6">
+            <Split text={bp.title} accent={1} accentClass="gold-text" auto delay={150} />
           </h1>
           <p className="body-lg mt-7 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             {bp.subtitle}
@@ -57,7 +54,7 @@ function PostCard({ post, index, lang, bp }) {
   return (
     <Link
       to={`/blog/${post.slug}`}
-      className="group relative block p-7 md:p-8 border border-[#e8b04a]/15 bg-[#0e1a14]/40 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-[#e8b04a]/60 hover:-translate-y-1"
+      className="reveal r-zoom group relative block p-7 md:p-8 border border-[#e8b04a]/15 bg-[#0e1a14]/40 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-[#e8b04a]/60 hover:-translate-y-1"
     >
       <div
         className="absolute -top-24 -right-24 w-56 h-56 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Check, ArrowLeft, Sparkles, ExternalLink, Gift } from 'lucide-react';
 import { PRICING, PROJECTS, REALIZATIONS, CONTACT } from '../mock';
 import { useLang } from '../contexts/LanguageContext';
+import Split from './Split';
 
 // Decorative rotating dashed ring — echoes the hero "blockchain orbit".
 // Reuses .animate-spin-slow + .chain-block (defined in index.css, reduced-motion aware).
@@ -121,12 +122,8 @@ export default function Services() {
           <div className="animate-fade-up" style={{ animationDelay: '0.05s' }}>
             <span className="eyebrow">{p.kicker}</span>
           </div>
-          <h1 className="heading-xl mt-6 animate-fade-up" style={{ animationDelay: '0.15s' }}>
-            {p.title.split('\n').map((line, i) => (
-              <span key={i} className="block">
-                {i === 1 ? <span className="gold-text italic">{line}</span> : line}
-              </span>
-            ))}
+          <h1 className="heading-xl mt-6">
+            <Split text={p.title} accent={1} accentClass="gold-text" auto delay={150} />
           </h1>
           <p className="body-lg mt-7 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             {p.subtitle}
@@ -134,7 +131,7 @@ export default function Services() {
         </div>
 
         {/* Positioning */}
-        <div className="reveal mt-12 border-l-2 border-[#e8b04a]/40 pl-6 md:pl-8 max-w-3xl">
+        <div className="reveal r-blur mt-12 border-l-2 border-[#e8b04a]/40 pl-6 md:pl-8 max-w-3xl">
           <p className="serif italic text-xl md:text-2xl text-[#f1e9d8]/90 leading-relaxed">
             {p.statement}
           </p>
@@ -144,7 +141,7 @@ export default function Services() {
         {/* Service 1 — Správa webu (paušál) */}
         <div className="mt-16 md:mt-24">
           <div className="reveal flex items-baseline gap-4 flex-wrap">
-            <h3 className="heading-lg text-[#f1e9d8]">{p.services['sprava-webu'].title}</h3>
+            <h3 className="heading-lg text-[#f1e9d8]"><Split text={p.services['sprava-webu'].title} /></h3>
             <span className="mono text-[10px] tracking-[0.24em] uppercase text-[#e8b04a]/70 border border-[#e8b04a]/25 px-2.5 py-1">
               {kindLabel[sprava.kind]}
             </span>
@@ -166,7 +163,7 @@ export default function Services() {
         {/* Service 2 — Tvorba webu (projektově) */}
         <div className="mt-16 md:mt-24">
           <div className="reveal flex items-baseline gap-4 flex-wrap">
-            <h3 className="heading-lg text-[#f1e9d8]">{p.services['tvorba-webu'].title}</h3>
+            <h3 className="heading-lg text-[#f1e9d8]"><Split text={p.services['tvorba-webu'].title} /></h3>
             <span className="mono text-[10px] tracking-[0.24em] uppercase text-[#e8b04a]/70 border border-[#e8b04a]/25 px-2.5 py-1">
               {kindLabel[tvorba.kind]}
             </span>
@@ -236,7 +233,7 @@ export default function Services() {
         {/* Service 3 — Technické práce (hodinově) */}
         <div className="mt-16 md:mt-24">
           <div className="reveal flex items-baseline gap-4 flex-wrap">
-            <h3 className="heading-lg text-[#f1e9d8]">{techText.title}</h3>
+            <h3 className="heading-lg text-[#f1e9d8]"><Split text={techText.title} /></h3>
             <span className="mono text-[10px] tracking-[0.24em] uppercase text-[#e8b04a]/70 border border-[#e8b04a]/25 px-2.5 py-1">
               {p.kindHourly}
             </span>
@@ -335,7 +332,7 @@ export default function Services() {
         <div className="reveal mt-20 relative overflow-hidden border border-[#e8b04a]/20 bg-[#0e1a14]/50 p-8 md:p-12 text-center">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,176,74,0.08),transparent_70%)]" />
           <div className="relative">
-            <h3 className="heading-lg text-[#f1e9d8]">{p.ctaHeading}</h3>
+            <h3 className="heading-lg text-[#f1e9d8]"><Split text={p.ctaHeading} /></h3>
             <p className="body-lg mt-4 max-w-xl mx-auto">{p.ctaText}</p>
             <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
               <button onClick={goContact} className="btn-gold">{p.ctaButton}</button>

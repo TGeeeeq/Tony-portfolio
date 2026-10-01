@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useLang } from '../contexts/LanguageContext';
+import Split from './Split';
 
 const MOVES = [[1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2]];
 
@@ -94,7 +95,7 @@ const SUITS = [
   { s: '♥', rank: 'K', c: '#c8382d' },
   { s: '♦', rank: 'Q', c: '#c8382d' },
 ];
-const FAN = ['md:-rotate-[7deg] md:translate-y-6', 'md:rotate-0', 'md:rotate-[7deg] md:translate-y-6'];
+const FAN = ['-rotate-[2deg] md:-rotate-[7deg] md:translate-y-6', 'rotate-[1.5deg] md:rotate-0', '-rotate-[1deg] md:rotate-[7deg] md:translate-y-6'];
 
 function PlayCard({ p, i }) {
   const { s, rank, c } = SUITS[i];
@@ -120,7 +121,6 @@ function PlayCard({ p, i }) {
 
 export default function About() {
   const { t } = useLang();
-  const missionLines = t.mission.title.split('\n');
   return (
     <>
       <section id="about" className="section">
@@ -130,16 +130,16 @@ export default function About() {
               <span className="eyebrow">{t.about.kicker}</span>
               <span className="move-tag"><span className="glyph">♟</span> 1… e5</span>
             </div>
-            <h2 className="heading-lg mt-6">{t.about.title}</h2>
-            <div className="mt-10 hidden sm:block">
+            <h2 className="heading-lg mt-6"><Split text={t.about.title} /></h2>
+            <div className="mt-10 max-w-[300px] mx-auto lg:mx-0">
               <KnightsTour />
               <p className="mono mt-3 text-[10px] tracking-[0.24em] uppercase text-[#f1e9d8]/35">Knight’s tour · Warnsdorff</p>
             </div>
           </div>
           <div className="lg:col-span-7 space-y-6 lg:pt-2">
-            <p className="body-lg reveal">{t.about.p1}</p>
-            <p className="body-lg reveal" style={{ transitionDelay: '0.1s' }}>{t.about.p2}</p>
-            <figure className="reveal relative mt-10 panel p-8 md:p-10" style={{ transitionDelay: '0.2s' }}>
+            <p className="body-lg reveal r-right">{t.about.p1}</p>
+            <p className="body-lg reveal r-right" style={{ transitionDelay: '0.12s' }}>{t.about.p2}</p>
+            <figure className="reveal r-blur relative mt-10 panel p-8 md:p-10" style={{ transitionDelay: '0.2s' }}>
               <span className="serif absolute -top-9 left-6 text-[110px] leading-none text-[#e8b04a]/80 select-none">“</span>
               <blockquote className="serif italic text-2xl md:text-[2rem] leading-snug text-[#f1e9d8]">
                 {t.about.p3}
@@ -158,17 +158,15 @@ export default function About() {
               <span className="move-tag"><span className="glyph">♘</span> 2. Nf3</span>
             </div>
             <h2 className="heading-lg mt-6">
-              {missionLines.map((line, i) => (
-                <span key={i} className="block">{i === 1 ? <span className="accent-serif text-[#e8b04a]">{line}</span> : line}</span>
-              ))}
+              <Split text={t.mission.title} accent={1} accentClass="accent-serif text-[#e8b04a]" />
             </h2>
             <p className="body-lg mt-6">{t.mission.body}</p>
           </div>
 
           <div className="mt-16 md:mt-20 grid md:grid-cols-3 gap-6 md:gap-4 lg:gap-8 md:px-4">
             {t.mission.pillars.map((p, i) => (
-              <div key={i} className="reveal" style={{ transitionDelay: `${i * 0.12}s` }}>
-                <PlayCard p={p} i={i} />
+              <div key={i} className="reveal r-deal" style={{ '--dd': `${i * 0.18}s` }}>
+                <div className="deal-inner"><PlayCard p={p} i={i} /></div>
               </div>
             ))}
           </div>

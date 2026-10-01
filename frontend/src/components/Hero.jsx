@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ArrowDown, Compass, Sparkles } from 'lucide-react';
 import { useLang } from '../contexts/LanguageContext';
 import HeroPortrait from './HeroPortrait';
+import Split from './Split';
+import Starbug from './Starbug';
 
 // Deterministic PRNG so the meadow looks the same on every render
 function rng(seed) {
@@ -60,17 +62,21 @@ function Meadow() {
 export default function Hero() {
   const { t, lang } = useLang();
   const [time, setTime] = useState('');
+  const [star, setStar] = useState(false);
 
   useEffect(() => {
     const tick = () => {
       const d = new Date();
       const p = (n) => String(n).padStart(2, '0');
-      setTime(`${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())} UTC`);
+      if (star) {
+        const frac = (d - new Date(d.getFullYear(), 0, 1)) / (365.25 * 864e5);
+        setTime(`STARDATE ${((d.getFullYear() - 1946) * 1000 + frac * 1000).toFixed(2)}`);
+      } else setTime(`${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())} UTC`);
     };
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [star]);
 
   const go = (id) => {
     const e = document.getElementById(id);
@@ -82,26 +88,23 @@ export default function Hero() {
       {/* night sky: gold glow + red dwarf rising over the meadow */}
       <div className="pointer-events-none absolute -top-40 -left-40 w-[640px] h-[640px] rounded-full bg-[#e8b04a]/[0.07] blur-[130px]" />
       <div className="pointer-events-none absolute top-1/4 -right-40 w-[520px] h-[520px] rounded-full bg-[#86c35a]/[0.07] blur-[140px]" />
-      <div className="pointer-events-none absolute left-[22%] md:left-[34%] bottom-0 w-[420px] h-[260px] rounded-full bg-[#e4483c]/[0.16] blur-[90px]" />
-      <div className="red-dwarf pointer-events-none absolute left-[8%] md:left-[44%] bottom-[30px] md:bottom-[26px] w-16 h-16 md:w-40 md:h-40 rounded-full bg-[radial-gradient(circle_at_40%_35%,#ffb08a_0%,#ff6a4d_38%,#d8392e_70%,#b02a22_100%)] shadow-[0_0_60px_18px_rgba(228,72,60,0.35),0_0_160px_40px_rgba(228,72,60,0.18)]" />
+      <div className="px-sun pointer-events-none absolute left-[22%] md:left-[34%] bottom-0 w-[420px] h-[260px] rounded-full bg-[#e4483c]/[0.16] blur-[90px]" />
+      <div className="px-sun pointer-events-none absolute inset-0"><div className="red-dwarf pointer-events-none absolute left-[8%] md:left-[44%] bottom-[30px] md:bottom-[26px] w-16 h-16 md:w-40 md:h-40 rounded-full bg-[radial-gradient(circle_at_40%_35%,#ffb08a_0%,#ff6a4d_38%,#d8392e_70%,#b02a22_100%)] shadow-[0_0_60px_18px_rgba(228,72,60,0.35),0_0_160px_40px_rgba(228,72,60,0.18)]" /></div>
+      <Starbug />
 
       <div className="container-x px-5 md:px-10 grid lg:grid-cols-12 gap-14 lg:gap-8 items-center relative">
-        <div className="lg:col-span-7 relative z-10">
-          <div className="animate-fade-up flex items-center gap-3 flex-wrap" style={{ animationDelay: '0.1s' }}>
+        <div className="lg:col-span-7 relative z-10 px-slow hero-fade">
+          <div className="animate-fade-up flex items-center gap-3 flex-wrap" style={{ animationDelay: `calc(var(--boot, 0ms) + 100ms)` }}>
             <span className="eyebrow">{t.hero.eyebrow}</span>
             <span className="move-tag"><span className="glyph">♙</span> 1. e4</span>
           </div>
-          <h1 className="heading-xl mt-7 animate-fade-up" style={{ animationDelay: '0.25s' }}>
-            {t.hero.title.split('\n').map((line, i) => (
-              <span key={i} className="block">
-                {i === 1 ? <span className="gold-text">{line}</span> : line}
-              </span>
-            ))}
+          <h1 className="heading-xl mt-7" key={lang}>
+            <Split text={t.hero.title} accent={1} accentClass="gold-text" auto delay="calc(var(--boot, 0ms) + 200ms)" />
           </h1>
-          <p className="body-lg mt-7 animate-fade-up" style={{ animationDelay: '0.45s' }}>
+          <p className="body-lg mt-7 animate-fade-up" style={{ animationDelay: `calc(var(--boot, 0ms) + 650ms)` }}>
             {t.hero.subtitle}
           </p>
-          <div className="mt-10 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '0.6s' }}>
+          <div className="mt-10 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: `calc(var(--boot, 0ms) + 800ms)` }}>
             <button onClick={() => go('projects')} className="btn-gold">
               <Compass size={15} /> {t.hero.cta1}
             </button>
@@ -110,14 +113,14 @@ export default function Hero() {
             </button>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-x-7 gap-y-2 mono text-[10px] tracking-[0.24em] uppercase text-[#f1e9d8]/40 animate-fade-up" style={{ animationDelay: '0.75s' }}>
+          <div className="mt-12 flex flex-wrap gap-x-7 gap-y-2 mono text-[10px] tracking-[0.24em] uppercase text-[#f1e9d8]/40 animate-fade-up" style={{ animationDelay: `calc(var(--boot, 0ms) + 950ms)` }}>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#86c35a] animate-blink-soft" /> {t.hero.scanLabel}</span>
             <span>{t.hero.coords}</span>
-            <span className="tabular-nums text-[#e8b04a]/70">{time}</span>
+            <button type="button" onClick={() => setStar((v) => !v)} title="Captain's log" className="tabular-nums text-[#e8b04a]/70 hover:text-[#e8b04a] uppercase tracking-[0.24em]">{time}</button>
           </div>
         </div>
 
-        <div className="lg:col-span-5 flex justify-center lg:justify-end animate-fade-up" style={{ animationDelay: '0.35s' }}>
+        <div className="lg:col-span-5 flex justify-center lg:justify-end animate-fade-up px-up" style={{ animationDelay: `calc(var(--boot, 0ms) + 450ms)` }}>
           <HeroPortrait lang={lang} />
         </div>
       </div>

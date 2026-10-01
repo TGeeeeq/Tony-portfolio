@@ -123,3 +123,89 @@ export function createRiddim() {
     },
   };
 }
+
+// Shared player so the hero record and the terminal control the same riddim
+let player = null;
+let playing = false;
+const subs = new Set();
+const emit = () => subs.forEach((fn) => fn(playing));
+
+export const riddim = {
+  isPlaying: () => playing,
+  subscribe(fn) {
+    subs.add(fn);
+    return () => subs.delete(fn);
+  },
+  async play() {
+    if (!player) player = createRiddim();
+    if (!player || playing) return;
+    await player.start();
+    playing = true;
+    emit();
+  },
+  stop() {
+    if (!player || !playing) return;
+    player.stop();
+    playing = false;
+    emit();
+  },
+  toggle() {
+    return playing ? riddim.stop() : riddim.play();
+  },
+};
+
+// One-shot sci-fi sound effects (only ever triggered by a user action)
+let sfxCtx = null;
+export function sfx(kind) {
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return;
+  if (!sfxCtx) sfxCtx = new Ctx();
+  const ctx = sfxCtx;
+  ctx.resume();
+  const t = ctx.currentTime;
+  const g = ctx.createGain();
+  g.connect(ctx.destination);
+  const o = ctx.createOscillator();
+  o.connect(g);
+  if (kind === 'alert') {
+    o.type = 'sawtooth';
+    g.gain.setValueAtTime(0.0001, t);
+    for (let i = 0; i < 3; i++) {
+      o.frequency.setValueAtTime(420, t + i * 0.7);
+      o.frequency.linearRampToValueAtTime(780, t + i * 0.7 + 0.35);
+      o.frequency.linearRampToValueAtTime(420, t + i * 0.7 + 0.7);
+    }
+    g.gain.exponentialRampToValueAtTime(0.07, t + 0.05);
+    g.gain.setValueAtTime(0.07, t + 1.95);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 2.1);
+    o.start(t);
+    o.stop(t + 2.15);
+  } else if (kind === 'beam') {
+    o.type = 'sine';
+    o.frequency.setValueAtTime(600, t);
+    o.frequency.exponentialRampToValueAtTime(2400, t + 1.6);
+    const lfo = ctx.createOscillator();
+    const lg = ctx.createGain();
+    lfo.frequency.value = 28;
+    lg.gain.value = 120;
+    lfo.connect(lg).connect(o.frequency);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.05, t + 0.2);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.8);
+    lfo.start(t);
+    lfo.stop(t + 1.8);
+    o.start(t);
+    o.stop(t + 1.8);
+  } else {
+    // 'warp' and generic blip
+    const long = kind === 'warp';
+    o.type = long ? 'sawtooth' : 'square';
+    o.frequency.setValueAtTime(long ? 60 : 880, t);
+    o.frequency.exponentialRampToValueAtTime(long ? 900 : 1320, t + (long ? 1.4 : 0.06));
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(long ? 0.05 : 0.03, t + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + (long ? 1.6 : 0.09));
+    o.start(t);
+    o.stop(t + (long ? 1.65 : 0.1));
+  }
+}

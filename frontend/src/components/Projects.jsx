@@ -2,6 +2,7 @@ import React from 'react';
 import { ExternalLink, Instagram, ArrowUpRight } from 'lucide-react';
 import { PROJECTS } from '../mock';
 import { useLang } from '../contexts/LanguageContext';
+import Split from './Split';
 
 export const trackSpot = (e) => {
   const r = e.currentTarget.getBoundingClientRect();
@@ -42,7 +43,7 @@ export default function Projects() {
               <span className="eyebrow">{t.projects.kicker}</span>
               <span className="move-tag"><span className="glyph">♗</span> 3. Bb5</span>
             </div>
-            <h2 className="heading-lg mt-6">{t.projects.title}</h2>
+            <h2 className="heading-lg mt-6"><Split text={t.projects.title} /></h2>
           </div>
           <span className="mono text-[10px] tracking-[0.3em] uppercase text-[#f1e9d8]/35">
             0{PROJECTS.length} · {lang === 'cs' ? 'v ruce' : lang === 'ru' ? 'на руке' : lang === 'es' ? 'en mano' : 'in hand'}
@@ -56,7 +57,7 @@ export default function Projects() {
               <article
                 key={p.id}
                 onMouseMove={trackSpot}
-                className={`reveal group spotlight panel overflow-hidden p-7 md:p-9 flex flex-col transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--acc)] ${
+                className={`reveal ${i === 0 ? 'r-zoom' : i % 2 ? 'r-left' : 'r-right'} group spotlight panel overflow-hidden p-7 md:p-9 flex flex-col transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--acc)] ${
                   big ? 'lg:col-span-12 lg:grid lg:grid-cols-12 lg:gap-x-10 lg:items-center' : 'lg:col-span-6'
                 }`}
                 style={{ '--acc': `${p.accent}88`, '--spot': `${p.accent}22`, transitionDelay: `${i * 0.08}s` }}

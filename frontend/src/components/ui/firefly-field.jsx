@@ -45,6 +45,17 @@ export function FireflyField({ className = '' }) {
     window.addEventListener('resize', resize);
     const onMove = (e) => { pointer.x = e.clientX; pointer.y = e.clientY; };
     window.addEventListener('pointermove', onMove, { passive: true });
+    // Tap / click releases a little burst of fireflies
+    let sparks = [];
+    const onDown = (e) => {
+      if (reduce || e.target.closest?.('input, textarea')) return;
+      for (let i = 0; i < 16; i++) {
+        const a = Math.random() * Math.PI * 2, v = 0.8 + Math.random() * 2.6;
+        sparks.push({ x: e.clientX, y: e.clientY, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 0.6, life: 1, gold: Math.random() < 0.5 });
+      }
+      if (sparks.length > 160) sparks = sparks.slice(-160);
+    };
+    window.addEventListener('pointerdown', onDown, { passive: true });
 
     const draw = (now, animate) => {
       ctx.clearRect(0, 0, w, h);
@@ -81,6 +92,17 @@ export function FireflyField({ className = '' }) {
         ctx.fillStyle = `rgba(${c},${(0.85 * tw).toFixed(3)})`;
         ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fill();
       }
+      if (sparks.length) {
+        for (const p of sparks) {
+          p.x += p.vx; p.y += p.vy; p.vx *= 0.96; p.vy = p.vy * 0.96 - 0.015; p.life -= 0.022;
+          const c = p.gold ? '255,214,120' : '206,240,120';
+          ctx.fillStyle = `rgba(${c},${(Math.max(0, p.life) * 0.25).toFixed(3)})`;
+          ctx.beginPath(); ctx.arc(p.x, p.y, 7 * p.life + 2, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = `rgba(${c},${Math.max(0, p.life).toFixed(3)})`;
+          ctx.beginPath(); ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2); ctx.fill();
+        }
+        sparks = sparks.filter((p) => p.life > 0);
+      }
     };
 
     const loop = (now) => {
@@ -96,6 +118,7 @@ export function FireflyField({ className = '' }) {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', resize);
       window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerdown', onDown);
     };
   }, []);
 

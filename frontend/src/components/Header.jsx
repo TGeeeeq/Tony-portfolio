@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import AFLogo from './AFLogo';
 import { useLang } from '../contexts/LanguageContext';
+import { fx } from '../lib/fx';
 
 const LANGS = [
   { code: 'cs', label: 'CZ' },
@@ -54,7 +55,8 @@ export default function Header() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const goHome = () => {
+  const goHome = (e) => {
+    if (e?.detail === 3) fx('terminal');
     if (onHome) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -66,7 +68,9 @@ export default function Header() {
     <header
       className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="rasta-line h-[3px]" />
+      <div className="relative h-[3px] bg-[#f1e9d8]/10">
+        <div className="scroll-progress rasta-line absolute inset-0" />
+      </div>
       <div className={`mx-3 md:mx-6 mt-3 rounded-full transition-all duration-500 ${
         scrolled ? 'backdrop-blur-xl bg-[#07110c]/75 border border-[#f1e9d8]/10 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)]' : 'border border-transparent'
       }`}>

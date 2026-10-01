@@ -58,6 +58,9 @@ Detailní checklist: `.claude/skills/read-before-edit/SKILL.md`.
 - Pozadí: světlušky + mycelium síť (`ui/firefly-field.jsx`, nahradilo MatrixRain); pás zálib `InterestsBand.jsx`
 - O mně: jezdcova procházka (šachy); Poslání: poker karty; sekce mají šachové tahy 1. e4 …
 - Easter eggy (`EasterEggs.jsx`): nox / lumos / smeg / Konami; texty v `UI_EXTRAS` + `INTERESTS` v mock.js
+- v2: terminál `Terminal.jsx` (tlačítko >_ vlevo dole, klávesa `), příkazy v `lib/commands.js`, efekty přes event bus `lib/fx.js` → `EasterEggs.jsx`
+- v2: boot intro (`BootIntro.jsx`, 1× za session), přechody rout (`RouteWipe` v App.js), odhalování nadpisů po slovech (`Split.jsx`), reveal varianty `r-left/r-right/r-zoom/r-blur/r-flip/r-deal` v index.css, scroll proměnné `--sy/--scroll/--vel`, kurzor `CursorFx.jsx`, Starbug `Starbug.jsx`, 404 `NotFound.jsx`
+- Pozor: počáteční transformace reveal animací nesmí přetékat do šířky (mobil se pak oddálí) — `.section` i html/body mají `overflow-x: clip`
 
 ## Změny 2026-07-11
 - Platební možnosti: poznámka „peníze / Bitcoin a kryptoměny / výměnný obchod" na hlavní stránce (ServicesTeaser) + rozšířená barter sekce na /sluzby (všechny 4 jazyky)

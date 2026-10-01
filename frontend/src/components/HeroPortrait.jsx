@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Play, Pause } from 'lucide-react';
 import { ASSETS, UI_EXTRAS } from '../mock';
-import { createRiddim } from '../lib/riddim';
+import { riddim } from '../lib/riddim';
 
 /* === Hero: "Roots & Code — LP" ===
    The portrait is the label of a vinyl record sliding out of a ska-checker
@@ -10,8 +10,7 @@ import { createRiddim } from '../lib/riddim';
 
 export default function HeroPortrait({ lang }) {
   const stageRef = useRef(null);
-  const riddimRef = useRef(null);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(riddim.isPlaying());
   const [greet, setGreet] = useState(false);
   const ux = UI_EXTRAS[lang] || UI_EXTRAS.cs;
 
@@ -60,20 +59,9 @@ export default function HeroPortrait({ lang }) {
     };
   }, []);
 
-  useEffect(() => () => riddimRef.current?.close(), []);
+  useEffect(() => riddim.subscribe(setPlaying), []);
 
-  const toggle = async () => {
-    if (!riddimRef.current) riddimRef.current = createRiddim();
-    const r = riddimRef.current;
-    if (!r) return;
-    if (playing) {
-      r.stop();
-      setPlaying(false);
-    } else {
-      await r.start();
-      setPlaying(true);
-    }
-  };
+  const toggle = () => riddim.toggle();
 
   const ringText = `ANTONÍN FIGUEROA ✦ ROOTS & CODE ✦ ${ux.side.toUpperCase()} ✦ 33⅓ RPM ✦ LOUKA ✦ `;
 
@@ -142,7 +130,6 @@ export default function HeroPortrait({ lang }) {
             />
             <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_25%,rgba(255,255,255,0.12),transparent_45%)]" />
           </div>
-          <span className="absolute left-1/2 top-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#07110c] ring-2 ring-[#e8b04a]/60 opacity-0" />
 
           {/* hover greeting */}
           <div className={`greet-bubble absolute z-30 top-[14%] left-[18%] p-1.5${greet ? ' is-on' : ''}`} aria-hidden="true">

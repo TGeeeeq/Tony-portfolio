@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Instagram, Send, Check, AlertCircle, Loader2 } from 'lucide-react';
 import { CONTACT } from '../mock';
 import { useLang } from '../contexts/LanguageContext';
+import Split from './Split';
 
 const WEB3FORMS_KEY = 'c30dca56-d092-4037-a141-7609bcaf9bd2';
 
@@ -62,11 +63,11 @@ export default function Contact() {
             <span className="eyebrow">{t.contact.kicker}</span>
             <span className="move-tag"><span className="glyph">♕</span> 5. Qxf7#</span>
           </div>
-          <h2 className="heading-lg mt-6">{t.contact.title}</h2>
+          <h2 className="heading-lg mt-6"><Split text={t.contact.title} /></h2>
           <p className="body-lg mt-6">{t.contact.subtitle}</p>
         </div>
 
-        <div className="lg:col-span-7 reveal relative min-w-0">
+        <div className="lg:col-span-7 reveal r-right relative min-w-0">
           <div className="relative rounded-[1.5rem] border border-[#f1e9d8]/10 bg-[#0c1912]/85 backdrop-blur-md overflow-hidden shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]">
             {/* terminal bar — ship's computer online */}
             <div className="flex items-center gap-3 px-5 py-3 border-b border-[#f1e9d8]/8 bg-[#07110c]/70">
