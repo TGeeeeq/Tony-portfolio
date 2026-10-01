@@ -1,273 +1,186 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ASSETS } from '../mock';
+import { Play, Pause } from 'lucide-react';
+import { ASSETS, UI_EXTRAS } from '../mock';
+import { createRiddim } from '../lib/riddim';
 
-/* === Hero portrait: "Orbit — chain & root" ===
-   A clean full-colour portrait is the anchor. Around it two counter-rotating
-   orbits embody the site's poles: a gold *blockchain* ring (a chain of blocks,
-   one lighting in sequence as if freshly mined) and a green *nature* ring of
-   drifting leaves. Behind everything a <canvas> field of gold "data" squares,
-   wired into a faint network mesh, melts into soft green "pollen" wherever the
-   cursor passes — code becoming life and back. Everything stills for
-   prefers-reduced-motion. */
+/* === Hero: "Roots & Code — LP" ===
+   The portrait is the label of a vinyl record sliding out of a ska-checker
+   sleeve. The record idles at a lazy spin; pressing play drops the tonearm,
+   spins it at 33⅓ and starts a tiny synthesized ska riddim (Web Audio). */
 
-const TAU = Math.PI * 2;
-// Place n nodes evenly on a circle of radius r within a 0–200 viewBox.
-const ring = (n, r) =>
-  Array.from({ length: n }, (_, i) => {
-    const a = (i / n) * TAU - Math.PI / 2;
-    return { i, x: 100 + r * Math.cos(a), y: 100 + r * Math.sin(a), deg: (a * 180) / Math.PI };
-  });
-const BLOCKS = ring(12, 86); // gold chain
-const LEAVES = ring(10, 95); // green growth
-
-const DATA = [212, 164, 90]; // #d4a45a — the "code" pole
-const LIFE = [127, 176, 105]; // #7fb069 — the "nature" pole
-
-export default function HeroPortrait({ t, time }) {
+export default function HeroPortrait({ lang }) {
   const stageRef = useRef(null);
-  const canvasRef = useRef(null);
+  const riddimRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
   const [greet, setGreet] = useState(false);
+  const ux = UI_EXTRAS[lang] || UI_EXTRAS.cs;
 
-  // Particle field + pointer-driven morph + parallax tilt (one rAF loop).
+  // Pointer parallax tilt
   useEffect(() => {
-    const stage = stageRef.current;
-    const canvas = canvasRef.current;
-    if (!stage || !canvas) return;
-    const ctx = canvas.getContext('2d');
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const count = window.matchMedia('(max-width: 640px)').matches ? 28 : 46;
-    const R = 104; // morph reach around the cursor
-    const pointer = { x: -1e4, y: -1e4, on: false };
-    let w = 0, h = 0, particles = [], raf = 0;
-
-    const seed = () =>
-      (particles = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.16,
-        vy: (Math.random() - 0.5) * 0.16,
-        sz: 1.5 + Math.random() * 2.2,
-        n: 0, // 0 = data square, 1 = pollen mote
-        ph: Math.random() * TAU,
-      })));
-
-    const resize = () => {
-      const r = canvas.getBoundingClientRect();
-      w = r.width; h = r.height;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (!particles.length) seed();
-    };
-    resize();
-    const ro = new ResizeObserver(resize);
-    ro.observe(canvas);
-
+    const el = stageRef.current;
+    if (!el || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
     const onMove = (e) => {
-      const cr = canvas.getBoundingClientRect();
-      pointer.x = e.clientX - cr.left;
-      pointer.y = e.clientY - cr.top;
-      pointer.on = true;
-      if (!reduce) {
-        const sr = stage.getBoundingClientRect();
-        const nx = (e.clientX - sr.left) / sr.width - 0.5;
-        const ny = (e.clientY - sr.top) / sr.height - 0.5;
-        stage.style.setProperty('--rx', `${(-ny * 4).toFixed(2)}deg`);
-        stage.style.setProperty('--ry', `${(nx * 5).toFixed(2)}deg`);
-      }
+      const r = el.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width - 0.5;
+      const ny = (e.clientY - r.top) / r.height - 0.5;
+      el.style.setProperty('--rx', `${(-ny * 6).toFixed(2)}deg`);
+      el.style.setProperty('--ry', `${(nx * 8).toFixed(2)}deg`);
     };
     const onLeave = () => {
-      pointer.on = false;
-      stage.style.setProperty('--rx', '0deg');
-      stage.style.setProperty('--ry', '0deg');
+      el.style.setProperty('--rx', '0deg');
+      el.style.setProperty('--ry', '0deg');
     };
-    stage.addEventListener('mousemove', onMove);
-    stage.addEventListener('mouseleave', onLeave);
-
-    const render = (now, animate) => {
-      ctx.clearRect(0, 0, w, h);
-      // Idle: a slow wander point keeps the field breathing (and gives touch
-      // devices the morph too); the cursor takes over the moment it appears.
-      let px = pointer.x, py = pointer.y;
-      if (!pointer.on && animate) {
-        const tt = now * 0.0004;
-        px = w * 0.5 + Math.cos(tt) * w * 0.3;
-        py = h * 0.5 + Math.sin(tt * 1.3) * h * 0.3;
-      }
-      for (const p of particles) {
-        if (animate) {
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < 0) p.x += w; else if (p.x > w) p.x -= w;
-          if (p.y < 0) p.y += h; else if (p.y > h) p.y -= h;
-          const target = Math.max(0, 1 - Math.hypot(p.x - px, p.y - py) / R);
-          p.n += (target - p.n) * 0.06;
-        }
-      }
-      // Network mesh — only between particles still reading as "data".
-      for (let i = 0; i < particles.length; i++) {
-        const a = particles[i];
-        if (a.n > 0.5) continue;
-        for (let j = i + 1; j < particles.length; j++) {
-          const b = particles[j];
-          if (b.n > 0.5) continue;
-          const dx = a.x - b.x, dy = a.y - b.y, dd = dx * dx + dy * dy;
-          if (dd < 4900) {
-            const o = (1 - Math.sqrt(dd) / 70) * 0.15 * (1 - a.n) * (1 - b.n);
-            ctx.strokeStyle = `rgba(212,164,90,${o.toFixed(3)})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-        }
-      }
-      for (const p of particles) {
-        const n = p.n;
-        const cr = Math.round(DATA[0] + (LIFE[0] - DATA[0]) * n);
-        const cg = Math.round(DATA[1] + (LIFE[1] - DATA[1]) * n);
-        const cb = Math.round(DATA[2] + (LIFE[2] - DATA[2]) * n);
-        const tw = animate ? 0.5 + 0.5 * Math.sin(p.ph + now * 0.002) : 0.7;
-        const alpha = 0.32 + 0.42 * tw;
-        const s = p.sz * (1 + 0.55 * n);
-        if (n < 0.4) {
-          ctx.fillStyle = `rgba(${cr},${cg},${cb},${alpha.toFixed(3)})`;
-          ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
-        } else {
-          ctx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.3).toFixed(3)})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, s * 2.4, 0, TAU);
-          ctx.fill();
-          ctx.fillStyle = `rgba(${cr},${cg},${cb},${alpha.toFixed(3)})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, s, 0, TAU);
-          ctx.fill();
-        }
-      }
-      if (animate) raf = requestAnimationFrame((tn) => render(tn, true));
-    };
-
-    if (reduce) render(0, false);
-    else raf = requestAnimationFrame((tn) => render(tn, true));
-
+    el.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseleave', onLeave);
     return () => {
-      cancelAnimationFrame(raf);
-      ro.disconnect();
-      stage.removeEventListener('mousemove', onMove);
-      stage.removeEventListener('mouseleave', onLeave);
+      el.removeEventListener('mousemove', onMove);
+      el.removeEventListener('mouseleave', onLeave);
     };
   }, []);
 
-  // Touch devices (no hover): greet once when the portrait scrolls into view.
+  // Touch devices: greet once when the record scrolls into view
   useEffect(() => {
     const el = stageRef.current;
-    if (!el || typeof window === 'undefined') return;
-    if (!window.matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
+    if (!el || !window.matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
+    let tm;
     const io = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
           setGreet(true);
-          setTimeout(() => setGreet(false), 3600);
+          tm = setTimeout(() => setGreet(false), 3600);
           io.disconnect();
         }
       },
       { threshold: 0.6 }
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      clearTimeout(tm);
+    };
   }, []);
+
+  useEffect(() => () => riddimRef.current?.close(), []);
+
+  const toggle = async () => {
+    if (!riddimRef.current) riddimRef.current = createRiddim();
+    const r = riddimRef.current;
+    if (!r) return;
+    if (playing) {
+      r.stop();
+      setPlaying(false);
+    } else {
+      await r.start();
+      setPlaying(true);
+    }
+  };
+
+  const ringText = `ANTONÍN FIGUEROA ✦ ROOTS & CODE ✦ ${ux.side.toUpperCase()} ✦ 33⅓ RPM ✦ LOUKA ✦ `;
 
   return (
     <div
       ref={stageRef}
       onMouseEnter={() => setGreet(true)}
       onMouseLeave={() => setGreet(false)}
-      className="hp-stage relative flex items-center justify-center w-[300px] h-[384px] sm:w-[392px] sm:h-[480px] md:w-[470px] md:h-[536px]"
+      className={`group relative w-[318px] h-[318px] sm:w-[440px] sm:h-[440px] md:w-[500px] md:h-[500px] ${playing ? 'is-playing' : ''}`}
+      style={{ perspective: '1100px' }}
     >
-      {/* particle field — code ⟷ nature, behind all */}
-      <canvas
-        ref={canvasRef}
-        aria-hidden="true"
-        className="hp-particles absolute inset-0 w-full h-full z-0 pointer-events-none"
-      />
-
-      {/* gold blockchain orbit */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[286px] h-[286px] sm:w-[372px] sm:h-[372px] md:w-[448px] md:h-[448px] pointer-events-none">
-        <svg viewBox="0 0 200 200" fill="none" className="w-full h-full animate-spin-slow" aria-hidden="true">
-          <circle cx="100" cy="100" r="86" stroke="#d4a45a" strokeOpacity="0.16" strokeWidth="0.6" strokeDasharray="1.5 4.5" />
-          {BLOCKS.map((b) => (
-            <g key={b.i} transform={`rotate(45 ${b.x} ${b.y})`}>
-              <rect
-                className="chain-block"
-                style={{ '--i': b.i }}
-                x={b.x - 3.1}
-                y={b.y - 3.1}
-                width="6.2"
-                height="6.2"
-                rx="1.1"
-                fill="#d4a45a"
-              />
-            </g>
-          ))}
-        </svg>
-      </div>
-
-      {/* green nature orbit */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[262px] h-[262px] sm:w-[342px] sm:h-[342px] md:w-[412px] md:h-[412px] pointer-events-none">
-        <svg viewBox="0 0 200 200" fill="none" className="w-full h-full animate-spin-rev" aria-hidden="true">
-          {LEAVES.map((l) => (
-            <g key={l.i} transform={`translate(${l.x} ${l.y}) rotate(${l.deg + 90})`}>
-              <path className="leaf" d="M0,0 C4,-3.4 4.2,-10 0,-13.6 C-4.2,-10 -4,-3.4 0,0 Z" fill="#7fb069" fillOpacity="0.5" />
-              <path d="M0,-1.5 L0,-12" stroke="#cdebab" strokeWidth="0.4" strokeOpacity="0.55" />
-            </g>
-          ))}
-        </svg>
-      </div>
-
-      {/* portrait frame */}
-      <div className="photo-frame relative z-20 w-[256px] h-[326px] sm:w-[300px] sm:h-[382px] md:w-[340px] md:h-[432px]">
-        <div className="hp-photo absolute inset-0 overflow-hidden bg-[#141312] border border-[#d4a45a]/20">
-          <img
-            src={ASSETS.photo}
-            alt="Antonín Figueroa"
-            width={680}
-            height={680}
-            fetchpriority="high"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-[50%_28%]"
-            draggable={false}
-          />
-          {/* legibility scrims */}
-          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#0a0908]/70 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a0908]/80 to-transparent pointer-events-none" />
-
-          {/* HUD telemetry */}
-          <div className="absolute top-3 left-3 mono text-[9px] tracking-[0.24em] uppercase text-[#d4a45a]/90 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#d4a45a] animate-blink-soft" />
-            {t.hero.scanLabel}
+      <div
+        className="absolute inset-0 transition-transform duration-500 ease-out"
+        style={{ transform: 'rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))', transformStyle: 'preserve-3d' }}
+      >
+        {/* Sleeve */}
+        <div className="absolute left-0 top-0 w-[80%] h-[80%] -rotate-[5deg] rounded-[10px] overflow-hidden bg-[#0e1a14] border border-[#f1e9d8]/10 shadow-[0_30px_60px_-25px_rgba(0,0,0,0.9)]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(232,176,74,0.22),transparent_55%),radial-gradient(circle_at_80%_90%,rgba(134,195,90,0.18),transparent_60%)]" />
+          <div className="absolute left-0 right-0 bottom-0 h-[13%] checker opacity-90" />
+          <div className="absolute left-0 right-0 bottom-[13%] h-[5px] rasta-line" />
+          <div className="absolute top-[7%] left-[8%]">
+            <div className="display text-[#f1e9d8] text-[34px] sm:text-[46px] md:text-[52px] leading-none font-semibold">
+              A<span className="text-[#e8b04a]">.</span>F<span className="text-[#86c35a]">.</span>
+            </div>
+            <div className="mono mt-2 text-[8px] sm:text-[9px] tracking-[0.32em] uppercase text-[#f1e9d8]/60">
+              Roots &amp; Code — LP
+            </div>
           </div>
-          <div className="absolute bottom-3 left-3 right-3 mono text-[9px] tracking-[0.22em] uppercase text-[#f1e9d8]/70 flex justify-between gap-2">
-            <span>{t.hero.sigBlock}</span>
-            <span className="text-[#d4a45a] tabular-nums">{time}</span>
+          <div className="absolute top-[7%] right-[34%] mono text-[8px] tracking-[0.25em] text-[#e4483c]/80 uppercase hidden sm:block">
+            ● Rec
           </div>
         </div>
 
-        {/* corner brackets sit on the frame edge */}
-        {['top-0 left-0 border-l border-t', 'top-0 right-0 border-r border-t', 'bottom-0 left-0 border-l border-b', 'bottom-0 right-0 border-r border-b'].map(
-          (c, i) => (
-            <span key={i} className={`absolute z-10 w-5 h-5 border-[#d4a45a]/70 ${c}`} />
-          )
-        )}
+        {/* Record */}
+        <div className="absolute right-0 bottom-0 w-[86%] h-[86%] transition-transform duration-700 ease-out group-hover:translate-x-[3%] group-hover:-translate-y-[1%]">
+          <div className="vinyl-disc absolute inset-0 rounded-full" />
+          <div className="vinyl-spin absolute inset-0">
+            <svg viewBox="0 0 200 200" className="w-full h-full" aria-hidden="true">
+              <defs>
+                <path id="lp-ring" d="M100,100 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0" />
+              </defs>
+              <circle cx="100" cy="100" r="51.5" fill="none" stroke="#e4483c" strokeWidth="2.2" />
+              <circle cx="100" cy="100" r="54.4" fill="none" stroke="#e8b04a" strokeWidth="2.2" />
+              <circle cx="100" cy="100" r="57.3" fill="none" stroke="#86c35a" strokeWidth="2.2" />
+              <circle cx="100" cy="100" r="60" fill="#07110c" fillOpacity="0" stroke="#f1e9d8" strokeOpacity="0.12" strokeWidth="0.4" />
+              <text fill="#f1e9d8" fillOpacity="0.62" fontSize="6.4" fontFamily="JetBrains Mono, monospace" letterSpacing="0.6">
+                <textPath href="#lp-ring" textLength="410" lengthAdjust="spacing">{ringText}</textPath>
+              </text>
+              <circle cx="100" cy="100" r="88" fill="none" stroke="#f1e9d8" strokeOpacity="0.05" strokeWidth="0.5" />
+              <circle cx="100" cy="100" r="78" fill="none" stroke="#f1e9d8" strokeOpacity="0.04" strokeWidth="0.5" />
+            </svg>
+          </div>
+          <div className="vinyl-sheen absolute inset-0 rounded-full pointer-events-none" />
 
-        {/* hover greeting — a friendly wave */}
-        <div
-          className={`greet-bubble absolute z-30 -top-7 left-4 p-1.5${greet ? ' is-on' : ''}`}
+          {/* Label = portrait (doesn't spin — faces shouldn't) */}
+          <div className="absolute left-1/2 top-1/2 w-[50%] h-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden ring-1 ring-black/60 shadow-[0_0_0_3px_rgba(7,17,12,0.8)]">
+            <img
+              src={ASSETS.photo}
+              alt="Antonín Figueroa"
+              width={680}
+              height={680}
+              fetchpriority="high"
+              decoding="async"
+              className="w-full h-full object-cover object-[50%_28%] scale-[1.06]"
+              draggable={false}
+            />
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_25%,rgba(255,255,255,0.12),transparent_45%)]" />
+          </div>
+          <span className="absolute left-1/2 top-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#07110c] ring-2 ring-[#e8b04a]/60 opacity-0" />
+
+          {/* hover greeting */}
+          <div className={`greet-bubble absolute z-30 top-[14%] left-[18%] p-1.5${greet ? ' is-on' : ''}`} aria-hidden="true">
+            <img src="/media/wave.gif" alt="" width={48} height={48} className="w-[44px] h-[44px] block" draggable={false} />
+          </div>
+        </div>
+
+        {/* Tonearm */}
+        <svg
+          viewBox="0 0 100 170"
+          className="tonearm absolute top-[1%] right-[-5%] w-[30%] h-[56%] pointer-events-none drop-shadow-[0_8px_10px_rgba(0,0,0,0.6)]"
           aria-hidden="true"
         >
-          <img src="/media/wave.gif" alt="" width={48} height={48} className="w-[44px] h-[44px] block" draggable={false} />
-        </div>
+          <circle cx="82" cy="20" r="15" fill="#13221a" stroke="#f1e9d8" strokeOpacity="0.25" />
+          <circle cx="82" cy="20" r="6" fill="#e8b04a" />
+          <path d="M82,20 L78,70 L44,146" fill="none" stroke="#d9d2c0" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
+          <rect x="34" y="140" width="16" height="22" rx="2.5" transform="rotate(24 42 151)" fill="#e8b04a" />
+          <rect x="88" y="2" width="9" height="13" rx="2" fill="#86c35a" fillOpacity="0.7" />
+        </svg>
       </div>
+
+      {/* Play control */}
+      <button
+        type="button"
+        onClick={toggle}
+        aria-pressed={playing}
+        className="absolute z-20 left-[2%] bottom-[3%] inline-flex items-center gap-2.5 pl-2 pr-4 py-2 rounded-full border border-[#f1e9d8]/20 bg-[#07110c]/80 backdrop-blur-md text-[#f1e9d8] hover:border-[#e8b04a] transition-colors duration-300"
+      >
+        <span className="w-8 h-8 rounded-full bg-[#e8b04a] text-[#07110c] flex items-center justify-center">
+          {playing ? <Pause size={14} /> : <Play size={14} className="ml-0.5" />}
+        </span>
+        <span className="flex items-end gap-[3px] h-4" aria-hidden="true">
+          {[0, 0.2, 0.4, 0.1, 0.3].map((d, i) => (
+            <span key={i} className="eq-bar w-[3px] h-full rounded-sm" style={{ animationDelay: `${d}s`, background: ['#e4483c', '#e8b04a', '#86c35a', '#e8b04a', '#e4483c'][i] }} />
+          ))}
+        </span>
+        <span className="mono text-[10px] tracking-[0.2em] uppercase">{playing ? ux.pause : ux.play}</span>
+      </button>
     </div>
   );
 }

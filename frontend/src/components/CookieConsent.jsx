@@ -18,9 +18,9 @@ export default function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-[100] border-t border-[#d4a45a]/25 bg-[#0a0908]/95 backdrop-blur-md">
+    <div className="fixed bottom-0 inset-x-0 z-[100] border-t border-[#e8b04a]/25 bg-[#07110c]/95 backdrop-blur-md">
       <div className="container-x py-5 flex flex-col sm:flex-row sm:items-center gap-4">
-        <span className="w-9 h-9 shrink-0 border border-[#d4a45a]/40 flex items-center justify-center text-[#d4a45a]">
+        <span className="w-9 h-9 shrink-0 border border-[#e8b04a]/40 flex items-center justify-center text-[#e8b04a]">
           <Cookie size={16} />
         </span>
         <p className="flex-1 text-[13px] leading-relaxed text-[#f1e9d8]/80">

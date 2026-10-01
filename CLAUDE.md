@@ -52,7 +52,14 @@ Detailní checklist: `.claude/skills/read-before-edit/SKILL.md`.
 - Komponenty v `frontend/src/components/`
 - Statická média v `frontend/public/media/`
 
-## Co bylo naposledy změněno (2026-07-11)
+## Co bylo naposledy změněno (2026-10-01) — redesign „noční louka"
+- Paleta: noc #07110c, zlatá #e8b04a, zelená #86c35a, červená #e4483c; fonty Unbounded (nadpisy) + Cormorant (italic akcenty) + Onest (text) + JetBrains Mono
+- Hero: vinyl s portrétem jako labelem (`HeroPortrait.jsx`), tlačítko pustí syntetizovaný ska riddim (`lib/riddim.js`), louka + červený trpaslík
+- Pozadí: světlušky + mycelium síť (`ui/firefly-field.jsx`, nahradilo MatrixRain); pás zálib `InterestsBand.jsx`
+- O mně: jezdcova procházka (šachy); Poslání: poker karty; sekce mají šachové tahy 1. e4 …
+- Easter eggy (`EasterEggs.jsx`): nox / lumos / smeg / Konami; texty v `UI_EXTRAS` + `INTERESTS` v mock.js
+
+## Změny 2026-07-11
 - Platební možnosti: poznámka „peníze / Bitcoin a kryptoměny / výměnný obchod" na hlavní stránce (ServicesTeaser) + rozšířená barter sekce na /sluzby (všechny 4 jazyky)
 - Nový skill `.claude/skills/read-before-edit` (guardrail: Read před Edit)
 

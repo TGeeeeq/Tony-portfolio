@@ -57,7 +57,7 @@ export default function BlogPost() {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <Link
             to="/blog"
-            className="group inline-flex items-center gap-2 text-[#f1e9d8]/70 hover:text-[#d4a45a] transition-colors duration-300 mono text-[11px] tracking-[0.26em] uppercase"
+            className="group inline-flex items-center gap-2 text-[#f1e9d8]/70 hover:text-[#e8b04a] transition-colors duration-300 mono text-[11px] tracking-[0.26em] uppercase"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform duration-300" />
             {bp.backToList}
@@ -99,10 +99,10 @@ function Block({ block, accent }) {
     case 'callout':
       return (
         <div
-          className="relative my-6 p-6 md:p-8 border-l-2 bg-[#1a1715]/60"
+          className="relative my-6 p-6 md:p-8 border-l-2 bg-[#11201a]/60"
           style={{ borderColor: accent }}
         >
-          <div className="absolute -top-3 left-6 px-2 mono text-[10px] tracking-[0.3em] uppercase bg-[#0a0908]" style={{ color: accent }}>
+          <div className="absolute -top-3 left-6 px-2 mono text-[10px] tracking-[0.3em] uppercase bg-[#07110c]" style={{ color: accent }}>
             //
           </div>
           <p className="serif italic text-xl md:text-2xl leading-relaxed text-[#f1e9d8]">
@@ -112,7 +112,7 @@ function Block({ block, accent }) {
       );
     case 'quote':
       return (
-        <p className="serif italic text-xl text-[#d4a45a] mt-8">
+        <p className="serif italic text-xl text-[#e8b04a] mt-8">
           {block.text}
         </p>
       );
@@ -137,7 +137,7 @@ function Block({ block, accent }) {
             preload="metadata"
             playsInline
             className="w-full rounded-sm border"
-            style={{ borderColor: `${accent}40`, background: '#0a0908' }}
+            style={{ borderColor: `${accent}40`, background: '#07110c' }}
           />
           {block.caption && (
             <figcaption className="mono text-[10px] tracking-[0.26em] uppercase text-[#f1e9d8]/55 mt-3 text-center">

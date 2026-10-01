@@ -1222,3 +1222,64 @@ export const SERVICES_TEASER = {
     cta: 'Ver servicios',
   },
 };
+
+// Záliby — pás pod hero (ikony mapuje InterestsBand.jsx podle id)
+export const INTERESTS = [
+  { id: 'nature', cs: 'Příroda', en: 'Nature', ru: 'Природа', es: 'Naturaleza' },
+  { id: 'code', cs: 'Kód', en: 'Code', ru: 'Код', es: 'Código' },
+  { id: 'chess', cs: 'Šachy', en: 'Chess', ru: 'Шахматы', es: 'Ajedrez' },
+  { id: 'poker', cs: 'Poker', en: 'Poker', ru: 'Покер', es: 'Póker' },
+  { id: 'games', cs: 'Hry', en: 'Games', ru: 'Игры', es: 'Juegos' },
+  { id: 'hp', cs: 'Harry Potter', en: 'Harry Potter', ru: 'Гарри Поттер', es: 'Harry Potter' },
+  { id: 'rd', cs: 'Červený trpaslík', en: 'Red Dwarf', ru: 'Красный карлик', es: 'Enano Rojo' },
+  { id: 'ska', cs: 'Ska', en: 'Ska', ru: 'Ска', es: 'Ska' },
+  { id: 'reggae', cs: 'Reggae', en: 'Reggae', ru: 'Регги', es: 'Reggae' },
+];
+
+// Drobné UI texty redesignu (vinyl, easter eggy)
+export const UI_EXTRAS = {
+  cs: {
+    play: 'Pustit riddim',
+    pause: 'Ztlumit',
+    side: 'Strana A',
+    interests: 'Co mě baví',
+    hint: 'psst… zkus napsat nox, lumos nebo smeg',
+    nox: 'Nox. Světla zhasla — svítí jen hůlka.',
+    lumos: 'Lumos! Světlo je zpět.',
+    smeg: 'RED ALERT — Smoke me a kipper, I’ll be back for breakfast!',
+    konami: 'Achievement unlocked: +30 životů 🍄',
+  },
+  en: {
+    play: 'Play the riddim',
+    pause: 'Mute',
+    side: 'Side A',
+    interests: 'What I enjoy',
+    hint: 'psst… try typing nox, lumos or smeg',
+    nox: 'Nox. Lights out — only the wand glows.',
+    lumos: 'Lumos! The light is back.',
+    smeg: 'RED ALERT — Smoke me a kipper, I’ll be back for breakfast!',
+    konami: 'Achievement unlocked: +30 lives 🍄',
+  },
+  ru: {
+    play: 'Включить риддим',
+    pause: 'Выключить',
+    side: 'Сторона A',
+    interests: 'Что я люблю',
+    hint: 'psst… попробуй набрать nox, lumos или smeg',
+    nox: 'Нокс. Свет погас — светится только палочка.',
+    lumos: 'Люмос! Свет вернулся.',
+    smeg: 'RED ALERT — Smoke me a kipper, I’ll be back for breakfast!',
+    konami: 'Достижение: +30 жизней 🍄',
+  },
+  es: {
+    play: 'Poner el riddim',
+    pause: 'Silenciar',
+    side: 'Cara A',
+    interests: 'Lo que disfruto',
+    hint: 'psst… prueba a escribir nox, lumos o smeg',
+    nox: 'Nox. Luces fuera — solo brilla la varita.',
+    lumos: '¡Lumos! La luz ha vuelto.',
+    smeg: 'RED ALERT — Smoke me a kipper, I’ll be back for breakfast!',
+    konami: 'Logro desbloqueado: +30 vidas 🍄',
+  },
+};

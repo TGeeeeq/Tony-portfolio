@@ -13,7 +13,7 @@ export default function BlogList() {
 
   return (
     <section className="section pt-36 md:pt-44 relative overflow-hidden">
-      <div className="pointer-events-none absolute -top-20 -left-40 w-[600px] h-[600px] rounded-full bg-[#d4a45a]/8 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-20 -left-40 w-[600px] h-[600px] rounded-full bg-[#e8b04a]/8 blur-[120px]" />
       <div className="pointer-events-none absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full bg-[#9ae66e]/4 blur-[140px]" />
 
       <div className="container-x relative">
@@ -42,7 +42,7 @@ export default function BlogList() {
         <div className="mt-16">
           <Link
             to="/"
-            className="group inline-flex items-center gap-2 text-[#f1e9d8]/70 hover:text-[#d4a45a] transition-colors duration-300 mono text-[11px] tracking-[0.26em] uppercase"
+            className="group inline-flex items-center gap-2 text-[#f1e9d8]/70 hover:text-[#e8b04a] transition-colors duration-300 mono text-[11px] tracking-[0.26em] uppercase"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform duration-300" />
             {bp.back}
@@ -57,7 +57,7 @@ function PostCard({ post, index, lang, bp }) {
   return (
     <Link
       to={`/blog/${post.slug}`}
-      className="group relative block p-7 md:p-8 border border-[#d4a45a]/15 bg-[#141312]/40 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-[#d4a45a]/60 hover:-translate-y-1"
+      className="group relative block p-7 md:p-8 border border-[#e8b04a]/15 bg-[#0e1a14]/40 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-[#e8b04a]/60 hover:-translate-y-1"
     >
       <div
         className="absolute -top-24 -right-24 w-56 h-56 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
@@ -65,7 +65,7 @@ function PostCard({ post, index, lang, bp }) {
       />
 
       <div className="relative flex items-center justify-between mb-6">
-        <span className="mono text-[10px] tracking-[0.3em] uppercase text-[#d4a45a]/80">
+        <span className="mono text-[10px] tracking-[0.3em] uppercase text-[#e8b04a]/80">
           0{index + 1} —
         </span>
         <span
@@ -76,7 +76,7 @@ function PostCard({ post, index, lang, bp }) {
         </span>
       </div>
 
-      <h2 className="relative serif text-2xl md:text-[1.9rem] leading-tight text-[#f1e9d8] group-hover:text-[#d4a45a] transition-colors duration-400">
+      <h2 className="relative serif text-2xl md:text-[1.9rem] leading-tight text-[#f1e9d8] group-hover:text-[#e8b04a] transition-colors duration-400">
         {post.title[lang]}
       </h2>
 
@@ -89,7 +89,7 @@ function PostCard({ post, index, lang, bp }) {
           <span>{formatDate(post.date, lang)}</span>
           <span className="flex items-center gap-1"><Clock size={11} /> {post.readTime} {bp.readTime}</span>
         </span>
-        <span className="flex items-center gap-1.5 text-[#d4a45a] opacity-80 group-hover:opacity-100">
+        <span className="flex items-center gap-1.5 text-[#e8b04a] opacity-80 group-hover:opacity-100">
           {lang === 'cs' ? 'Číst' : lang === 'ru' ? 'Читать' : lang === 'es' ? 'Leer' : 'Read'}
           <ArrowUpRight size={13} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
         </span>

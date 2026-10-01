@@ -8,7 +8,8 @@ const ServicesPage = lazy(() => import('./components/ServicesPage'));
 const BlogListPage = lazy(() => import('./components/BlogListPage'));
 const BlogPostPage = lazy(() => import('./components/BlogPostPage'));
 import { Toaster } from './components/ui/sonner';
-import { MatrixRain } from './components/ui/matrix-rain';
+import { FireflyField } from './components/ui/firefly-field';
+import EasterEggs from './components/EasterEggs';
 import CookieConsent from './components/CookieConsent';
 
 // 1. Tato komponenta zajistí, že se stránka při každé změně URL (prokliku) vyroluje nahoru
@@ -53,11 +54,13 @@ function useReveal() {
 function Shell({ children }) {
   useReveal();
   return (
-    <div className="App grain relative min-h-screen bg-[#0a0908] text-[#f1e9d8]">
-      <MatrixRain className="z-0 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.9),rgba(0,0,0,0.22)_55%,transparent_90%)]" />
+    <div className="App grain relative min-h-screen bg-[#07110c] text-[#f1e9d8]">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top,#10251a_0%,#07110c_55%)]" />
+      <FireflyField className="z-0" />
       <div className="relative z-10">{children}</div>
       <Toaster theme="dark" position="bottom-right" />
       <CookieConsent />
+      <EasterEggs />
     </div>
   );
 }

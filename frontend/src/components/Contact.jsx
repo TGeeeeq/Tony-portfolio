@@ -49,7 +49,7 @@ export default function Contact() {
   };
 
   const inputClass =
-    'w-full bg-transparent border border-[#d4a45a]/25 px-4 py-3 text-[15px] text-[#f1e9d8] placeholder:text-[#f1e9d8]/35 focus:outline-none focus:border-[#d4a45a]/70 transition-colors duration-300';
+    'w-full rounded-xl bg-[#07110c]/70 border border-[#f1e9d8]/12 px-4 py-3 text-[15px] text-[#f1e9d8] placeholder:text-[#f1e9d8]/35 focus:outline-none focus:border-[#86c35a]/70 focus:ring-2 focus:ring-[#86c35a]/15 transition-all duration-300';
 
   // Zlom dlouhého e-mailu jen u @, ať se na mobilu neláme uprostřed slova
   const [emailLocal, emailDomain] = CONTACT.email.split('@');
@@ -58,18 +58,30 @@ export default function Contact() {
     <section id="contact" className="section">
       <div className="container-x grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5 reveal">
-          <span className="eyebrow">{t.contact.kicker}</span>
-          <h2 className="heading-lg mt-5">{t.contact.title}</h2>
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="eyebrow">{t.contact.kicker}</span>
+            <span className="move-tag"><span className="glyph">♕</span> 5. Qxf7#</span>
+          </div>
+          <h2 className="heading-lg mt-6">{t.contact.title}</h2>
           <p className="body-lg mt-6">{t.contact.subtitle}</p>
         </div>
 
-        <div className="lg:col-span-7 reveal relative">
-          <div className="relative p-8 md:p-12 border border-[#d4a45a]/15 bg-[#141312]/40 backdrop-blur-sm overflow-hidden">
-            {['top-0 left-0 border-l border-t', 'top-0 right-0 border-r border-t', 'bottom-0 left-0 border-l border-b', 'bottom-0 right-0 border-r border-b'].map((c, i) => (
-              <span key={i} className={`absolute w-4 h-4 border-[#d4a45a] ${c}`} />
-            ))}
-
-            <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#d4a45a]/10 blur-3xl pointer-events-none" />
+        <div className="lg:col-span-7 reveal relative min-w-0">
+          <div className="relative rounded-[1.5rem] border border-[#f1e9d8]/10 bg-[#0c1912]/85 backdrop-blur-md overflow-hidden shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]">
+            {/* terminal bar — ship's computer online */}
+            <div className="flex items-center gap-3 px-5 py-3 border-b border-[#f1e9d8]/8 bg-[#07110c]/70">
+              <span className="flex gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#e4483c]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#e8b04a]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#86c35a]" />
+              </span>
+              <span className="mono text-[10px] tracking-[0.18em] text-[#f1e9d8]/45 truncate min-w-0">holly@red-dwarf:~$ ./message --to tony</span>
+              <span className="ml-auto mono text-[9px] tracking-[0.22em] uppercase text-[#86c35a]/80 hidden sm:flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#86c35a] animate-blink-soft" /> IQ 6000
+              </span>
+            </div>
+            <div className="relative p-7 md:p-10">
+            <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#86c35a]/10 blur-3xl pointer-events-none" />
 
             <form onSubmit={handleSubmit} className="relative space-y-5" noValidate>
               {/* Honeypot for bots */}
@@ -151,18 +163,18 @@ export default function Contact() {
               </div>
             </form>
 
-            <div className="relative mt-10 pt-8 border-t border-[#d4a45a]/15">
+            <div className="relative mt-10 pt-8 border-t border-[#f1e9d8]/8">
               <span className="label-mono">{t.contact.orReach}</span>
 
               <div className="mt-5 grid sm:grid-cols-2 gap-3">
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="group flex items-center gap-3 p-4 border border-[#d4a45a]/25 hover:border-[#d4a45a]/70 hover:bg-[#d4a45a]/5 transition-all duration-400"
+                  className="group flex items-center gap-3 p-4 rounded-xl border border-[#f1e9d8]/10 hover:border-[#e8b04a]/60 hover:bg-[#e8b04a]/5 transition-all duration-400"
                 >
-                  <span className="w-9 h-9 border border-[#d4a45a]/40 flex items-center justify-center text-[#d4a45a] group-hover:bg-[#d4a45a] group-hover:text-[#0a0908] transition-all">
+                  <span className="w-9 h-9 rounded-full bg-[#e8b04a]/12 flex items-center justify-center text-[#e8b04a] group-hover:bg-[#e8b04a] group-hover:text-[#07110c] transition-all">
                     <Mail size={15} />
                   </span>
-                  <span className="block text-[#f1e9d8] text-[12px] sm:text-[13px] leading-snug tracking-wide group-hover:text-[#d4a45a] transition-colors break-words">
+                  <span className="block text-[#f1e9d8] text-[12px] sm:text-[13px] leading-snug tracking-wide group-hover:text-[#e8b04a] transition-colors break-words">
                     {emailLocal}<wbr />@{emailDomain}
                   </span>
                 </a>
@@ -171,16 +183,17 @@ export default function Contact() {
                   href={CONTACT.instagramUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-center gap-3 p-4 border border-[#d4a45a]/25 hover:border-[#d4a45a]/70 hover:bg-[#d4a45a]/5 transition-all duration-400"
+                  className="group flex items-center gap-3 p-4 rounded-xl border border-[#f1e9d8]/10 hover:border-[#e8b04a]/60 hover:bg-[#e8b04a]/5 transition-all duration-400"
                 >
-                  <span className="w-9 h-9 border border-[#d4a45a]/40 flex items-center justify-center text-[#d4a45a] group-hover:bg-[#d4a45a] group-hover:text-[#0a0908] transition-all">
+                  <span className="w-9 h-9 rounded-full bg-[#e8b04a]/12 flex items-center justify-center text-[#e8b04a] group-hover:bg-[#e8b04a] group-hover:text-[#07110c] transition-all">
                     <Instagram size={15} />
                   </span>
-                  <span className="block text-[#f1e9d8] text-[12px] sm:text-[13px] leading-snug tracking-wide group-hover:text-[#d4a45a] transition-colors break-words">
+                  <span className="block text-[#f1e9d8] text-[12px] sm:text-[13px] leading-snug tracking-wide group-hover:text-[#e8b04a] transition-colors break-words">
                     @{CONTACT.instagram}
                   </span>
                 </a>
               </div>
+            </div>
             </div>
           </div>
         </div>

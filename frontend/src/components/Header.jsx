@@ -64,51 +64,48 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'backdrop-blur-md bg-[#0a0908]/70 border-b border-[#d4a45a]/15' : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="container-x flex items-center justify-between py-4 px-6 md:px-10">
+      <div className="rasta-line h-[3px]" />
+      <div className={`mx-3 md:mx-6 mt-3 rounded-full transition-all duration-500 ${
+        scrolled ? 'backdrop-blur-xl bg-[#07110c]/75 border border-[#f1e9d8]/10 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)]' : 'border border-transparent'
+      }`}>
+      <div className="container-x flex items-center justify-between py-2.5 pl-3 pr-2 md:pl-5 md:pr-3">
         <button onClick={goHome} className="flex items-center gap-3 group">
           <AFLogo size={40} />
           <span className="hidden sm:flex flex-col items-start leading-tight">
-            <span className="serif text-[#f1e9d8] text-lg tracking-tight">Antonín Figueroa</span>
-            <span className="mono text-[10px] tracking-[0.28em] text-[#d4a45a]/80 uppercase">A.F. // Portfolio</span>
+            <span className="display text-[#f1e9d8] text-[15px]">Antonín Figueroa</span>
+            <span className="mono text-[10px] tracking-[0.28em] text-[#e8b04a]/80 uppercase">A.F. // Portfolio</span>
           </span>
         </button>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-1 lg:gap-2">
           {items.map((it) => {
             const active = it.to && (location.pathname === it.to || location.pathname.startsWith(it.to + '/'));
             return (
               <button
                 key={it.id}
                 onClick={() => handleNav(it)}
-                className={`relative text-[13px] tracking-[0.18em] uppercase transition-colors duration-300 group ${
-                  active ? 'text-[#d4a45a]' : 'text-[#f1e9d8]/75 hover:text-[#d4a45a]'
+                className={`relative px-3 lg:px-4 py-2 rounded-full mono text-[11px] tracking-[0.16em] uppercase transition-all duration-300 group ${
+                  active ? 'text-[#07110c] bg-[#e8b04a]' : 'text-[#f1e9d8]/75 hover:text-[#f1e9d8] hover:bg-[#f1e9d8]/8'
                 }`}
               >
                 {it.label}
-                <span
-                  className={`absolute -bottom-2 left-0 right-0 h-px bg-[#d4a45a] origin-left transition-transform duration-500 ${
-                    active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                  }`}
-                />
               </button>
             );
           })}
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 border border-[#d4a45a]/25 rounded-full px-1 py-1">
+          <div className="flex items-center gap-0.5 border border-[#f1e9d8]/12 rounded-full p-1 bg-[#07110c]/40">
             {LANGS.map((l) => (
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
                 className={`text-[11px] mono tracking-[0.18em] px-2.5 py-1 rounded-full transition-all duration-300 ${
                   lang === l.code
-                    ? 'bg-[#d4a45a] text-[#0a0908]'
-                    : 'text-[#f1e9d8]/65 hover:text-[#d4a45a]'
+                    ? 'bg-[#e8b04a] text-[#07110c]'
+                    : 'text-[#f1e9d8]/65 hover:text-[#e8b04a]'
                 }`}
               >
                 {l.label}
@@ -116,7 +113,7 @@ export default function Header() {
             ))}
           </div>
           <button
-            className="md:hidden ml-2 text-[#f1e9d8] p-2"
+            className="lg:hidden ml-1 text-[#f1e9d8] p-2"
             onClick={() => setOpen((v) => !v)}
             aria-label="menu"
           >
@@ -127,18 +124,20 @@ export default function Header() {
         </div>
       </div>
 
+      </div>
+
       {/* mobile drawer */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ${
-          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } bg-[#0a0908]/95 border-t border-[#d4a45a]/15`}
+        className={`lg:hidden overflow-hidden transition-all duration-500 ${
+          open ? 'max-h-96 opacity-100 border-[#f1e9d8]/10' : 'max-h-0 opacity-0 border-transparent'
+        } mx-3 mt-2 rounded-3xl bg-[#07110c]/95 backdrop-blur-xl border`}
       >
         <div className="flex flex-col py-4 px-6">
           {items.map((it) => (
             <button
               key={it.id}
               onClick={() => handleNav(it)}
-              className="py-3 text-left text-sm tracking-[0.2em] uppercase text-[#f1e9d8]/85 hover:text-[#d4a45a]"
+              className="py-3 text-left text-sm tracking-[0.2em] uppercase text-[#f1e9d8]/85 hover:text-[#e8b04a]"
             >
               {it.label}
             </button>

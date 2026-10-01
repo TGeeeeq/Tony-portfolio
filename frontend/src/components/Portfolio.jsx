@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Hero from './Hero';
+import InterestsBand from './InterestsBand';
 import About from './About';
 import Projects from './Projects';
 import ServicesTeaser from './ServicesTeaser';
@@ -13,6 +14,7 @@ export default function Portfolio() {
       <Header />
       <main>
         <Hero />
+        <InterestsBand />
         <About />
         <Projects />
         <ServicesTeaser />
